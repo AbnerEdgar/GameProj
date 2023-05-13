@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.JSlider;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Font;
 
 public class GameSetupPage {
 
@@ -61,8 +62,9 @@ public class GameSetupPage {
 		frmGameSetup.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 characters.");
-		lblNewLabel_2.setBounds(187, 72, 240, 16);
+		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 characters.*");
+		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
+		lblNewLabel_2.setBounds(197, 75, 240, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Difficulties:");
