@@ -13,7 +13,10 @@ public class BadmintonGame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try{
+					
+					/* Changes  */
+					
 					BadmintonGame window = new BadmintonGame();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
