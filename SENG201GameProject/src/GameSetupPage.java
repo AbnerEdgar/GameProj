@@ -55,7 +55,7 @@ public class GameSetupPage {
 	private void initialize() {
 		frmGameSetup = new JFrame();
 		frmGameSetup.setBackground(new Color(238, 238, 238));
-		frmGameSetup.setTitle("Game Setup");
+		frmGameSetup.setTitle("Badminton Tournament Game Setup");
 		frmGameSetup.setBounds(100, 100, 633, 566);
 		frmGameSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmGameSetup.getContentPane().setLayout(null);
