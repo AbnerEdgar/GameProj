@@ -9,6 +9,16 @@ import javax.swing.JProgressBar;
 import javax.swing.JSlider;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
+import javax.swing.JDesktopPane;
+import javax.swing.JToolBar;
+import javax.swing.JPanel;
+import javax.swing.JFormattedTextField;
+import javax.swing.border.LineBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GameSetupPage {
 
@@ -45,7 +55,7 @@ public class GameSetupPage {
 		frmGameSetup = new JFrame();
 		frmGameSetup.setBackground(new Color(238, 238, 238));
 		frmGameSetup.setTitle("Game Setup");
-		frmGameSetup.setBounds(100, 100, 512, 368);
+		frmGameSetup.setBounds(100, 100, 633, 566);
 		frmGameSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmGameSetup.getContentPane().setLayout(null);
 		
@@ -91,5 +101,137 @@ public class GameSetupPage {
 		slider.setMaximum(15);
 		slider.setBounds(336, 100, 136, 29);
 		frmGameSetup.getContentPane().add(slider);
+		
+		JLabel lblNewLabel_5 = new JLabel("Purchase Athletes:");
+		lblNewLabel_5.setBounds(27, 169, 148, 16);
+		frmGameSetup.getContentPane().add(lblNewLabel_5);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(367, 169, 240, 334);
+		frmGameSetup.getContentPane().add(panel);
+		
+		JLabel lblNewLabel_6 = new JLabel("P R O F I L E");
+		
+		JLabel lblNewLabel_7 = new JLabel("Name: ");
+		
+		JLabel lblNewLabel_8 = new JLabel("Position:");
+		
+		JLabel lblNewLabel_9 = new JLabel("Nationality:");
+		
+		JProgressBar progressBar = new JProgressBar();
+		
+		JLabel lblNewLabel_10 = new JLabel("Durability");
+		
+		JLabel lblNewLabel_11 = new JLabel("Attack");
+		
+		JLabel lblNewLabel_12 = new JLabel("Defense");
+		
+		JProgressBar progressBar_1 = new JProgressBar();
+		
+		JProgressBar progressBar_2 = new JProgressBar();
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_7))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_8, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_9, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_10, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(15)
+					.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_11, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(15)
+					.addComponent(progressBar_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(lblNewLabel_12, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(17)
+					.addComponent(progressBar_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(16)
+					.addComponent(lblNewLabel_6)
+					.addGap(9)
+					.addComponent(lblNewLabel_7)
+					.addGap(7)
+					.addComponent(lblNewLabel_8)
+					.addGap(6)
+					.addComponent(lblNewLabel_9)
+					.addGap(25)
+					.addComponent(lblNewLabel_10)
+					.addGap(7)
+					.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(12)
+					.addComponent(lblNewLabel_11)
+					.addGap(12)
+					.addComponent(progressBar_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(lblNewLabel_12)
+					.addGap(12)
+					.addComponent(progressBar_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		);
+		panel.setLayout(gl_panel);
+		
+		JLabel lblNewLabel_13 = new JLabel("Selected:");
+		lblNewLabel_13.setBounds(27, 417, 61, 16);
+		frmGameSetup.getContentPane().add(lblNewLabel_13);
+		
+		JButton btnNewButton = new JButton("Athlete 1");
+		btnNewButton.setBounds(17, 197, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton);
+		
+		JButton btnAthlete = new JButton("Athlete 2");
+		btnAthlete.setBounds(107, 197, 88, 68);
+		frmGameSetup.getContentPane().add(btnAthlete);
+		
+		JButton btnAthlete_1 = new JButton("Athlete 3");
+		btnAthlete_1.setBounds(197, 197, 88, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_1);
+		
+		JButton btnAthlete_2 = new JButton("Athlete 4");
+		btnAthlete_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnAthlete_2.setBounds(17, 266, 88, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_2);
+		
+		JButton btnNewButton_1 = new JButton("Athlete 1");
+		btnNewButton_1.setBounds(107, 266, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Athlete 1");
+		btnNewButton_2.setBounds(197, 266, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Athlete 1");
+		btnNewButton_3.setBounds(17, 337, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Athlete 1");
+		btnNewButton_4.setBounds(107, 337, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_4);
+		
+		JButton btnNewButton_5 = new JButton("Athlete 1");
+		btnNewButton_5.setBounds(197, 337, 88, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_5);
 	}
 }
