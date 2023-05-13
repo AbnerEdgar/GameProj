@@ -15,7 +15,8 @@ public class BadmintonGame {
 			public void run() {
 				try{
 					
-					/* Changes  */
+					/* Test Changes  */
+					// abner have change this code
 					
 					BadmintonGame window = new BadmintonGame();
 					window.frame.setVisible(true);
