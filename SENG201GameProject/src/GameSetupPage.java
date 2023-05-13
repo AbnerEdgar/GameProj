@@ -19,6 +19,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class GameSetupPage {
 
@@ -130,12 +131,16 @@ public class GameSetupPage {
 		JProgressBar progressBar_1 = new JProgressBar();
 		
 		JProgressBar progressBar_2 = new JProgressBar();
+		
+		JButton btnNewButton_4 = new JButton("Select");
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(17)
-					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
+					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
+					.addGap(51)
+					.addComponent(btnNewButton_4))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(17)
 					.addComponent(lblNewLabel_7))
@@ -167,8 +172,12 @@ public class GameSetupPage {
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(16)
-					.addComponent(lblNewLabel_6)
+					.addGap(8)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(13)
+							.addComponent(lblNewLabel_6))
+						.addComponent(btnNewButton_4))
 					.addGap(9)
 					.addComponent(lblNewLabel_7)
 					.addGap(7)
@@ -191,47 +200,63 @@ public class GameSetupPage {
 		panel.setLayout(gl_panel);
 		
 		JLabel lblNewLabel_13 = new JLabel("Selected:");
-		lblNewLabel_13.setBounds(27, 417, 61, 16);
+		lblNewLabel_13.setBounds(27, 424, 61, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_13);
 		
 		JButton btnNewButton = new JButton("Athlete 1");
-		btnNewButton.setBounds(17, 197, 88, 68);
+		btnNewButton.setBounds(17, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton);
 		
 		JButton btnAthlete = new JButton("Athlete 2");
-		btnAthlete.setBounds(107, 197, 88, 68);
+		btnAthlete.setBounds(85, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete);
 		
 		JButton btnAthlete_1 = new JButton("Athlete 3");
-		btnAthlete_1.setBounds(197, 197, 88, 68);
+		btnAthlete_1.setBounds(153, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1);
 		
-		JButton btnAthlete_2 = new JButton("Athlete 4");
-		btnAthlete_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAthlete_2.setBounds(17, 266, 88, 68);
-		frmGameSetup.getContentPane().add(btnAthlete_2);
-		
 		JButton btnNewButton_1 = new JButton("Athlete 1");
-		btnNewButton_1.setBounds(107, 266, 88, 68);
+		btnNewButton_1.setBounds(17, 264, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_1);
 		
+		JButton btnAthlete_2 = new JButton("Athlete 2");
+		btnAthlete_2.setBounds(85, 264, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_2);
+		
+		JButton btnAthlete_1_1 = new JButton("Athlete 3");
+		btnAthlete_1_1.setBounds(153, 264, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_1_1);
+		
 		JButton btnNewButton_2 = new JButton("Athlete 1");
-		btnNewButton_2.setBounds(197, 266, 88, 68);
+		btnNewButton_2.setBounds(17, 333, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_2);
 		
+		JButton btnAthlete_3 = new JButton("Athlete 2");
+		btnAthlete_3.setBounds(85, 333, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_3);
+		
+		JButton btnAthlete_1_2 = new JButton("Athlete 3");
+		btnAthlete_1_2.setBounds(153, 333, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_1_2);
+		
 		JButton btnNewButton_3 = new JButton("Athlete 1");
-		btnNewButton_3.setBounds(17, 337, 88, 68);
+		btnNewButton_3.setBounds(17, 445, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton("Athlete 1");
-		btnNewButton_4.setBounds(107, 337, 88, 68);
-		frmGameSetup.getContentPane().add(btnNewButton_4);
+		JButton btnAthlete_4 = new JButton("Athlete 2");
+		btnAthlete_4.setBounds(85, 445, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_4);
 		
-		JButton btnNewButton_5 = new JButton("Athlete 1");
-		btnNewButton_5.setBounds(197, 337, 88, 68);
+		JButton btnAthlete_1_3 = new JButton("Athlete 3");
+		btnAthlete_1_3.setBounds(153, 445, 68, 68);
+		frmGameSetup.getContentPane().add(btnAthlete_1_3);
+		
+		JButton btnNewButton_3_1 = new JButton("Athlete 1");
+		btnNewButton_3_1.setBounds(221, 445, 68, 68);
+		frmGameSetup.getContentPane().add(btnNewButton_3_1);
+		
+		JButton btnNewButton_5 = new JButton("Start Game");
+		btnNewButton_5.setBounds(489, 45, 117, 29);
 		frmGameSetup.getContentPane().add(btnNewButton_5);
 	}
 }
