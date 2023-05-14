@@ -13,5 +13,4 @@ public class GameMaster {
 			e.printStackTrace();
 		}
 	}
-	
 }
