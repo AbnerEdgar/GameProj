@@ -55,17 +55,17 @@ public class MainGamePage {
 		
 		JLabel lblNewLabel = new JLabel("Balance:");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		lblNewLabel.setBounds(28, 27, 61, 16);
+		lblNewLabel.setBounds(28, 49, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Current Season:");
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(352, 27, 126, 16);
+		lblNewLabel_1.setBounds(287, 49, 126, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Remaining Week:");
 		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(352, 55, 142, 16);
+		lblNewLabel_2.setBounds(287, 94, 142, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("C L U B");
@@ -123,8 +123,28 @@ public class MainGamePage {
 		
 		JLabel lblNewLabel_3 = new JLabel("Points:");
 		lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(28, 55, 61, 16);
+		lblNewLabel_3.setBounds(28, 94, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_3);
+		
+		JButton btnNewButton_1 = new JButton("Back");
+		btnNewButton_1.setBounds(390, 8, 117, 29);
+		frmBadmintonTournamentMain.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(95, 50, 61, 16);
+		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("New label");
+		lblNewLabel_4_1.setBounds(82, 95, 61, 16);
+		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_1);
+		
+		JLabel lblNewLabel_4_2 = new JLabel("New label");
+		lblNewLabel_4_2.setBounds(400, 50, 61, 16);
+		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_2);
+		
+		JLabel lblNewLabel_4_3 = new JLabel("New label");
+		lblNewLabel_4_3.setBounds(410, 95, 61, 16);
+		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_3);
 	}
 
 }

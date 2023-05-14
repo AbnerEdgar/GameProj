@@ -60,13 +60,13 @@ public class ClubPage {
 	private void initialize() {
 		frmBadmintonTournamentClub = new JFrame();
 		frmBadmintonTournamentClub.setTitle((gameHandler.getAppName()+"(Club Page)"));
-		frmBadmintonTournamentClub.setBounds(100, 100, 634, 520);
+		frmBadmintonTournamentClub.setBounds(100, 100, 636, 517);
 		frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBadmintonTournamentClub.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Name of the Team");
+		JLabel lblNewLabel = new JLabel("\"Team Name\"");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 31));
-		lblNewLabel.setBounds(166, 6, 286, 100);
+		lblNewLabel.setBounds(41, 16, 231, 80);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Athletes:");
@@ -191,5 +191,9 @@ public class ClubPage {
 		JButton btnNewButton_4 = new JButton("Name");
 		btnNewButton_4.setBounds(41, 319, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_4);
+		
+		JButton btnNewButton_6 = new JButton("Back");
+		btnNewButton_6.setBounds(502, 16, 117, 29);
+		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_6);
 	}
 }
