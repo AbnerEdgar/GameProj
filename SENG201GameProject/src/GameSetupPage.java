@@ -48,6 +48,13 @@ public class GameSetupPage {
 	public GameSetupPage() {
 		initialize();
 	}
+	
+	public void hidePage() {
+		frmGameSetup.setVisible(false);
+	}
+	public void showPage() {
+		frmGameSetup.setVisible(true);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
