@@ -38,6 +38,13 @@ public class StadiumPage {
 	public StadiumPage() {
 		initialize();
 	}
+	
+	public void hidePage() {
+		frmBadmintonTournamentStadium.setVisible(false);
+	}
+	public void showPage() {
+		frmBadmintonTournamentStadium.setVisible(true);
+	}
 
 	/**
 	 * Initialize the contents of the frame.

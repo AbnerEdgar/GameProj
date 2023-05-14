@@ -45,6 +45,13 @@ public class ClubPage {
 		initialize();
 	}
 
+	public void hidePage() {
+		frmBadmintonTournamentClub.setVisible(false);
+	}
+	public void showPage() {
+		frmBadmintonTournamentClub.setVisible(true);
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
