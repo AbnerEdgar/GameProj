@@ -34,6 +34,13 @@ public class MainGamePage {
 		initialize();
 	}
 
+	public void hidePage() {
+		frmBadmintonTournamentMain.setVisible(false);
+	}
+	public void showPage() {
+		frmBadmintonTournamentMain.setVisible(true);
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
