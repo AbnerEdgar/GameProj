@@ -69,6 +69,7 @@ public class ClubPage {
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBounds(293, 118, 315, 349);
 		frmBadmintonTournamentClub.getContentPane().add(panel);
 		
@@ -91,6 +92,7 @@ public class ClubPage {
 		JProgressBar progressBar_2 = new JProgressBar();
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
