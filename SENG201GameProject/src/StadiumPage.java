@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 public class StadiumPage {
 
 	private JFrame frmBadmintonTournamentStadium;
-
+	private GameHandler gameHandler;
 	/**
 	 * Launch the application.
 	 */
@@ -23,7 +23,8 @@ public class StadiumPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StadiumPage window = new StadiumPage();
+					GameHandler gameHandler = new GameHandler();
+					StadiumPage window = new StadiumPage(gameHandler);
 					window.frmBadmintonTournamentStadium.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +36,8 @@ public class StadiumPage {
 	/**
 	 * Create the application.
 	 */
-	public StadiumPage() {
+	public StadiumPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 	
@@ -51,7 +53,7 @@ public class StadiumPage {
 	 */
 	private void initialize() {
 		frmBadmintonTournamentStadium = new JFrame();
-		frmBadmintonTournamentStadium.setTitle("Badminton Tournament Stadium Page");
+		frmBadmintonTournamentStadium.setTitle((gameHandler.getAppName()+"(Stadium Page)"));
 		frmBadmintonTournamentStadium.setBounds(100, 100, 652, 432);
 		frmBadmintonTournamentStadium.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBadmintonTournamentStadium.getContentPane().setLayout(null);

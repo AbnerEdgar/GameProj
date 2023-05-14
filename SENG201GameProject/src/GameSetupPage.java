@@ -25,7 +25,8 @@ public class GameSetupPage {
 
 	private JFrame frmGameSetup;
 	private JTextField textField;
-
+	private boolean isWithinFormat;
+	private GameHandler gameHandler;
 	/**
 	 * Launch the application.
 	 */
@@ -33,7 +34,8 @@ public class GameSetupPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GameSetupPage window = new GameSetupPage();
+					GameHandler gameHandler = new GameHandler();
+					GameSetupPage window = new GameSetupPage(gameHandler);
 					window.frmGameSetup.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,8 +47,11 @@ public class GameSetupPage {
 	/**
 	 * Create the application.
 	 */
-	public GameSetupPage() {
+	public GameSetupPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
+		isWithinFormat = false;
+		
 	}
 	
 	public void hidePage() {
@@ -62,7 +67,7 @@ public class GameSetupPage {
 	private void initialize() {
 		frmGameSetup = new JFrame();
 		frmGameSetup.setBackground(new Color(238, 238, 238));
-		frmGameSetup.setTitle("Badminton Tournament Game Setup");
+		frmGameSetup.setTitle((gameHandler.getAppName()+"(Setup Page)"));
 		frmGameSetup.setBounds(100, 100, 633, 566);
 		frmGameSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmGameSetup.getContentPane().setLayout(null);
@@ -81,6 +86,7 @@ public class GameSetupPage {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 characters.*");
+		lblNewLabel_2.setVisible(isWithinFormat);
 		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		lblNewLabel_2.setBounds(197, 75, 240, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_2);
@@ -265,5 +271,19 @@ public class GameSetupPage {
 		JButton btnNewButton_5 = new JButton("Start Game");
 		btnNewButton_5.setBounds(489, 45, 117, 29);
 		frmGameSetup.getContentPane().add(btnNewButton_5);
+		btnNewButton_5.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				isWithinFormat = textField.getText().length() > 13 || textField.getText().length() < 3 ? false : true;
+				lblNewLabel_2.setVisible(!isWithinFormat);
+				if(isWithinFormat) {
+					gameHandler.setPage(2);
+					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
+					gameHandler.setSeasonDur(slider.getValue());
+					GameMaster.hideAllPage();
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}
+			}
+		});
 	}
 }

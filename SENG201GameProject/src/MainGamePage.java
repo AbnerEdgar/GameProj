@@ -10,7 +10,7 @@ import java.awt.Font;
 public class MainGamePage {
 
 	private JFrame frmBadmintonTournamentMain;
-
+	private GameHandler gameHandler;
 	/**
 	 * Launch the application.
 	 */
@@ -18,7 +18,8 @@ public class MainGamePage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainGamePage window = new MainGamePage();
+					GameHandler gameHandler = new GameHandler();
+					MainGamePage window = new MainGamePage(gameHandler);
 					window.frmBadmintonTournamentMain.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +31,8 @@ public class MainGamePage {
 	/**
 	 * Create the application.
 	 */
-	public MainGamePage() {
+	public MainGamePage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
@@ -46,7 +48,7 @@ public class MainGamePage {
 	 */
 	private void initialize() {
 		frmBadmintonTournamentMain = new JFrame();
-		frmBadmintonTournamentMain.setTitle("Badminton Tournament Main Game Page");
+		frmBadmintonTournamentMain.setTitle((gameHandler.getAppName()+"(Home Page)"));
 		frmBadmintonTournamentMain.setBounds(100, 100, 530, 497);
 		frmBadmintonTournamentMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBadmintonTournamentMain.getContentPane().setLayout(null);
@@ -69,6 +71,9 @@ public class MainGamePage {
 		JButton btnNewButton = new JButton("C L U B");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(3);
+				GameMaster.hideAllPage();
+				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
 		});
 		btnNewButton.setBounds(18, 136, 155, 147);
@@ -77,10 +82,24 @@ public class MainGamePage {
 		JButton btnSTA = new JButton("S T A D I U M");
 		btnSTA.setBounds(185, 136, 155, 147);
 		frmBadmintonTournamentMain.getContentPane().add(btnSTA);
+		btnSTA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(4);
+				GameMaster.hideAllPage();
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JButton btnRES = new JButton("M A R K E T");
 		btnRES.setBounds(352, 136, 155, 147);
 		frmBadmintonTournamentMain.getContentPane().add(btnRES);
+		btnRES.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				gameHandler.setPage(5);
+				GameMaster.hideAllPage();
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JButton btnMAR = new JButton("S A V E  G A M E");
 		btnMAR.addActionListener(new ActionListener() {

@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 public class ClubPage {
 
 	private JFrame frmBadmintonTournamentClub;
-
+	private GameHandler gameHandler;
 	/**
 	 * Launch the application.
 	 */
@@ -29,7 +29,8 @@ public class ClubPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ClubPage window = new ClubPage();
+					GameHandler gameHandler = new GameHandler();
+					ClubPage window = new ClubPage(gameHandler);
 					window.frmBadmintonTournamentClub.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +42,8 @@ public class ClubPage {
 	/**
 	 * Create the application.
 	 */
-	public ClubPage() {
+	public ClubPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
@@ -57,7 +59,7 @@ public class ClubPage {
 	 */
 	private void initialize() {
 		frmBadmintonTournamentClub = new JFrame();
-		frmBadmintonTournamentClub.setTitle("Badminton Tournament Club Page");
+		frmBadmintonTournamentClub.setTitle((gameHandler.getAppName()+"(Club Page)"));
 		frmBadmintonTournamentClub.setBounds(100, 100, 634, 520);
 		frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBadmintonTournamentClub.getContentPane().setLayout(null);
