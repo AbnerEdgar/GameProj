@@ -7,6 +7,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -56,6 +59,8 @@ public class StadiumPage {
 		frmBadmintonTournamentStadium.setTitle((gameHandler.getAppName()+"(Stadium Page)"));
 		frmBadmintonTournamentStadium.setBounds(100, 100, 621, 457);
 		frmBadmintonTournamentStadium.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBadmintonTournamentStadium.setLocationRelativeTo(null);
+		frmBadmintonTournamentStadium.setResizable(false);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -126,6 +131,13 @@ public class StadiumPage {
 		JButton btnNewButton_3 = new JButton("Join");
 		
 		JButton btnNewButton_4 = new JButton("Back");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));

@@ -11,6 +11,13 @@ public class MainGamePage {
 
 	private JFrame frmBadmintonTournamentMain;
 	private GameHandler gameHandler;
+	
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_4_1;
+	private JLabel lblNewLabel_4_2;
+	private JLabel lblNewLabel_4_3;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +58,9 @@ public class MainGamePage {
 		frmBadmintonTournamentMain.setTitle((gameHandler.getAppName()+"(Home Page)"));
 		frmBadmintonTournamentMain.setBounds(100, 100, 530, 497);
 		frmBadmintonTournamentMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBadmintonTournamentMain.setLocationRelativeTo(null);
 		frmBadmintonTournamentMain.getContentPane().setLayout(null);
+		frmBadmintonTournamentMain.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Balance:");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -95,7 +104,7 @@ public class MainGamePage {
 		frmBadmintonTournamentMain.getContentPane().add(btnRES);
 		btnRES.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				gameHandler.setPage(5);
+				gameHandler.setPage(5);
 				GameMaster.hideAllPage();
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -120,6 +129,12 @@ public class MainGamePage {
 		JButton btnSKI = new JButton("S K I P  W E E K");
 		btnSKI.setBounds(352, 300, 155, 147);
 		frmBadmintonTournamentMain.getContentPane().add(btnSKI);
+		btnSKI.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setRemainingWeek(gameHandler.getRemainingWeek()-1);
+				onAppear();
+			}
+		});
 		
 		JLabel lblNewLabel_3 = new JLabel("Points:");
 		lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -130,21 +145,26 @@ public class MainGamePage {
 		btnNewButton_1.setBounds(390, 8, 117, 29);
 		frmBadmintonTournamentMain.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4 = new JLabel(Float.toString(gameHandler.getBalance()));
 		lblNewLabel_4.setBounds(95, 50, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("New label");
+		lblNewLabel_4_1 = new JLabel(Float.toString(gameHandler.getPoints()));
 		lblNewLabel_4_1.setBounds(82, 95, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_1);
 		
-		JLabel lblNewLabel_4_2 = new JLabel("New label");
+		lblNewLabel_4_2 = new JLabel(Float.toString(gameHandler.getCurrentSeason()));
 		lblNewLabel_4_2.setBounds(400, 50, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_2);
 		
-		JLabel lblNewLabel_4_3 = new JLabel("New label");
+		lblNewLabel_4_3 = new JLabel(Float.toString(gameHandler.getRemainingWeek()));
 		lblNewLabel_4_3.setBounds(410, 95, 61, 16);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_3);
 	}
-
+	public void onAppear() {
+		lblNewLabel_4.setText(Float.toString(gameHandler.getBalance()));
+		lblNewLabel_4_1.setText(Float.toString(gameHandler.getPoints()));
+		lblNewLabel_4_2.setText(Float.toString(gameHandler.getCurrentSeason()));
+		lblNewLabel_4_3.setText(Float.toString(gameHandler.getRemainingWeek()));
+	}
 }

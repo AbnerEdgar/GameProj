@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+
 public class Athlete {
 	
 	//:START -- Visual Property
@@ -30,6 +32,8 @@ public class Athlete {
 		this.price = 0;
 		this.image = "image/" + name;
 	}
+	
+	
 	
 	public Athlete(String name, String position, String nationality, float offense, float defence,
 			float stamina, float price) {

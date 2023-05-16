@@ -85,7 +85,9 @@ public class GameSetupPage {
 		frmGameSetup.setTitle((gameHandler.getAppName()+"(Setup Page)"));
 		frmGameSetup.setBounds(100, 100, 633, 566);
 		frmGameSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGameSetup.setLocationRelativeTo(null);
 		frmGameSetup.getContentPane().setLayout(null);
+		frmGameSetup.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Hi Player! Welcome to badminton tournament.");
 		lblNewLabel.setBounds(27, 22, 338, 16);
@@ -392,8 +394,8 @@ public class GameSetupPage {
 				if(isWithinFormat) {
 					gameHandler.setPage(2);
 					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
-					gameHandler.setSeasonDur(slider.getValue());
-					GameMaster.hideAllPage();
+					gameHandler.setRemainingWeek(slider.getValue());
+					gameHandler.setTeamName(textField.getText());
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
 			}

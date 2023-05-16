@@ -2,6 +2,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.border.LineBorder;
@@ -11,7 +14,8 @@ import javax.swing.JLabel;
 public class MarketPage {
 
 	private JFrame frmBadmintonTournamentMarket;
-
+	private GameHandler gameHandler;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -19,7 +23,8 @@ public class MarketPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MarketPage window = new MarketPage();
+					GameHandler gameHandler = new GameHandler();
+					MarketPage window = new MarketPage(gameHandler);
 					window.frmBadmintonTournamentMarket.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,10 +36,18 @@ public class MarketPage {
 	/**
 	 * Create the application.
 	 */
-	public MarketPage() {
+	public MarketPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
+	public void hidePage() {
+		frmBadmintonTournamentMarket.setVisible(false);
+	}
+	public void showPage() {
+		frmBadmintonTournamentMarket.setVisible(true);
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -43,11 +56,20 @@ public class MarketPage {
 		frmBadmintonTournamentMarket.setTitle("Badminton Tournament Market Page");
 		frmBadmintonTournamentMarket.setBounds(100, 100, 496, 334);
 		frmBadmintonTournamentMarket.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBadmintonTournamentMarket.setLocationRelativeTo(null);
 		frmBadmintonTournamentMarket.getContentPane().setLayout(null);
+		frmBadmintonTournamentMarket.setResizable(false);
 		
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.setBounds(362, 18, 117, 29);
 		frmBadmintonTournamentMarket.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("BUY");
 		btnNewButton_1.setBounds(28, 105, 82, 60);

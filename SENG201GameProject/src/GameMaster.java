@@ -8,19 +8,13 @@ public class GameMaster {
 	static ClubPage clubPage = new ClubPage(gameHandler);
 	static MainGamePage homePage = new MainGamePage(gameHandler);
 	static StadiumPage stadiumPage = new StadiumPage(gameHandler);
-	
+	static MarketPage marketPage = new MarketPage(gameHandler);
 	
 	public static void main(String[] args) {
 
 		try {
 			
-			
-			
-			hideAllPage();
-			
 			showSelectedPage(gameHandler.getPage());
-			System.out.println(gameHandler.getAthletes().size());
-
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -36,14 +30,20 @@ public class GameMaster {
 	}
 	
 	public static void showSelectedPage(int page) {
+		hideAllPage();
 		if(page == 1) {
 			setupPage.showPage();
 		}else if(page == 2) {
+			homePage.onAppear();
+			gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getSelectedAthletes()));
 			homePage.showPage();
 		}else if(page == 3) {
+			clubPage.onAppear();
 			clubPage.showPage();
 		}else if(page == 4) {
 			stadiumPage.showPage();
+		}else if(page == 5) {
+			marketPage.showPage();
 		}
 	}
 }

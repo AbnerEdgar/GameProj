@@ -22,6 +22,17 @@ public class ClubPage {
 
 	private JFrame frmBadmintonTournamentClub;
 	private GameHandler gameHandler;
+	
+	private JLabel lblNewLabel;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_2_1;
+	private JButton btnNewButton_1_1;
+	private JButton btnNewButton_3;
+	private JButton btnNewButton_2_2;
+	private JButton btnNewButton_1_2;
+	private JButton btnNewButton_4;
 	/**
 	 * Launch the application.
 	 */
@@ -62,9 +73,10 @@ public class ClubPage {
 		frmBadmintonTournamentClub.setTitle((gameHandler.getAppName()+"(Club Page)"));
 		frmBadmintonTournamentClub.setBounds(100, 100, 636, 517);
 		frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBadmintonTournamentClub.setLocationRelativeTo(null);
 		frmBadmintonTournamentClub.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("\"Team Name\"");
+		lblNewLabel = new JLabel("\"Team Name\"");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 31));
 		lblNewLabel.setBounds(41, 16, 231, 80);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel);
@@ -73,7 +85,7 @@ public class ClubPage {
 		lblNewLabel_1.setBounds(41, 107, 61, 16);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("Name");
+		btnNewButton = new JButton("Name");
 		btnNewButton.setBounds(41, 135, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton);
 		
@@ -160,40 +172,63 @@ public class ClubPage {
 		panel_1.add(btnNewButton_5_1);
 		panel.setLayout(gl_panel);
 		
-		JButton btnNewButton_1 = new JButton("Name");
+		btnNewButton_1 = new JButton("Name");
 		btnNewButton_1.setBounds(109, 135, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Name");
+		btnNewButton_2 = new JButton("Name");
 		btnNewButton_2.setBounds(177, 135, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_2_1 = new JButton("Name");
+		btnNewButton_2_1 = new JButton("Name");
 		btnNewButton_2_1.setBounds(177, 227, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2_1);
 		
-		JButton btnNewButton_1_1 = new JButton("Name");
+		btnNewButton_1_1 = new JButton("Name");
 		btnNewButton_1_1.setBounds(109, 227, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1_1);
 		
-		JButton btnNewButton_3 = new JButton("Name");
+		btnNewButton_3 = new JButton("Name");
 		btnNewButton_3.setBounds(41, 227, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_3);
 		
-		JButton btnNewButton_2_2 = new JButton("Name");
+		btnNewButton_2_2 = new JButton("Name");
 		btnNewButton_2_2.setBounds(177, 319, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2_2);
 		
-		JButton btnNewButton_1_2 = new JButton("Name");
+		btnNewButton_1_2 = new JButton("Name");
 		btnNewButton_1_2.setBounds(109, 319, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1_2);
 		
-		JButton btnNewButton_4 = new JButton("Name");
+		btnNewButton_4 = new JButton("Name");
 		btnNewButton_4.setBounds(41, 319, 67, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_4);
 		
 		JButton btnNewButton_6 = new JButton("Back");
 		btnNewButton_6.setBounds(502, 16, 117, 29);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_6);
+		btnNewButton_6.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
+	}
+	public void onAppear() {
+		lblNewLabel.setText(gameHandler.getTeamName());
+		btnNewButton.setText(getPlayer(0).getName());
+		btnNewButton_1.setText(getPlayer(1).getName());
+		btnNewButton_2.setText(getPlayer(2).getName());
+		btnNewButton_2_1.setText(getPlayer(5).getName());
+		btnNewButton_1_1.setText(getPlayer(4).getName());
+		btnNewButton_3.setText(getPlayer(3).getName());
+		btnNewButton_2_2.setText(getPlayer(8).getName());
+		btnNewButton_1_2.setText(getPlayer(7).getName());
+		btnNewButton_4.setText(getPlayer(6).getName());
+	}
+	
+	public Athlete getPlayer(int index) {
+		return gameHandler.getPlayerTeam().getMembers().get(index);
 	}
 }

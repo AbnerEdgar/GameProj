@@ -18,23 +18,25 @@ public class GameHandler {
 	//:END -- App Property
 	
 	//:START -- Game Property
+	private ArrayList<Athlete> Athletes = new ArrayList<Athlete>();
+	private ArrayList<Item> Items;
+	//:END -- Game Property
+	
+	//:START -- Player Data
+	private String teamName;
 	private int difficulty; 	// 1: Easy, 2: Medium, 3: Hard
 	private int seasonDur;  	// 5  -  10  -  15
-	private ArrayList<Athlete> Athletes = new ArrayList<Athlete>();
+	private float balance;
+	private int points;
+	private int currentSeason;
+	private int remainingWeek;
 	private ArrayList<Athlete> selectedAthletes = new ArrayList<Athlete>() {{
         add(new Athlete());
         add(new Athlete());
         add(new Athlete());
         add(new Athlete());
     }};
-	//:END -- Game Property
-	
-	//:START -- Player Data
-	private float balance;
-	private int points;
-	private int currentSeason;
-	private int remainingWeek;
-	
+	private Team playerTeam;
 	//:END -- Player Property
 	
 	GameHandler(){
@@ -51,7 +53,7 @@ public class GameHandler {
 		this.balance = 0;
 		this.points = 0;
 		this.currentSeason = 0;
-		this.remainingWeek = 0;
+		this.remainingWeek = 5;
 		readFile();
 	}
 	
@@ -86,6 +88,54 @@ public class GameHandler {
 
 	public ArrayList<Athlete> getAthletes() {
 		return Athletes;
+	}
+
+	public float getBalance() {
+		return balance;
+	}
+
+	public void setBalance(float balance) {
+		this.balance = balance;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	public int getCurrentSeason() {
+		return currentSeason;
+	}
+
+	public void setCurrentSeason(int currentSeason) {
+		this.currentSeason = currentSeason;
+	}
+
+	public int getRemainingWeek() {
+		return remainingWeek;
+	}
+
+	public void setRemainingWeek(int remainingWeek) {
+		this.remainingWeek = remainingWeek;
+	}
+
+	public String getTeamName() {
+		return teamName;
+	}
+
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	
+	public Team getPlayerTeam() {
+		return playerTeam;
+	}
+
+	public void setPlayerTeam(Team playerTeam) {
+		this.playerTeam = playerTeam;
 	}
 
 	//:END -- GETTER-SETTER
@@ -156,6 +206,10 @@ public class GameHandler {
 	
 	public ArrayList<Athlete> getSelectedAthletes() {
 		return selectedAthletes;
+	}
+	
+	public void generateTeam(Team team) {
+		playerTeam = team;
 	}
 	//:END -- Method	
 	
