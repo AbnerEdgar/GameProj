@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 
+
 public class GameMaster {
 	// All the pages & game handler
 	static GameHandler gameHandler = new GameHandler();
@@ -12,9 +13,14 @@ public class GameMaster {
 	public static void main(String[] args) {
 
 		try {
+			
+			
+			
 			hideAllPage();
 			
 			showSelectedPage(gameHandler.getPage());
+			System.out.println(gameHandler.getAthletes().size());
+
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

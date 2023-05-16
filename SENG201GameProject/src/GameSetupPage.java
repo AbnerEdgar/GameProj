@@ -27,6 +27,19 @@ public class GameSetupPage {
 	private JTextField textField;
 	private boolean isWithinFormat;
 	private GameHandler gameHandler;
+	private int selectedAthlete;
+	private int selectedFrame;
+	
+	private JProgressBar progressBar;
+	private JProgressBar progressBar_1;
+	private JProgressBar progressBar_2;
+	private JButton btnNewButton_3;
+	private JButton btnAthlete_4;
+	private JButton btnAthlete_1_3;
+	private JButton btnNewButton_3_1;
+	private JButton btnNewButton_4;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -64,7 +77,9 @@ public class GameSetupPage {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	
 	private void initialize() {
+		selectedFrame = 0;
 		frmGameSetup = new JFrame();
 		frmGameSetup.setBackground(new Color(238, 238, 238));
 		frmGameSetup.setTitle((gameHandler.getAppName()+"(Setup Page)"));
@@ -133,7 +148,7 @@ public class GameSetupPage {
 		
 		JLabel lblNewLabel_9 = new JLabel("Nationality:");
 		
-		JProgressBar progressBar = new JProgressBar();
+		progressBar = new JProgressBar();
 		
 		JLabel lblNewLabel_10 = new JLabel("Durability");
 		
@@ -141,11 +156,18 @@ public class GameSetupPage {
 		
 		JLabel lblNewLabel_12 = new JLabel("Defense");
 		
-		JProgressBar progressBar_1 = new JProgressBar();
+		progressBar_1 = new JProgressBar();
 		
-		JProgressBar progressBar_2 = new JProgressBar();
+		progressBar_2 = new JProgressBar();
 		
-		JButton btnNewButton_4 = new JButton("Select");
+		btnNewButton_4 = new JButton("Select");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.addSelectedAthlete(gameHandler.getAthletes().get(selectedAthlete),selectedFrame);
+				refreshSelected();
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -216,57 +238,148 @@ public class GameSetupPage {
 		lblNewLabel_13.setBounds(27, 424, 61, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_13);
 		
-		JButton btnNewButton = new JButton("Athlete 1");
+		JButton btnNewButton = new JButton(gameHandler.getAthletes().get(0).getName());
 		btnNewButton.setBounds(17, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 0;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete = new JButton("Athlete 2");
+		JButton btnAthlete = new JButton(gameHandler.getAthletes().get(1).getName());
 		btnAthlete.setBounds(85, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete);
+		btnAthlete.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 1;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete_1 = new JButton("Athlete 3");
+		JButton btnAthlete_1 = new JButton(gameHandler.getAthletes().get(2).getName());
 		btnAthlete_1.setBounds(153, 197, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1);
+		btnAthlete_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 2;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnNewButton_1 = new JButton("Athlete 1");
+		JButton btnNewButton_1 = new JButton(gameHandler.getAthletes().get(3).getName());
 		btnNewButton_1.setBounds(17, 264, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 3;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete_2 = new JButton("Athlete 2");
+		JButton btnAthlete_2 = new JButton(gameHandler.getAthletes().get(4).getName());
 		btnAthlete_2.setBounds(85, 264, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_2);
+		btnAthlete_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 4;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete_1_1 = new JButton("Athlete 3");
+		JButton btnAthlete_1_1 = new JButton(gameHandler.getAthletes().get(5).getName());
 		btnAthlete_1_1.setBounds(153, 264, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1_1);
+		btnAthlete_1_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 5;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnNewButton_2 = new JButton("Athlete 1");
+		JButton btnNewButton_2 = new JButton(gameHandler.getAthletes().get(6).getName());
 		btnNewButton_2.setBounds(17, 333, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 6;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete_3 = new JButton("Athlete 2");
+		JButton btnAthlete_3 = new JButton(gameHandler.getAthletes().get(7).getName());
 		btnAthlete_3.setBounds(85, 333, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_3);
+		btnAthlete_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 7;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnAthlete_1_2 = new JButton("Athlete 3");
+		JButton btnAthlete_1_2 = new JButton(gameHandler.getAthletes().get(8).getName());
 		btnAthlete_1_2.setBounds(153, 333, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1_2);
+		btnAthlete_1_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedAthlete = 8;
+				changeCard(gameHandler.getAthletes().get(selectedAthlete));
+			}
+		});
 		
-		JButton btnNewButton_3 = new JButton("Athlete 1");
+		btnNewButton_3 = new JButton(gameHandler.getSelectedAthlete(0).getName());
 		btnNewButton_3.setBounds(17, 445, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_3);
+		btnNewButton_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedFrame = 0;
+				changeCard(gameHandler.getSelectedAthlete(selectedFrame));
+			}
+		});
 		
-		JButton btnAthlete_4 = new JButton("Athlete 2");
+		btnAthlete_4 = new JButton(gameHandler.getSelectedAthlete(1).getName());
 		btnAthlete_4.setBounds(85, 445, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_4);
+		btnAthlete_4.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedFrame = 1;
+				changeCard(gameHandler.getSelectedAthlete(selectedFrame));
+			}
+		});
 		
-		JButton btnAthlete_1_3 = new JButton("Athlete 3");
+		btnAthlete_1_3 = new JButton(gameHandler.getSelectedAthlete(2).getName());
 		btnAthlete_1_3.setBounds(153, 445, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1_3);
+		btnAthlete_1_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedFrame = 2;
+				changeCard(gameHandler.getSelectedAthlete(selectedFrame));
+			}
+		});
 		
-		JButton btnNewButton_3_1 = new JButton("Athlete 1");
+		btnNewButton_3_1 = new JButton(gameHandler.getSelectedAthlete(3).getName());
 		btnNewButton_3_1.setBounds(221, 445, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_3_1);
+		btnNewButton_3_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				selectedFrame = 3;
+				changeCard(gameHandler.getSelectedAthlete(selectedFrame));
+			}
+		});
 		
 		JButton btnNewButton_5 = new JButton("Start Game");
 		btnNewButton_5.setBounds(489, 45, 117, 29);
@@ -285,5 +398,26 @@ public class GameSetupPage {
 				}
 			}
 		});
+	}
+	
+	public void changeCard(Athlete athlete) {
+		progressBar.setValue((int) athlete.getOffense());
+		progressBar_1.setValue((int) athlete.getDefence());
+		progressBar_2.setValue((int) athlete.getStamina());
+	}
+	
+	public void refreshSelected() {
+		btnNewButton_3.setText(gameHandler.getSelectedAthlete(0).getName());
+		btnAthlete_4.setText(gameHandler.getSelectedAthlete(1).getName());
+		btnAthlete_1_3.setText(gameHandler.getSelectedAthlete(2).getName());
+		btnNewButton_3_1.setText(gameHandler.getSelectedAthlete(3).getName());
+		int i = 0;
+		while(i < 4) {
+			if(gameHandler.getSelectedAthlete(i).getName().equals("")) {
+				selectedFrame = i;
+				break;
+			}
+			i++;
+		}
 	}
 }

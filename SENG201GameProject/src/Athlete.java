@@ -8,7 +8,7 @@ public class Athlete {
 	
 	//:START -- Bio Property
 	private String name;
-	private int position; 
+	private String position; 
 	private String nationality;
 	//:END -- Bio Property
 	
@@ -20,7 +20,18 @@ public class Athlete {
 	private float price;
 	//:END -- Statistic Property
 	
-	public Athlete(String name, int position, String nationality, float offense, float defence,
+	public Athlete() {
+		this.name = "";
+		this.position = "";
+		this.nationality = "";
+		this.offense = 0;
+		this.defence = 0;
+		this.stamina = 0;
+		this.price = 0;
+		this.image = "image/" + name;
+	}
+	
+	public Athlete(String name, String position, String nationality, float offense, float defence,
 			float stamina, float price) {
 		this.name = name;
 		this.position = position;
@@ -45,10 +56,10 @@ public class Athlete {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPosition() {
+	public String getPosition() {
 		return position;
 	}
-	public void setPosition(int position) {
+	public void setPosition(String position) {
 		this.position = position;
 	}
 	public String getNationality() {

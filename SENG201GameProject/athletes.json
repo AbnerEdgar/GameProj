@@ -1,0 +1,92 @@
+{
+  "athlete1": {
+    "name": "Jason",
+    "position": "Doubles Player",
+    "nationality": "IDN",
+    "stats": {
+      "power": "80",
+      "agility": "80",
+      "stamina": "80"
+    }
+  },
+  "athlete2": {
+    "name": "Alexander",
+    "position": "Doubles Player",
+    "nationality": "USA",
+    "stats": {
+      "power": "70",
+      "agility": "70",
+      "stamina": "90"
+    }
+  },
+  "athlete3": {
+    "name": "Luis",
+    "position": "Doubles Player",
+    "nationality": "ESP",
+    "stats": {
+      "power": "60",
+      "agility": "80",
+      "stamina": "90"
+    }
+  },
+  "athlete4": {
+    "name": "Christopher",
+    "position": "Doubles Player",
+    "nationality": "BRA",
+    "stats": {
+      "power": "80",
+      "agility": "60",
+      "stamina": "90"
+    }
+  },
+  "athlete5": {
+    "name": "William",
+    "position": "Doubles Player",
+    "nationality": "GER",
+    "stats": {
+      "power": "90",
+      "agility": "70",
+      "stamina": "80"
+    }
+  },
+  "athlete6": {
+    "name": "Benjamin",
+    "position": "Doubles Player",
+    "nationality": "FRA",
+    "stats": {
+      "power": "70",
+      "agility": "90",
+      "stamina": "70"
+    }
+  },
+  "athlete7": {
+    "name": "Daniel",
+    "position": "Doubles Player",
+    "nationality": "ARG",
+    "stats": {
+      "power": "80",
+      "agility": "80",
+      "stamina": "80"
+    }
+  },
+  "athlete8": {
+    "name": "Michael",
+    "position": "Doubles Player",
+    "nationality": "CAN",
+    "stats": {
+      "power": "70",
+      "agility": "70",
+      "stamina": "90"
+    }
+  },
+  "athlete9": {
+    "name": "Thomas",
+    "position": "Doubles Player",
+    "nationality": "SWE",
+    "stats": {
+      "power": "70",
+      "agility": "80",
+      "stamina": "80"
+    }
+  }
+}
