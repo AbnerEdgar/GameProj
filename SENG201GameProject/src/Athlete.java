@@ -15,7 +15,10 @@ public class Athlete {
 	//:END -- Bio Property
 	
 	//:START -- Statistic Property
-	private ArrayList<Item> equipment = new ArrayList<Item>();
+	private ArrayList<Item> equipment = new ArrayList<Item>() {{
+        add(new Item());
+        add(new Item());
+    }};
 	private float offense;
 	private float defence;
 	private float stamina;
@@ -96,8 +99,22 @@ public class Athlete {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	public Item getEquipment(int index) {
+		return equipment.get(index);
+	}
+	public ArrayList<Item> getEquipments() {
+		return equipment;
+	}
+	public void addEquipment(ArrayList<Item> equipment) {
+		
+	}
+	
 	//:END -- GETTER-SETTER
 	
+	
+
+
+
 	//:START -- Method
 	public boolean isEquipmentFull() {
 		return this.equipment.size() == 2 ? true : false;

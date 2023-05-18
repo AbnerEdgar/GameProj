@@ -37,6 +37,7 @@ public class GameHandler {
         add(new Athlete());
     }};
 	private Team playerTeam;
+	private ArrayList<Item> Inventory = new ArrayList<Item>();
 	//:END -- Player Property
 	
 	GameHandler(){
