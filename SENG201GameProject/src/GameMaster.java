@@ -9,9 +9,9 @@ public class GameMaster {
 	static MainGamePage homePage = new MainGamePage(gameHandler);
 	static StadiumPage stadiumPage = new StadiumPage(gameHandler);
 	static MarketPage marketPage = new MarketPage(gameHandler);
+	static CompetitionPage competitionPage = new CompetitionPage(gameHandler);
 	
 	public static void main(String[] args) {
-
 		try {
 			showSelectedPage(gameHandler.getPage());
 			
@@ -26,6 +26,7 @@ public class GameMaster {
 		clubPage.hidePage();
 		homePage.hidePage();
 		stadiumPage.hidePage();
+		competitionPage.hidePage();
 	}
 	
 	public static void showSelectedPage(int page) {
@@ -43,6 +44,8 @@ public class GameMaster {
 			stadiumPage.showPage();
 		}else if(page == 5) {
 			marketPage.showPage();
+		}else if(page == 6) {
+			competitionPage.showPage();
 		}
 	}
 }

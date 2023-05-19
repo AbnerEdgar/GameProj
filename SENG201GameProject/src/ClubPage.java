@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
+import javax.swing.JSeparator;
 
 public class ClubPage {
 
@@ -86,14 +87,15 @@ public class ClubPage {
 		frmBadmintonTournamentClub.setLocationRelativeTo(null);
 		frmBadmintonTournamentClub.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Athletes:");
-		lblNewLabel_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(41, 103, 196, 16);
+		JLabel lblNewLabel_1 = new JLabel("Members");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(36, 93, 233, 16);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel_1);
 		
 		btnNewButton = new JButton("Name");
 		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton.setBounds(36, 131, 67, 80);
+		btnNewButton.setBounds(36, 131, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
@@ -117,19 +119,19 @@ public class ClubPage {
 		JLabel lblNewLabel_4 = new JLabel("Nationality:");
 		lblNewLabel_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_5 = new JLabel("Durability");
+		JLabel lblNewLabel_5 = new JLabel("Durability:");
 		lblNewLabel_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar = new JProgressBar();
 		progressBar.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_6 = new JLabel("Offense");
+		JLabel lblNewLabel_6 = new JLabel("Offense:");
 		lblNewLabel_6.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar_1 = new JProgressBar();
 		progressBar_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_7 = new JLabel("Defense");
+		JLabel lblNewLabel_7 = new JLabel("Defense:");
 		lblNewLabel_7.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar_2 = new JProgressBar();
@@ -137,34 +139,77 @@ public class ClubPage {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Name:");
+		lblNewLabel_3_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+		
+		JLabel lblNewLabel_9 = new JLabel("New label");
+		lblNewLabel_9.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+		
+		JLabel lblNewLabel_9_1 = new JLabel("New label");
+		lblNewLabel_9_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(15)
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblNewLabel_7))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(progressBar_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(progressBar_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(progressBar, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+					.addGap(21))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_6)
+					.addContainerGap(248, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_5)
+					.addContainerGap(234, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_4)
+					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+					.addComponent(lblNewLabel_9_1, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_3))
+					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(progressBar_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_7)
-						.addComponent(progressBar_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_6)
-						.addComponent(progressBar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_5)
-						.addComponent(lblNewLabel_4)
-						.addComponent(lblNewLabel_3)
-						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE))
-					.addGap(20))
+						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(17)
-					.addComponent(lblNewLabel_2)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(lblNewLabel_3)
+					.addGap(29)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_4)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_3)
+						.addComponent(lblNewLabel_9))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_4)
+						.addComponent(lblNewLabel_9_1))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel_5)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -176,9 +221,9 @@ public class ClubPage {
 					.addComponent(lblNewLabel_7)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(progressBar_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(15, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		panel_1.setLayout(null);
 		
@@ -200,7 +245,7 @@ public class ClubPage {
 		
 		btnNewButton_1 = new JButton("Name");
 		btnNewButton_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_1.setBounds(104, 131, 67, 80);
+		btnNewButton_1.setBounds(115, 131, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
@@ -212,7 +257,7 @@ public class ClubPage {
 		
 		btnNewButton_2 = new JButton("Name");
 		btnNewButton_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_2.setBounds(172, 131, 67, 80);
+		btnNewButton_2.setBounds(194, 131, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
@@ -225,7 +270,7 @@ public class ClubPage {
 		
 		btnNewButton_2_1 = new JButton("Name");
 		btnNewButton_2_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_2_1.setBounds(172, 207, 67, 80);
+		btnNewButton_2_1.setBounds(194, 207, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2_1);
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			@Override 
@@ -237,7 +282,7 @@ public class ClubPage {
 		
 		btnNewButton_1_1 = new JButton("Name");
 		btnNewButton_1_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_1_1.setBounds(104, 207, 67, 80);
+		btnNewButton_1_1.setBounds(115, 207, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1_1);
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			@Override 
@@ -249,7 +294,7 @@ public class ClubPage {
 		
 		btnNewButton_3 = new JButton("Name");
 		btnNewButton_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_3.setBounds(36, 207, 67, 80);
+		btnNewButton_3.setBounds(36, 207, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_3);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			@Override 
@@ -261,7 +306,7 @@ public class ClubPage {
 		
 		btnNewButton_2_2 = new JButton("Name");
 		btnNewButton_2_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_2_2.setBounds(172, 283, 67, 80);
+		btnNewButton_2_2.setBounds(194, 283, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_2_2);
 		btnNewButton_2_2.addActionListener(new ActionListener() {
 			@Override 
@@ -273,7 +318,7 @@ public class ClubPage {
 		
 		btnNewButton_1_2 = new JButton("Name");
 		btnNewButton_1_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_1_2.setBounds(104, 283, 67, 80);
+		btnNewButton_1_2.setBounds(115, 283, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_1_2);
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			@Override 
@@ -285,7 +330,7 @@ public class ClubPage {
 		
 		btnNewButton_4 = new JButton("Name");
 		btnNewButton_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_4.setBounds(36, 283, 67, 80);
+		btnNewButton_4.setBounds(36, 283, 80, 80);
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_4);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			@Override 
@@ -306,6 +351,10 @@ public class ClubPage {
 		lblNewLabel.setFont(new Font("SF Pro Rounded", Font.BOLD, 20));
 		lblNewLabel.setBounds(6, 6, 624, 65);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(46, 114, 223, 12);
+		frmBadmintonTournamentClub.getContentPane().add(separator);
 		btnNewButton_6.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
