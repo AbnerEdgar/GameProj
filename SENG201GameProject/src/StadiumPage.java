@@ -14,6 +14,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import javax.swing.JMenuItem;
 
 public class StadiumPage {
 
@@ -69,6 +70,7 @@ public class StadiumPage {
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
 		JLabel lblNewLabel = new JLabel("THOMAS CUP");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -257,9 +259,10 @@ public class StadiumPage {
 		frmBadmintonTournamentStadium.getContentPane().add(panel_2);
 		frmBadmintonTournamentStadium.getContentPane().add(panel_3);
 		
-		JLabel lblNewLabel_3 = new JLabel("Tournaments");
+		JLabel lblNewLabel_3 = new JLabel("T O U R N A M E N T S");
+		lblNewLabel_3.setForeground(new Color(25, 25, 112));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("SF Pro Rounded", Font.BOLD, 18));
+		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 35));
 		lblNewLabel_3.setBounds(0, 14, 621, 53);
 		frmBadmintonTournamentStadium.getContentPane().add(lblNewLabel_3);
 	}
