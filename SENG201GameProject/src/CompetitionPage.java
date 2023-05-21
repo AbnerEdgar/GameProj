@@ -211,5 +211,27 @@ public class CompetitionPage {
 		lblScore_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_2.setBounds(0, 6, 52, 26);
 		panel_3_3_1.add(lblScore_2);
+		
+		JPanel panel_3_3_2 = new JPanel();
+		panel_3_3_2.setLayout(null);
+		panel_3_3_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_3_3_2.setBounds(380, 17, 52, 38);
+		frmBattleGroundPage.getContentPane().add(panel_3_3_2);
+		
+		JLabel lblScore_3 = new JLabel("0");
+		lblScore_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblScore_3.setBounds(0, 6, 52, 26);
+		panel_3_3_2.add(lblScore_3);
+		
+		JPanel panel_3_1_2_2 = new JPanel();
+		panel_3_1_2_2.setLayout(null);
+		panel_3_1_2_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_3_1_2_2.setBounds(380, 55, 52, 38);
+		frmBattleGroundPage.getContentPane().add(panel_3_1_2_2);
+		
+		JLabel lblScore_1_2 = new JLabel("0");
+		lblScore_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblScore_1_2.setBounds(0, 6, 52, 26);
+		panel_3_1_2_2.add(lblScore_1_2);
 	}
 }

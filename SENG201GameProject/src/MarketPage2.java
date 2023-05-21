@@ -156,7 +156,7 @@ public class MarketPage2 {
 		lblNewLabel_1.setBounds(16, 241, 54, 16);
 		internalFrame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Material:");
+		JLabel lblNewLabel_1_3 = new JLabel("Price:");
 		lblNewLabel_1_3.setBounds(16, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_1_3);
 		
@@ -177,7 +177,7 @@ public class MarketPage2 {
 		progressBar.setBounds(79, 292, 82, 20);
 		internalFrame.getContentPane().add(progressBar);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Rubber");
+		JLabel lblNewLabel_2_1 = new JLabel("$ 123");
 		lblNewLabel_2_1.setBounds(91, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2_1);
 		

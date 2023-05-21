@@ -144,34 +144,17 @@ public class MarketPage3 {
 		frame.getContentPane().add(internalFrame);
 		internalFrame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_2 = new JButton("Equip");
-		btnNewButton_2.setBounds(100, 6, 72, 29);
-		internalFrame.getContentPane().add(btnNewButton_2);
-		
-		JLabel lblNewLabel_5_1 = new JLabel("Y O N E X");
-		lblNewLabel_5_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		lblNewLabel_5_1.setBounds(16, 16, 82, 32);
-		internalFrame.getContentPane().add(lblNewLabel_5_1);
-		
-		JLabel lblNewLabel = new JLabel("1000Z");
-		lblNewLabel.setBounds(16, 47, 61, 16);
-		internalFrame.getContentPane().add(lblNewLabel);
-		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(16, 66, 145, 129);
+		panel_2.setBounds(16, 37, 145, 129);
 		internalFrame.getContentPane().add(panel_2);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Specification:");
-		lblNewLabel_1_1.setBounds(16, 207, 92, 16);
-		internalFrame.getContentPane().add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1 = new JLabel("Weight:");
-		lblNewLabel_1.setBounds(16, 235, 54, 16);
+		JLabel lblNewLabel_1 = new JLabel("Height:");
+		lblNewLabel_1.setBounds(16, 230, 54, 16);
 		internalFrame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Material:");
+		JLabel lblNewLabel_1_3 = new JLabel("Price:");
 		lblNewLabel_1_3.setBounds(16, 258, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_1_3);
 		
@@ -193,13 +176,33 @@ public class MarketPage3 {
 		progressBar.setBounds(79, 286, 82, 20);
 		internalFrame.getContentPane().add(progressBar);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Rubber");
-		lblNewLabel_2_1.setBounds(91, 258, 61, 16);
+		JLabel lblNewLabel_2_1 = new JLabel("$ 123");
+		lblNewLabel_2_1.setBounds(79, 258, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("83 gram");
-		lblNewLabel_2.setBounds(91, 235, 61, 16);
+		JLabel lblNewLabel_2 = new JLabel("180");
+		lblNewLabel_2.setBounds(82, 230, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2);
+		
+		JButton btnNewButton_2 = new JButton("Buy");
+		btnNewButton_2.setBounds(98, 6, 72, 29);
+		internalFrame.getContentPane().add(btnNewButton_2);
+		
+		JLabel lblNewLabel = new JLabel("Name:");
+		lblNewLabel.setBounds(16, 178, 54, 16);
+		internalFrame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_5 = new JLabel("New label");
+		lblNewLabel_5.setBounds(79, 178, 61, 16);
+		internalFrame.getContentPane().add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_7 = new JLabel("Age:");
+		lblNewLabel_7.setBounds(16, 206, 46, 16);
+		internalFrame.getContentPane().add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("New label");
+		lblNewLabel_8.setBounds(79, 206, 61, 16);
+		internalFrame.getContentPane().add(lblNewLabel_8);
 		internalFrame.setVisible(true);
 	}
 

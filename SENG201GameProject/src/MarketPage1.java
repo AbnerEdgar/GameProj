@@ -130,15 +130,15 @@ public class MarketPage1 {
 		progressBar_1.setBounds(83, 313, 82, 20);
 		internalFrame.getContentPane().add(progressBar_1);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Tension:");
+		JLabel lblNewLabel_1_3 = new JLabel("Price:");
 		lblNewLabel_1_3.setBounds(20, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_1_3);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("28 lbs");
+		JLabel lblNewLabel_2_1 = new JLabel("$ 123");
 		lblNewLabel_2_1.setBounds(95, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2_1);
 		
-		JButton btnNewButton_2 = new JButton("Equip");
+		JButton btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(104, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
 		

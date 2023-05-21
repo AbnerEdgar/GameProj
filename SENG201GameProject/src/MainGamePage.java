@@ -74,6 +74,8 @@ public class MainGamePage {
 		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
 		
 		JButton btnNewButton = new JButton("C L U B");
+		btnNewButton.setForeground(new Color(100, 149, 237));
+		btnNewButton.setBackground(new Color(240, 230, 140));
 		btnNewButton.setBounds(18, 131, 167, 158);
 		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -85,6 +87,7 @@ public class MainGamePage {
 		});
 		
 		JButton btnSTA = new JButton("S T A D I U M");
+		btnSTA.setForeground(new Color(100, 149, 237));
 		btnSTA.setBounds(197, 131, 170, 158);
 		btnSTA.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnSTA.addActionListener(new ActionListener() {
@@ -96,6 +99,7 @@ public class MainGamePage {
 		});
 		
 		JButton btnRES = new JButton("M A R K E T");
+		btnRES.setForeground(new Color(100, 149, 237));
 		btnRES.setBounds(379, 131, 167, 158);
 		btnRES.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnRES.addActionListener(new ActionListener() {
@@ -107,6 +111,7 @@ public class MainGamePage {
 		});
 		
 		JButton btnMAR = new JButton("S A V E  G A M E");
+		btnMAR.setForeground(new Color(100, 149, 237));
 		btnMAR.setBounds(18, 295, 167, 158);
 		btnMAR.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnMAR.addActionListener(new ActionListener() {
@@ -115,6 +120,7 @@ public class MainGamePage {
 		});
 		
 		JButton btnSAV = new JButton("L O A D  G A M E");
+		btnSAV.setForeground(new Color(100, 149, 237));
 		btnSAV.setBounds(197, 295, 170, 158);
 		btnSAV.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnSAV.addActionListener(new ActionListener() {
@@ -123,6 +129,7 @@ public class MainGamePage {
 		});
 		
 		JButton btnSKI = new JButton("S K I P  W E E K");
+		btnSKI.setForeground(new Color(100, 149, 237));
 		btnSKI.setBounds(379, 295, 164, 158);
 		btnSKI.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnSKI.addActionListener(new ActionListener() {
@@ -140,6 +147,7 @@ public class MainGamePage {
 		frmBadmintonTournamentMain.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(250, 250, 210));
 		panel.setBounds(18, 8, 528, 105);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), null, null, null));
 		panel.setLayout(null);
