@@ -27,6 +27,7 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.JInternalFrame;
 
 public class GameSetupPage {
 
@@ -36,15 +37,14 @@ public class GameSetupPage {
 	private GameHandler gameHandler;
 	private int selectedAthlete;
 	private int selectedFrame;
-	
-	private JProgressBar progressBar;
-	private JProgressBar progressBar_1;
-	private JProgressBar progressBar_2;
 	private JButton btnNewButton_3;
 	private JButton btnAthlete_4;
 	private JButton btnAthlete_1_3;
 	private JButton btnNewButton_3_1;
-	private JButton btnNewButton_4;
+	private JProgressBar progressBar_3;
+	private JProgressBar progressBar_1_1;
+	private JProgressBar progressBar_2_1;
+	
 	
 	
 	/**
@@ -88,54 +88,55 @@ public class GameSetupPage {
 	private void initialize() {
 		selectedFrame = 0;
 		frmGameSetup = new JFrame();
-		frmGameSetup.getContentPane().setBackground(new Color(228, 228, 228));
+		frmGameSetup.getContentPane().setFont(new Font("Dialog", Font.PLAIN, 16));
+		frmGameSetup.getContentPane().setBackground(new Color(176, 196, 222));
 		frmGameSetup.setBackground(new Color(238, 238, 238));
 		frmGameSetup.setTitle((gameHandler.getAppName()+"(Setup Page)"));
-		frmGameSetup.setBounds(100, 100, 635, 614);
+		frmGameSetup.setBounds(100, 100, 664, 614);
 		frmGameSetup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmGameSetup.setLocationRelativeTo(null);
 		frmGameSetup.getContentPane().setLayout(null);
 		frmGameSetup.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Welcome to badminton tournament!");
-		lblNewLabel.setFont(new Font("SF Pro Rounded", Font.BOLD, 18));
+		lblNewLabel.setFont(new Font("Futura", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(6, 6, 627, 32);
 		frmGameSetup.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Enter your team name:");
-		lblNewLabel_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(34, 67, 160, 22);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(34, 67, 186, 22);
 		frmGameSetup.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+		textField.setFont(new Font("Futura", Font.PLAIN, 12));
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
-		textField.setBounds(200, 65, 218, 29);
+		textField.setBounds(223, 63, 218, 29);
 		frmGameSetup.getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 characters.*");
+		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 letters & no symbols.*");
 		lblNewLabel_2.setForeground(new Color(255, 29, 0));
 		lblNewLabel_2.setVisible(isWithinFormat);
-		lblNewLabel_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 10));
-		lblNewLabel_2.setBounds(206, 53, 154, 16);
+		lblNewLabel_2.setFont(new Font("Futura", Font.PLAIN, 12));
+		lblNewLabel_2.setBounds(223, 50, 255, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Difficulties:");
-		lblNewLabel_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_3.setBounds(34, 132, 142, 16);
+		JLabel lblNewLabel_3 = new JLabel("Difficulty:");
+		lblNewLabel_3.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(34, 132, 142, 20);
 		frmGameSetup.getContentPane().add(lblNewLabel_3);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setFont(new Font("SF Pro Rounded", Font.PLAIN, 14));
+		comboBox.setFont(new Font("Futura", Font.PLAIN, 14));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Easy", "Medium", "Hard"}));
 		comboBox.setMaximumRowCount(3);
-		comboBox.setBounds(200, 131, 218, 22);
+		comboBox.setBounds(223, 130, 142, 22);
 		frmGameSetup.getContentPane().add(comboBox);
 		
 		JLabel lblNewLabel_4 = new JLabel("Season Duration:");
-		lblNewLabel_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+		lblNewLabel_4.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblNewLabel_4.setBounds(33, 103, 148, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_4);
 		
@@ -149,130 +150,23 @@ public class GameSetupPage {
 		slider.setMinimum(5);
 		slider.setMinorTickSpacing(5);
 		slider.setMaximum(15);
-		slider.setBounds(200, 97, 218, 22);
+		slider.setBounds(223, 97, 218, 22);
 		frmGameSetup.getContentPane().add(slider);
 		
 		JLabel lblNewLabel_5 = new JLabel("Available Athletes:");
 		lblNewLabel_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_5.setBounds(33, 319, 148, 16);
+		lblNewLabel_5.setBounds(34, 376, 148, 16);
 		frmGameSetup.getContentPane().add(lblNewLabel_5);
-		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(382, 180, 219, 310);
-		frmGameSetup.getContentPane().add(panel);
-		
-		JLabel lblNewLabel_7 = new JLabel("Name: ");
-		lblNewLabel_7.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_8 = new JLabel("Position:");
-		lblNewLabel_8.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_9 = new JLabel("Nationality:");
-		lblNewLabel_9.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		progressBar = new JProgressBar();
-		
-		JLabel lblNewLabel_10 = new JLabel("Durability:");
-		lblNewLabel_10.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_11 = new JLabel("Attack:");
-		lblNewLabel_11.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_12 = new JLabel("Defense:");
-		lblNewLabel_12.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		progressBar_1 = new JProgressBar();
-		
-		progressBar_2 = new JProgressBar();
-		
-		btnNewButton_4 = new JButton("Select");
-		btnNewButton_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_4.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				gameHandler.addSelectedAthlete(gameHandler.getAthletes().get(selectedAthlete),selectedFrame);
-				refreshSelected();
-			}
-		});
-		
-		JLabel lblNewLabel_6 = new JLabel("Athlete's Profile");
-		lblNewLabel_6.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
-							.addGroup(gl_panel.createSequentialGroup()
-								.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-									.addComponent(progressBar_1, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-									.addGroup(gl_panel.createSequentialGroup()
-										.addGap(2)
-										.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-											.addComponent(lblNewLabel_10, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-											.addComponent(lblNewLabel_9, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE)
-											.addComponent(lblNewLabel_7, GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-											.addComponent(lblNewLabel_8))
-										.addGap(89))
-									.addGroup(gl_panel.createSequentialGroup()
-										.addGap(6)
-										.addComponent(lblNewLabel_11, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED, 130, GroupLayout.PREFERRED_SIZE))
-									.addComponent(progressBar, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-									.addGroup(gl_panel.createSequentialGroup()
-										.addGap(6)
-										.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-											.addComponent(progressBar_2, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-											.addComponent(lblNewLabel_12, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))))
-								.addGap(14))
-							.addGroup(gl_panel.createSequentialGroup()
-								.addComponent(btnNewButton_4, GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-								.addContainerGap()))
-						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-							.addComponent(lblNewLabel_6)
-							.addGap(54))))
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_6)
-					.addPreferredGap(ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_7)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_8)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_9)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_10)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_11)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_12)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnNewButton_4)
-					.addContainerGap())
-		);
-		panel.setLayout(gl_panel);
 		
 		JLabel lblNewLabel_13 = new JLabel("Starting Athletes:");
 		lblNewLabel_13.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		lblNewLabel_13.setBounds(33, 180, 136, 22);
+		lblNewLabel_13.setBounds(34, 237, 136, 22);
 		frmGameSetup.getContentPane().add(lblNewLabel_13);
 		
 		JButton btnNewButton = new JButton(gameHandler.getAthletes().get(0).getName());
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnNewButton.setBounds(28, 347, 68, 68);
+		btnNewButton.setBounds(29, 404, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
@@ -284,7 +178,7 @@ public class GameSetupPage {
 		
 		JButton btnAthlete = new JButton(gameHandler.getAthletes().get(1).getName());
 		btnAthlete.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete.setBounds(183, 347, 68, 68);
+		btnAthlete.setBounds(184, 404, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete);
 		btnAthlete.addActionListener(new ActionListener() {
 			@Override 
@@ -296,7 +190,7 @@ public class GameSetupPage {
 		
 		JButton btnAthlete_1 = new JButton(gameHandler.getAthletes().get(2).getName());
 		btnAthlete_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_1.setBounds(105, 347, 68, 68);
+		btnAthlete_1.setBounds(106, 404, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1);
 		btnAthlete_1.addActionListener(new ActionListener() {
 			@Override 
@@ -308,7 +202,7 @@ public class GameSetupPage {
 		
 		JButton btnNewButton_1 = new JButton(gameHandler.getAthletes().get(3).getName());
 		btnNewButton_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnNewButton_1.setBounds(263, 347, 68, 68);
+		btnNewButton_1.setBounds(264, 404, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
@@ -320,7 +214,7 @@ public class GameSetupPage {
 		
 		JButton btnAthlete_2 = new JButton(gameHandler.getAthletes().get(4).getName());
 		btnAthlete_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_2.setBounds(27, 422, 68, 68);
+		btnAthlete_2.setBounds(28, 479, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_2);
 		btnAthlete_2.addActionListener(new ActionListener() {
 			@Override 
@@ -332,7 +226,7 @@ public class GameSetupPage {
 		
 		JButton btnAthlete_1_1 = new JButton(gameHandler.getAthletes().get(5).getName());
 		btnAthlete_1_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_1_1.setBounds(105, 422, 68, 68);
+		btnAthlete_1_1.setBounds(106, 479, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_1_1);
 		btnAthlete_1_1.addActionListener(new ActionListener() {
 			@Override 
@@ -344,7 +238,7 @@ public class GameSetupPage {
 		
 		JButton btnNewButton_2 = new JButton(gameHandler.getAthletes().get(6).getName());
 		btnNewButton_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnNewButton_2.setBounds(183, 422, 68, 68);
+		btnNewButton_2.setBounds(184, 479, 68, 68);
 		frmGameSetup.getContentPane().add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
@@ -356,7 +250,7 @@ public class GameSetupPage {
 		
 		JButton btnAthlete_3 = new JButton(gameHandler.getAthletes().get(7).getName());
 		btnAthlete_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_3.setBounds(263, 422, 68, 68);
+		btnAthlete_3.setBounds(264, 479, 68, 68);
 		frmGameSetup.getContentPane().add(btnAthlete_3);
 		btnAthlete_3.addActionListener(new ActionListener() {
 			@Override 
@@ -366,21 +260,9 @@ public class GameSetupPage {
 			}
 		});
 		
-		JButton btnAthlete_1_2 = new JButton(gameHandler.getAthletes().get(8).getName());
-		btnAthlete_1_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_1_2.setBounds(27, 499, 68, 68);
-		frmGameSetup.getContentPane().add(btnAthlete_1_2);
-		btnAthlete_1_2.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				selectedAthlete = 8;
-				changeCard(gameHandler.getAthletes().get(selectedAthlete));
-			}
-		});
-		
 		btnNewButton_3 = new JButton(gameHandler.getSelectedAthlete(0).getName());
 		btnNewButton_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnNewButton_3.setBounds(28, 209, 75, 75);
+		btnNewButton_3.setBounds(29, 266, 75, 75);
 		frmGameSetup.getContentPane().add(btnNewButton_3);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			@Override 
@@ -392,7 +274,7 @@ public class GameSetupPage {
 		
 		btnAthlete_4 = new JButton(gameHandler.getSelectedAthlete(1).getName());
 		btnAthlete_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnAthlete_4.setBounds(104, 209, 75, 75);
+		btnAthlete_4.setBounds(105, 266, 75, 75);
 		frmGameSetup.getContentPane().add(btnAthlete_4);
 		btnAthlete_4.addActionListener(new ActionListener() {
 			@Override 
@@ -405,7 +287,7 @@ public class GameSetupPage {
 		btnAthlete_1_3 = new JButton(gameHandler.getSelectedAthlete(2).getName());
 		btnAthlete_1_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		btnAthlete_1_3.setBackground(new Color(240, 255, 240));
-		btnAthlete_1_3.setBounds(181, 209, 75, 75);
+		btnAthlete_1_3.setBounds(182, 266, 75, 75);
 		frmGameSetup.getContentPane().add(btnAthlete_1_3);
 		btnAthlete_1_3.addActionListener(new ActionListener() {
 			@Override 
@@ -417,7 +299,7 @@ public class GameSetupPage {
 		
 		btnNewButton_3_1 = new JButton(gameHandler.getSelectedAthlete(3).getName());
 		btnNewButton_3_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
-		btnNewButton_3_1.setBounds(256, 209, 75, 75);
+		btnNewButton_3_1.setBounds(257, 266, 75, 75);
 		frmGameSetup.getContentPane().add(btnNewButton_3_1);
 		btnNewButton_3_1.addActionListener(new ActionListener() {
 			@Override 
@@ -429,17 +311,9 @@ public class GameSetupPage {
 		
 		JButton btnNewButton_5 = new JButton("Start Game");
 		btnNewButton_5.setBackground(new Color(102, 102, 204));
-		btnNewButton_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton_5.setBounds(430, 63, 178, 32);
+		btnNewButton_5.setFont(new Font("Futura", Font.PLAIN, 14));
+		btnNewButton_5.setBounds(444, 63, 178, 32);
 		frmGameSetup.getContentPane().add(btnNewButton_5);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(68, 319, 247, -22);
-		frmGameSetup.getContentPane().add(separator);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(27, 296, 304, 12);
-		frmGameSetup.getContentPane().add(separator_1);
 		btnNewButton_5.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
@@ -462,12 +336,107 @@ public class GameSetupPage {
 				}
 			}
 		});
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(68, 319, 247, -22);
+		frmGameSetup.getContentPane().add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(28, 353, 304, 12);
+		frmGameSetup.getContentPane().add(separator_1);
+		
+		JLabel lblNewLabel_14 = new JLabel("Nationality:");
+		lblNewLabel_14.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_14.setBounds(34, 166, 186, 24);
+		frmGameSetup.getContentPane().add(lblNewLabel_14);
+		
+		JInternalFrame internalFrame = new JInternalFrame("Profile");
+		internalFrame.setBackground(new Color(192, 192, 192));
+		internalFrame.setForeground(new Color(255, 255, 255));
+		internalFrame.getContentPane().setFont(new Font("Dialog", Font.PLAIN, 13));
+		internalFrame.setBounds(364, 216, 279, 352);
+		frmGameSetup.getContentPane().add(internalFrame);
+		internalFrame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_7_1 = new JLabel("Name: ");
+		lblNewLabel_7_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_7_1.setBounds(31, 18, 55, 20);
+		internalFrame.getContentPane().add(lblNewLabel_7_1);
+		
+		JLabel lblNewLabel_8_1 = new JLabel("Age:");
+		lblNewLabel_8_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_8_1.setBounds(31, 44, 68, 20);
+		internalFrame.getContentPane().add(lblNewLabel_8_1);
+		
+		JLabel lblNewLabel_9_1 = new JLabel("Height:");
+		lblNewLabel_9_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_9_1.setBounds(31, 70, 61, 20);
+		internalFrame.getContentPane().add(lblNewLabel_9_1);
+		
+		JLabel lblNewLabel_10_1 = new JLabel("Durability:");
+		lblNewLabel_10_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_10_1.setBounds(31, 112, 94, 20);
+		internalFrame.getContentPane().add(lblNewLabel_10_1);
+		
+		progressBar_3 = new JProgressBar();
+		progressBar_3.setBounds(29, 134, 197, 20);
+		internalFrame.getContentPane().add(progressBar_3);
+		
+		JLabel lblNewLabel_11_1 = new JLabel("Attack:");
+		lblNewLabel_11_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_11_1.setBounds(31, 154, 61, 20);
+		internalFrame.getContentPane().add(lblNewLabel_11_1);
+		
+		progressBar_1_1 = new JProgressBar();
+		progressBar_1_1.setBounds(29, 174, 197, 20);
+		internalFrame.getContentPane().add(progressBar_1_1);
+		
+		JLabel lblNewLabel_12_1 = new JLabel("Defense:");
+		lblNewLabel_12_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblNewLabel_12_1.setBounds(31, 198, 100, 20);
+		internalFrame.getContentPane().add(lblNewLabel_12_1);
+		
+		progressBar_2_1 = new JProgressBar();
+		progressBar_2_1.setBounds(31, 217, 191, 20);
+		internalFrame.getContentPane().add(progressBar_2_1);
+		
+		JButton btnNewButton_4_1 = new JButton("Select");
+		btnNewButton_4_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		btnNewButton_4_1.setBounds(29, 252, 205, 29);
+		internalFrame.getContentPane().add(btnNewButton_4_1);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6.setBounds(101, 21, 83, 16);
+		internalFrame.getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_6_1 = new JLabel("New label");
+		lblNewLabel_6_1.setBounds(101, 47, 83, 16);
+		internalFrame.getContentPane().add(lblNewLabel_6_1);
+		
+		JLabel lblNewLabel_6_2 = new JLabel("New label");
+		lblNewLabel_6_2.setBounds(101, 73, 83, 16);
+		internalFrame.getContentPane().add(lblNewLabel_6_2);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setFont(new Font("Futura", Font.PLAIN, 12));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"INA", "JPN", "NZL", "USA", "MYS", "DNK", "IND", "KOR", "SGP", "CHN"}));
+		comboBox_1.setBounds(223, 167, 208, 27);
+		frmGameSetup.getContentPane().add(comboBox_1);
+		internalFrame.setVisible(true);
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			   @Override 
+			   public void actionPerformed(ActionEvent e) {
+			    gameHandler.addSelectedAthlete(gameHandler.getAthletes().get(selectedAthlete),selectedFrame);
+			    refreshSelected();
+			   }
+			  });
+		
 	}
 	
 	public void changeCard(Athlete athlete) {
-		progressBar.setValue((int) athlete.getOffense());
-		progressBar_1.setValue((int) athlete.getDefence());
-		progressBar_2.setValue((int) athlete.getStamina());
+		progressBar_3.setValue((int) athlete.getOffense());
+		progressBar_1_1.setValue((int) athlete.getDefence());
+		progressBar_2_1.setValue((int) athlete.getStamina());
 	}
 	
 	public void refreshSelected() {
