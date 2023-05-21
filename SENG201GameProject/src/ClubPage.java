@@ -81,6 +81,7 @@ public class ClubPage {
 	 */
 	private void initialize() {
 		frmBadmintonTournamentClub = new JFrame();
+		frmBadmintonTournamentClub.getContentPane().setBackground(new Color(176, 196, 222));
 		frmBadmintonTournamentClub.setTitle((gameHandler.getAppName()+"(Club Page)"));
 		frmBadmintonTournamentClub.setBounds(100, 100, 636, 517);
 		frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,142 +107,93 @@ public class ClubPage {
 		});
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(250, 250, 210));
+		panel.setForeground(new Color(250, 250, 210));
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		panel.setBounds(308, 83, 309, 382);
 		frmBadmintonTournamentClub.getContentPane().add(panel);
 		
 		lblNewLabel_2 = new JLabel(gameHandler.getSelectedAthlete(selectedAthlete).getName());
+		lblNewLabel_2.setBounds(103, 30, 210, 20);
 		lblNewLabel_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_3 = new JLabel("Position:");
+		lblNewLabel_3.setBounds(7, 56, 68, 20);
 		lblNewLabel_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_4 = new JLabel("Nationality:");
+		lblNewLabel_4.setBounds(7, 82, 90, 20);
 		lblNewLabel_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_5 = new JLabel("Durability:");
+		lblNewLabel_5.setBounds(7, 108, 82, 20);
 		lblNewLabel_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar = new JProgressBar();
+		progressBar.setBounds(7, 134, 291, 20);
 		progressBar.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_6 = new JLabel("Offense:");
+		lblNewLabel_6.setBounds(7, 160, 65, 20);
 		lblNewLabel_6.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar_1 = new JProgressBar();
+		progressBar_1.setBounds(7, 186, 280, 20);
 		progressBar_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_7 = new JLabel("Defense:");
+		lblNewLabel_7.setBounds(7, 212, 68, 20);
 		lblNewLabel_7.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		progressBar_2 = new JProgressBar();
+		progressBar_2.setBounds(7, 238, 280, 20);
 		progressBar_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(7, 280, 291, 95);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Name:");
+		lblNewLabel_3_1.setBounds(7, 30, 55, 20);
 		lblNewLabel_3_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_9 = new JLabel("New label");
+		lblNewLabel_9.setBounds(103, 56, 210, 20);
 		lblNewLabel_9.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_9_1 = new JLabel("New label");
+		lblNewLabel_9_1.setBounds(103, 82, 210, 20);
 		lblNewLabel_9_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		GroupLayout gl_panel = new GroupLayout(panel);
-		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblNewLabel_7))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(progressBar_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(progressBar_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(progressBar, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-					.addGap(21))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_6)
-					.addContainerGap(248, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_5)
-					.addContainerGap(234, Short.MAX_VALUE))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_4)
-					.addPreferredGap(ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-					.addComponent(lblNewLabel_9_1, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3))
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-						.addComponent(lblNewLabel_9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addContainerGap())
-		);
-		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(29)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3)
-						.addComponent(lblNewLabel_9))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_4)
-						.addComponent(lblNewLabel_9_1))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_5)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_6)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblNewLabel_7)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(progressBar_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
+		panel.setLayout(null);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_8 = new JLabel("Equipment:");
-		lblNewLabel_8.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		lblNewLabel_8.setBounds(6, 6, 104, 16);
+		lblNewLabel_8.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		panel_1.add(lblNewLabel_8);
 		
 		btnNewButton_5 = new JButton("Rackets");
-		btnNewButton_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		btnNewButton_5.setBounds(6, 34, 135, 55);
+		btnNewButton_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		panel_1.add(btnNewButton_5);
 		
 		btnNewButton_5_1 = new JButton("Shoes");
-		btnNewButton_5_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		btnNewButton_5_1.setBounds(146, 34, 128, 55);
+		btnNewButton_5_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		panel_1.add(btnNewButton_5_1);
-		panel.setLayout(gl_panel);
+		panel.add(panel_1);
+		panel.add(lblNewLabel_7);
+		panel.add(progressBar_1);
+		panel.add(progressBar_2);
+		panel.add(progressBar);
+		panel.add(lblNewLabel_6);
+		panel.add(lblNewLabel_5);
+		panel.add(lblNewLabel_4);
+		panel.add(lblNewLabel_9_1);
+		panel.add(lblNewLabel_3_1);
+		panel.add(lblNewLabel_3);
+		panel.add(lblNewLabel_2);
+		panel.add(lblNewLabel_9);
 		
 		btnNewButton_1 = new JButton("Name");
 		btnNewButton_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
@@ -347,12 +299,14 @@ public class ClubPage {
 		frmBadmintonTournamentClub.getContentPane().add(btnNewButton_6);
 		
 		lblNewLabel = new JLabel("\"Team Name\"");
+		lblNewLabel.setForeground(new Color(240, 230, 140));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("SF Pro Rounded", Font.BOLD, 20));
 		lblNewLabel.setBounds(6, 6, 624, 65);
 		frmBadmintonTournamentClub.getContentPane().add(lblNewLabel);
 		
 		JSeparator separator = new JSeparator();
+		separator.setForeground(new Color(128, 128, 128));
 		separator.setBounds(46, 114, 223, 12);
 		frmBadmintonTournamentClub.getContentPane().add(separator);
 		btnNewButton_6.addActionListener(new ActionListener() {
