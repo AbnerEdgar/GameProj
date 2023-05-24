@@ -137,7 +137,10 @@ public class MainGamePage {
 		btnSKI.setFont(new Font("Futura", Font.PLAIN, 16));
 		btnSKI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				gameHandler.setRemainingWeek(gameHandler.getRemainingWeek()-1);
+				if(gameHandler.getRemainingWeek()>0) {
+					gameHandler.setCurrentWeek(gameHandler.getCurrentWeek()+1);
+					gameHandler.setRemainingWeek(gameHandler.getRemainingWeek()-1);
+				}
 				onAppear();
 			}
 		});

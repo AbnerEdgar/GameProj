@@ -28,7 +28,7 @@ public class MarketPage2 {
 	private JButton btnNewButton_1_2_1;
 	private JButton btnNewButton_1_2_2;
 	private JButton btnNewButton_1_2_3;
-
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -137,27 +137,62 @@ public class MarketPage2 {
 		btnNewButton_1_2 = new JButton("65Z");
 		btnNewButton_1_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2.setBounds(17, 86, 129, 103);
+		btnNewButton_1_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setSelectedIShoe(0);
+				refreshCard();
+			}
+		});
 		panel_1_1.add(btnNewButton_1_2);
 		
 		btnNewButton_1_2_1 = new JButton("100ZZ");
 		btnNewButton_1_2_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1.setBounds(153, 86, 129, 103);
+		btnNewButton_1_2_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setSelectedIShoe(1);
+				refreshCard();
+			}
+		});
 		panel_1_1.add(btnNewButton_1_2_1);
 		
 		btnNewButton_1_2_2 = new JButton("100ZZ");
 		btnNewButton_1_2_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_2.setBounds(153, 207, 129, 103);
+		btnNewButton_1_2_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setSelectedIShoe(2);
+				refreshCard();
+			}
+		});
 		panel_1_1.add(btnNewButton_1_2_2);
 		
 		btnNewButton_1_2_3 = new JButton("100ZZ");
 		btnNewButton_1_2_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_3.setBounds(17, 207, 129, 103);
+		btnNewButton_1_2_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setSelectedIShoe(3);
+				refreshCard();
+			}
+		});
 		panel_1_1.add(btnNewButton_1_2_3);
 		
-		JButton btnNewButton = new JButton("Home");
+		btnNewButton = new JButton("Home");
 		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton.setBounds(6, 6, 86, 28);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JInternalFrame internalFrame = new JInternalFrame("D E T A I L S");
 		internalFrame.getContentPane().setBackground(new Color(240, 230, 140));
@@ -239,18 +274,18 @@ public class MarketPage2 {
 	}
 	
 	public void onAppear() {
-		btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
-		btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
-		btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
-		btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
+		btnNewButton_1_2.setText(gameHandler.getMarketShoes().get(0).getName());
+		btnNewButton_1_2_1.setText(gameHandler.getMarketShoes().get(1).getName());
+		btnNewButton_1_2_2.setText(gameHandler.getMarketShoes().get(2).getName());
+		btnNewButton_1_2_3.setText(gameHandler.getMarketShoes().get(3).getName());
 		refreshCard();
 	}
 	
 	public void refreshCard() {
-		lblNewLabel.setText(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getName());
-		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight()));
-		progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getOffense());
-		progressBar.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
-		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
+		lblNewLabel.setText(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getName());
+		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getWeight()));
+		progressBar_1.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getOffense());
+		progressBar.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getDefense());
+		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
 	}
 }

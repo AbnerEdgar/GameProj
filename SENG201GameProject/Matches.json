@@ -50,7 +50,7 @@
       "points": "46"
     },
     "competition2": {
-      "name": "Trans-Tasman Badminton Championships",
+      "name": "Trans-Tasman B. Championships",
       "price": "24000",
       "points": "24"
     },
@@ -99,12 +99,12 @@
       "points": "21"
     },
     "competition3": {
-      "name": "Australian Open Grand Prix Gold",
+      "name": "Australian Open GP Gold",
       "price": "18000",
       "points": "19"
     },
     "competition4": {
-      "name": "Thailand Open Grand Prix Gold",
+      "name": "Thailand Open GP Gold",
       "price": "14000",
       "points": "15"
     }
