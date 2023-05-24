@@ -2,7 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
-public class AfterCompetitionPage {
+public class YouLosePage {
 
 	private JFrame frame;
 
@@ -13,7 +13,7 @@ public class AfterCompetitionPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AfterCompetitionPage window = new AfterCompetitionPage();
+					YouLosePage window = new YouLosePage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -25,7 +25,7 @@ public class AfterCompetitionPage {
 	/**
 	 * Create the application.
 	 */
-	public AfterCompetitionPage() {
+	public YouLosePage() {
 		initialize();
 	}
 
