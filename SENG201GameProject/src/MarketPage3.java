@@ -193,10 +193,12 @@ public class MarketPage3 {
 		internalFrame.getContentPane().add(lblNewLabel_4);
 		
 		JProgressBar progressBar_1 = new JProgressBar();
+		progressBar_1.setMaximum(10);
 		progressBar_1.setBounds(79, 307, 82, 20);
 		internalFrame.getContentPane().add(progressBar_1);
 		
 		JProgressBar progressBar = new JProgressBar();
+		progressBar.setMaximum(10);
 		progressBar.setForeground(new Color(250, 128, 114));
 		progressBar.setBackground(new Color(255, 182, 193));
 		progressBar.setBounds(79, 286, 82, 20);

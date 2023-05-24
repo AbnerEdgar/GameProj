@@ -3,18 +3,24 @@ public class Team {
 	private String name;
 	//MARK: ACTIVE MEMBER --> Members in team
 	private int activeMembers;
-	private int selectedActiveMembers = 0;
-	private ArrayList<Athlete> members = new ArrayList<Athlete>();
-	private 
+	private int selectedActiveMembers;
+	private ArrayList<Athlete> members;
+	private String nationality;
 	
 	Team(String name){
+		this.selectedActiveMembers = 0;
+		members = new ArrayList<Athlete>();
+		nationality = "";
 		for(int i = 0; i < 8; i++) {
 			members.add(new Athlete());
 		}
 	}
 	
-	Team(String name, ArrayList<Athlete> selectedAthletes){
+	Team(String name, String nationality, ArrayList<Athlete> selectedAthletes){
 		this.name = name;
+		this.selectedActiveMembers = 0;
+		this.nationality = nationality;
+		members = new ArrayList<Athlete>();
 		for(int i = 0; i <= 8; i++) {
 			if(i < selectedAthletes.size()) {
 				members.add(selectedAthletes.get(i));
@@ -39,6 +45,14 @@ public class Team {
 
 	public void setActiveMembers(int activeMembers) {
 		this.activeMembers = activeMembers;
+	}
+	
+	public String getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 
 	public ArrayList<Athlete> getMembers() {

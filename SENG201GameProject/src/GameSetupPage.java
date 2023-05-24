@@ -47,7 +47,7 @@ public class GameSetupPage {
 	private JLabel lblNewLabel_6;
 	private JLabel lblNewLabel_6_1;
 	private JLabel lblNewLabel_6_2;
-	
+	private JComboBox comboBox_1;
 	
 	
 	/**
@@ -334,9 +334,9 @@ public class GameSetupPage {
 					gameHandler.setPage(2);
 					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
 					gameHandler.setRemainingWeek(slider.getValue());
-					System.out.println(slider.getValue());
+					gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
 					gameHandler.setTeamName(textField.getText());
-					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getSelectedAthletes()));
+					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getNationality(),gameHandler.getSelectedAthletes()));
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
 			}
@@ -422,7 +422,7 @@ public class GameSetupPage {
 		lblNewLabel_6_2.setBounds(101, 73, 83, 16);
 		internalFrame.getContentPane().add(lblNewLabel_6_2);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		comboBox_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"INA", "JPN", "NZL", "USA", "MYS", "DNK", "IND", "KOR", "SGP", "CHN"}));
 		comboBox_1.setBounds(223, 167, 208, 27);

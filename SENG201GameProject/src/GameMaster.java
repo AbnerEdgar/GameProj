@@ -16,7 +16,6 @@ public class GameMaster {
 	public static void main(String[] args) {
 		try {
 			showSelectedPage(gameHandler.getPage());
-			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

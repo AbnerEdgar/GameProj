@@ -8,10 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.util.Iterator;
 
-
 public class GameHandler {
-	
-	
 	//:START -- App Property
 	private String appName;
 	private int page;
@@ -19,8 +16,8 @@ public class GameHandler {
 	
 	//:START -- Game Property
 	private ArrayList<Athlete> Athletes = new ArrayList<Athlete>();
-	private ArrayList<Item> marketRackets = new ArrayList<Item>();
-	private ArrayList<Item> marketShoes = new ArrayList<Item>();
+	private ArrayList<Racket> marketRackets = new ArrayList<Racket>();
+	private ArrayList<Shoe> marketShoes = new ArrayList<Shoe>();
 	private ArrayList<Athlete> marketAthletes = new ArrayList<Athlete>();
 	//:END -- Game Property
 	
@@ -38,6 +35,7 @@ public class GameHandler {
         add(new Athlete());
         add(new Athlete());
     }};
+    private String nationality;
 	private Team playerTeam;
 	private ArrayList<Item> Inventory = new ArrayList<Item>();
 	//:END -- Player Data
@@ -60,6 +58,7 @@ public class GameHandler {
 		
 		this.difficulty = 1;
 		this.seasonDur = 5;
+		this.nationality = "IDN";
 		
 		this.balance = 0;
 		this.points = 0;
@@ -69,6 +68,7 @@ public class GameHandler {
 		this.selectedIRacket = 0;
 		this.selectedIShoe = 0;
 		this.selectedIAthlete = 0;
+		
 		readDefaultFile();
 	}
 	
@@ -111,6 +111,14 @@ public class GameHandler {
 
 	public void setBalance(float balance) {
 		this.balance = balance;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
 	}
 
 	public int getPoints() {
@@ -177,13 +185,37 @@ public class GameHandler {
 		this.selectedIAthlete = selectedIAthlete;
 	}
 
+	public ArrayList<Racket> getMarketRackets() {
+		return marketRackets;
+	}
+
+	public void setMarketRackets(ArrayList<Racket> marketRackets) {
+		this.marketRackets = marketRackets;
+	}
+
+	public ArrayList<Shoe> getMarketShoes() {
+		return marketShoes;
+	}
+
+	public void setMarketShoes(ArrayList<Shoe> marketShoes) {
+		this.marketShoes = marketShoes;
+	}
+
+	public ArrayList<Athlete> getMarketAthletes() {
+		return marketAthletes;
+	}
+
+	public void setMarketAthletes(ArrayList<Athlete> marketAthletes) {
+		this.marketAthletes = marketAthletes;
+	}
+
 	//:END -- GETTER-SETTER
 	//:START -- Method	
 	public void readDefaultFile() {
 		
 		JSONParser jsonParser = new JSONParser();
 		
-		try (FileReader reader = new FileReader("athletes.json"))
+		try (FileReader reader = new FileReader("Athletes.json"))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
@@ -209,33 +241,60 @@ public class GameHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-		try (FileReader reader = new FileReader("rackets.json"))
+		try (FileReader reader = new FileReader("Rackets.json"))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
  
-            //READ JSON Default Athlete List
+            //READ JSON Default Racket List
             JSONObject racketList = (JSONObject) obj;
             //For every athlete in list
             for(Object key : racketList.keySet()) {
             	String itemId = (String) key;
                 JSONObject racket = (JSONObject) racketList.get(itemId);
 
-                // Access athlete's information
+                // Access racket's information
                 String name = (String) racket.get("name");
                 Integer weight = Integer.parseInt((String) racket.get("weight"));
+                Integer tension = Integer.parseInt((String) racket.get("tension"));
                 Float price = Float.parseFloat((String) racket.get("price"));
                 JSONObject stats = (JSONObject) racket.get("stats");
                 Float offense = Float.parseFloat((String) stats.get("offense"));
-                Float defence = Float.parseFloat((String) stats.get("defence"));
-                //ADD Default Athlete List
+                Float defense = Float.parseFloat((String) stats.get("defense"));
+                //ADD Default Racket List
                 //TODO:
-//                marketRackets.add(new (name, weight, price, offense, defence));
+                marketRackets.add(new Racket(name, offense, defense, weight, price, tension));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-		
+		try (FileReader reader = new FileReader("Shoes.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+ 
+            //READ JSON Default Racket List
+            JSONObject shoeList = (JSONObject) obj;
+            //For every athlete in list
+            for(Object key : shoeList.keySet()) {
+            	String itemId = (String) key;
+                JSONObject shoe = (JSONObject) shoeList.get(itemId);
+
+                // Access racket's information
+                String name = (String) shoe.get("name");
+                Integer weight = Integer.parseInt((String) shoe.get("weight"));
+                String grip = (String) shoe.get("grip");
+                Float price = Float.parseFloat((String) shoe.get("price"));
+                JSONObject stats = (JSONObject) shoe.get("stats");
+                Float offense = Float.parseFloat((String) stats.get("offense"));
+                Float defense = Float.parseFloat((String) stats.get("defense"));
+                //ADD Default Racket List
+                //TODO:
+                marketShoes.add(new Shoe(name, offense, defense, weight, price, grip));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		
 	}
 	

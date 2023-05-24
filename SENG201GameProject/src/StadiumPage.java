@@ -84,6 +84,13 @@ public class StadiumPage {
 		
 		JButton btnNewButton = new JButton("Join");
 		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(8);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
@@ -174,6 +181,13 @@ public class StadiumPage {
 		
 		JButton btnNewButton_2 = new JButton("Join");
 		btnNewButton_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(8);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
 		gl_panel_3.setHorizontalGroup(
 			gl_panel_3.createParallelGroup(Alignment.LEADING)
@@ -201,6 +215,13 @@ public class StadiumPage {
 		
 		JButton btnNewButton_1 = new JButton("Join");
 		btnNewButton_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(8);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.TRAILING)

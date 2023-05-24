@@ -18,6 +18,16 @@ public class MarketPage2 {
 
 	private JFrame frame;
 	private GameHandler gameHandler;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_2_1;
+	private JProgressBar progressBar_1;
+	private JProgressBar progressBar;
+	private JLabel lblNewLabel;
+	private JButton btnNewButton_1_2;
+	private JButton btnNewButton_1_2_1;
+	private JButton btnNewButton_1_2_2;
+	private JButton btnNewButton_1_2_3;
 
 	/**
 	 * Launch the application.
@@ -124,22 +134,22 @@ public class MarketPage2 {
 		lblNewLabel_6.setBounds(6, 22, 276, 52);
 		panel_1_1.add(lblNewLabel_6);
 		
-		JButton btnNewButton_1_2 = new JButton("65Z");
+		btnNewButton_1_2 = new JButton("65Z");
 		btnNewButton_1_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2.setBounds(17, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2);
 		
-		JButton btnNewButton_1_2_1 = new JButton("100ZZ");
+		btnNewButton_1_2_1 = new JButton("100ZZ");
 		btnNewButton_1_2_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1.setBounds(153, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_1);
 		
-		JButton btnNewButton_1_2_2 = new JButton("100ZZ");
+		btnNewButton_1_2_2 = new JButton("100ZZ");
 		btnNewButton_1_2_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_2.setBounds(153, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_2);
 		
-		JButton btnNewButton_1_2_3 = new JButton("100ZZ");
+		btnNewButton_1_2_3 = new JButton("100ZZ");
 		btnNewButton_1_2_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_3.setBounds(17, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_3);
@@ -164,7 +174,7 @@ public class MarketPage2 {
 		lblNewLabel_5_1.setBounds(16, 16, 82, 34);
 		internalFrame.getContentPane().add(lblNewLabel_5_1);
 		
-		JLabel lblNewLabel = new JLabel("1000Z");
+		lblNewLabel = new JLabel("1000Z");
 		lblNewLabel.setBounds(16, 48, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel);
 		
@@ -194,20 +204,22 @@ public class MarketPage2 {
 		lblNewLabel_4.setBounds(16, 313, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_4);
 		
-		JProgressBar progressBar_1 = new JProgressBar();
+		progressBar_1 = new JProgressBar();
+		progressBar_1.setMaximum(10);
 		progressBar_1.setBounds(79, 313, 82, 20);
 		internalFrame.getContentPane().add(progressBar_1);
 		
-		JProgressBar progressBar = new JProgressBar();
+		progressBar = new JProgressBar();
+		progressBar.setMaximum(10);
 		progressBar.setBackground(new Color(169, 169, 169));
 		progressBar.setBounds(79, 292, 82, 20);
 		internalFrame.getContentPane().add(progressBar);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("$ 123");
+		lblNewLabel_2_1 = new JLabel("$ 123");
 		lblNewLabel_2_1.setBounds(91, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("83 gram");
+		lblNewLabel_2 = new JLabel("83 gram");
 		lblNewLabel_2.setBounds(91, 241, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2);
 		
@@ -218,12 +230,27 @@ public class MarketPage2 {
 		panel.setBounds(518, 6, 112, 28);
 		frame.getContentPane().add(panel);
 		
-		JLabel lblNewLabel_3 = new JLabel("$....123");
+		lblNewLabel_3 = new JLabel("$....123");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		lblNewLabel_3.setBounds(6, 6, 100, 16);
 		panel.add(lblNewLabel_3);
 		internalFrame.setVisible(true);
 	}
-
+	
+	public void onAppear() {
+		btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
+		btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
+		btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
+		btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
+		refreshCard();
+	}
+	
+	public void refreshCard() {
+		lblNewLabel.setText(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getName());
+		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight()));
+		progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getOffense());
+		progressBar.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
+		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
+	}
 }
