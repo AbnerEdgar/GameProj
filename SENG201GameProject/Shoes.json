@@ -1,0 +1,102 @@
+{
+  "shoe1": {
+    "name": "100ZZ",
+    "weight": "29",
+    "price": "156",
+    "grip": "Low",
+    "stats": {
+      "offense": "7",
+      "defense": "4"
+    }
+  },
+  "shoe2": {
+    "name": "200AA",
+    "weight": "31",
+    "price": "220",
+    "grip": "Medium",
+    "stats": {
+      "offense": "6",
+      "defense": "5"
+    }
+  },
+  "shoe3": {
+    "name": "300BB",
+    "weight": "28",
+    "price": "184",
+    "grip": "High",
+    "stats": {
+      "offense": "8",
+      "defense": "6"
+    }
+  },
+  "shoe4": {
+    "name": "400CC",
+    "weight": "30",
+    "price": "198",
+    "grip": "Low",
+    "stats": {
+      "offense": "5",
+      "defense": "7"
+    }
+  },
+  "shoe5": {
+    "name": "500DD",
+    "weight": "32",
+    "price": "176",
+    "grip": "Medium",
+    "stats": {
+      "offense": "9",
+      "defense": "5"
+    }
+  },
+  "shoe6": {
+    "name": "600EE",
+    "weight": "30",
+    "price": "210",
+    "grip": "High",
+    "stats": {
+      "offense": "7",
+      "defense": "8"
+    }
+  },
+  "shoe7": {
+    "name": "700FF",
+    "weight": "28",
+    "price": "192",
+    "grip": "Low",
+    "stats": {
+      "offense": "6",
+      "defense": "4"
+    }
+  },
+  "shoe8": {
+    "name": "800GG",
+    "weight": "31",
+    "price": "240",
+    "grip": "Medium",
+    "stats": {
+      "offense": "8",
+      "defense": "7"
+    }
+  },
+  "shoe9": {
+    "name": "900HH",
+    "weight": "29",
+    "price": "218",
+    "grip": "High",
+    "stats": {
+      "offense": "5",
+      "defense": "6"
+    }
+  },
+  "shoe10": {
+    "name": "1000II",
+    "weight": "32",
+    "price": "205",
+    "grip": "Low",
+    "stats": {
+      "offense": "7",
+      "defense": "9"
+    }
+  }
+}
