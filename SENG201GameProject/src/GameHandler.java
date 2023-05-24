@@ -40,7 +40,18 @@ public class GameHandler {
     }};
     private String nationality;
 	private Team playerTeam;
-	private ArrayList<Item> Inventory = new ArrayList<Item>();
+	private ArrayList<Racket> InventoryRacket = new ArrayList<Racket>() {{
+        add(new Racket());
+        add(new Racket());
+        add(new Racket());
+        add(new Racket());
+    }};
+    private ArrayList<Shoe> InventoryShoe = new ArrayList<Shoe>() {{
+        add(new Shoe());
+        add(new Shoe());
+        add(new Shoe());
+        add(new Shoe());
+    }};
 	//:END -- Player Data
 	
 	//START -- Market Data
@@ -49,7 +60,9 @@ public class GameHandler {
 	private int selectedIRacket;
 	private int selectedIShoe;
 	private int selectedIAthlete;
-	//:END -- Market Data
+	//to know if the item is racket, shoe or athlete
+	private int buyCategory; // 1 racket, 2 shoe, 3 athlete
+	//:END -- Market Data 
 	
 	GameHandler(){
 		initialize();
@@ -62,7 +75,7 @@ public class GameHandler {
 		this.difficulty = 1;
 		this.nationality = "IDN";
 		
-		this.balance = 0;
+		this.balance = 1000;
 		this.points = 0;
 		this.currentWeek = 1;
 		this.remainingWeek = 4;
@@ -70,6 +83,7 @@ public class GameHandler {
 		this.selectedIRacket = 0;
 		this.selectedIShoe = 0;
 		this.selectedIAthlete = 0;
+		this.buyCategory = 0;
 		
 		this.minBotLevel = 0;
 		this.maxBotLevel = 0;
@@ -228,6 +242,31 @@ public class GameHandler {
 
 	public void setWeeklyMatches(ArrayList<ArrayList<Match>> weeklyMatches) {
 		WeeklyMatches = weeklyMatches;
+	}
+	
+	
+	public int getBuyCategory() {
+		return buyCategory;
+	}
+
+	public void setBuyCategory(int buyCategory) {
+		this.buyCategory = buyCategory;
+	}
+	
+	public ArrayList<Racket> getInventoryRacket() {
+		return InventoryRacket;
+	}
+
+	public void setInventoryRacket(ArrayList<Racket> inventoryRacket) {
+		InventoryRacket = inventoryRacket;
+	}
+	
+	public ArrayList<Shoe> getInventoryShoe() {
+		return InventoryShoe;
+	}
+
+	public void setInventoryShoe(ArrayList<Shoe> inventoryShoe) {
+		InventoryShoe = inventoryShoe;
 	}
 
 	//:END -- GETTER-SETTER
@@ -395,6 +434,32 @@ public class GameHandler {
 	public int getActiveMembers() {
 		//TODO: Get the currently active member in club(team)
 		return 0;
+	}
+	
+	public boolean racketInventoryAvailable() {
+		int count = 0;
+		boolean available = false;
+		while(count < getInventoryRacket().size()-1) {
+			if(getInventoryRacket().get(count).getName().equals("")) {
+				available = true;
+				break;
+			}
+			count++;
+		}
+		return available;	
+	}
+	
+	public boolean shoeInventoryAvailable() {
+		int count = 0;
+		boolean available = false;
+		while(count < getInventoryShoe().size()-1) {
+			if(getInventoryShoe().get(count).getName().equals("")) {
+				available = true;
+				break;
+			}
+			count++;
+		}
+		return available;	
 	}
 	
 //	public float getCompPrice() {

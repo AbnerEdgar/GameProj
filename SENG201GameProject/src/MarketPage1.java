@@ -30,6 +30,7 @@ public class MarketPage1 {
 	private JButton btnNewButton_1_2_1;
 	private JButton btnNewButton_1_2_2;
 	private JButton btnNewButton_1_2_3;
+	private JLabel lblNewLabel_3;
 	/**
 	 * Launch the application.
 	 */
@@ -154,6 +155,28 @@ public class MarketPage1 {
 		JButton btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(104, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				// if money is enough then
+				if(gameHandler.getBalance() >= gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()) {
+					// if racket inven have a slot then
+					if(gameHandler.racketInventoryAvailable()) {
+						gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice());
+						int count = 0;
+						while(count < gameHandler.getInventoryRacket().size()-1) {
+							if(gameHandler.getInventoryRacket().get(count).getName().equals("")) {
+								gameHandler.getInventoryRacket().set(count, gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()));
+								gameHandler.setPage(10);
+								GameMaster.showSelectedPage(gameHandler.getPage());
+								break;
+							}
+							count++;
+						}
+					}
+				}
+			}
+		});
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
@@ -162,7 +185,7 @@ public class MarketPage1 {
 		frmBadmintonTournamentMarket.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel_3 = new JLabel("$....123");
+		lblNewLabel_3 = new JLabel("$....123");
 		lblNewLabel_3.setBounds(6, 6, 100, 16);
 		panel.add(lblNewLabel_3);
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -289,6 +312,7 @@ public class MarketPage1 {
 		btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
 		btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
+		lblNewLabel_3.setText("$"+gameHandler.getBalance());
 		refreshCard();
 	}
 	

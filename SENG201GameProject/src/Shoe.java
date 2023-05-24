@@ -2,7 +2,7 @@ public class Shoe extends Item{
 	
 	private String grip;
 	
-	Shoe(String grip){
+	Shoe(){
 		super();
 		this.grip = "";
 	}

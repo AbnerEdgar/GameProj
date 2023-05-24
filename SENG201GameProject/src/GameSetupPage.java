@@ -348,6 +348,18 @@ public class GameSetupPage {
 					gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
 					gameHandler.setTeamName(textField.getText());
 					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getNationality(),gameHandler.getSelectedAthletes()));
+					int count = 0;
+					while(count < gameHandler.getAthletes().size()-1) {
+						if(gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(0))) {
+						}else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(1))) {
+						}else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(2))) {
+						}else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(3))) {
+						}else {
+							gameHandler.getMarketAthletes().add(gameHandler.getAthletes().get(count));
+						}
+						
+						count++;
+					}
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
 			}
@@ -453,7 +465,7 @@ public class GameSetupPage {
 		lblNewLabel_6_1.setText(Integer.toString(athlete.getage()));
 		lblNewLabel_6_2.setText(Float.toString(athlete.getheight())+" cm");
 		progressBar_3.setValue((int) athlete.getOffense());
-		progressBar_1_1.setValue((int) athlete.getDefence());
+		progressBar_1_1.setValue((int) athlete.getDefense());
 		progressBar_2_1.setValue((int) athlete.getStamina());
 	}
 	

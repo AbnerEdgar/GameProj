@@ -12,6 +12,7 @@ public class GameMaster {
 	static MarketPage2 marketPage2 = new MarketPage2(gameHandler);
 	static MarketPage3 marketPage3 = new MarketPage3(gameHandler);
 	static CompetitionPage competitionPage = new CompetitionPage(gameHandler);
+	static AfterBuyItemPage afterBuyPage = new AfterBuyItemPage(gameHandler);
 //	static TeamInventoryPage inventoryPage = new TeamInventoryPage(gameHandler);
 	
 	public static void main(String[] args) {
@@ -56,6 +57,8 @@ public class GameMaster {
 			competitionPage.showPage();
 		}else if (page == 9) {
 			
+		}else if (page == 10) {
+			afterBuyPage.showPage();
 		}
 	}
 }

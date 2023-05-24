@@ -3,7 +3,11 @@ public class Team {
 	private String name;
 	//MARK: ACTIVE MEMBER --> Members in team
 	private int activeMembers;
-	private int selectedActiveMembers;
+	// amount of members
+	// in the club out of 6
+	private int selectedActiveMembers; 
+	// index of active member 
+	// in the club page
 	private ArrayList<Athlete> members;
 	private String nationality;
 	

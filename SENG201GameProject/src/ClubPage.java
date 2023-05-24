@@ -363,6 +363,7 @@ public class ClubPage {
 		btnNewButton_1_1.setText(getPlayer(4).getName());
 		btnNewButton_3.setText(getPlayer(3).getName());
 		btnNewButton_4.setText(getPlayer(6).getName());
+		btnNewButton_5.setText(gameHandler.getInventoryRacket().get(0).getName());
 	}
 	
 	public void refreshCard() {
@@ -370,7 +371,7 @@ public class ClubPage {
 		lblNewLabel_9.setText(Integer.toString(getPlayer(selectedAthlete).getage()));
 		lblNewLabel_9_1.setText(Float.toString(getPlayer(selectedAthlete).getheight()));
 		progressBar.setValue((int) getPlayer(selectedAthlete).getOffense());
-		progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefence());
+		progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefense());
 		progressBar_2.setValue((int) getPlayer(selectedAthlete).getStamina());
 		btnNewButton_5.setText(getPlayer(selectedAthlete).getEquipment(0).getName());
 		btnNewButton_5_1.setText(getPlayer(selectedAthlete).getEquipment(1).getName());

@@ -20,7 +20,7 @@ public class Athlete {
         add(new Item());
     }};
 	private float offense;
-	private float defence;
+	private float defense;
 	private float stamina;
 	private float price;
 	//:END -- Statistic Property
@@ -30,7 +30,7 @@ public class Athlete {
 		this.age = 0;
 		this.height = 0f;
 		this.offense = 0;
-		this.defence = 0;
+		this.defense = 0;
 		this.stamina = 0;
 		this.price = 0;
 		this.image = "image/" + name;
@@ -38,13 +38,13 @@ public class Athlete {
 	
 	
 	
-	public Athlete(String name, int age, float height, float offense, float defence,
+	public Athlete(String name, int age, float height, float offense, float defense,
 			float stamina, float price) {
 		this.name = name;
 		this.age = age;
 		this.height = height;
 		this.offense = offense;
-		this.defence = defence;
+		this.defense = defense;
 		this.stamina = stamina;
 		this.price = price;
 		this.image = "image/" + name;
@@ -81,11 +81,11 @@ public class Athlete {
 	public void setOffense(float offense) {
 		this.offense = offense;
 	}
-	public float getDefence() {
-		return defence;
+	public float getDefense() {
+		return defense;
 	}
-	public void setDefence(float defence) {
-		this.defence = defence;
+	public void setDefence(float defense) {
+		this.defense = defense;
 	}
 	public float getStamina() {
 		return stamina;

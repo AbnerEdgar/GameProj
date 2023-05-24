@@ -2,7 +2,7 @@ public class Racket extends Item{
 	
 	private int tension;
 	
-	Racket(int tension){
+	Racket(){
 		super();
 		this.tension = 0;
 	}

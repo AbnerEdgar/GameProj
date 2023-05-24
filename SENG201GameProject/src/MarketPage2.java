@@ -200,9 +200,31 @@ public class MarketPage2 {
 		frame.getContentPane().add(internalFrame);
 		internalFrame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_2 = new JButton("Equip");
+		JButton btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(100, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				// if money is enough then
+				if(gameHandler.getBalance() >= gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()) {
+					// if racket inven have a slot then
+					if(gameHandler.shoeInventoryAvailable()) {
+						gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice());
+						int count = 0;
+						while(count < gameHandler.getInventoryShoe().size()-1) {
+							if(gameHandler.getInventoryShoe().get(count).getName().equals("")) {
+								gameHandler.getInventoryShoe().set(count, gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()));
+								gameHandler.setPage(10);
+								GameMaster.showSelectedPage(gameHandler.getPage());
+								break;
+							}
+							count++;
+						}
+					}
+				}
+			}
+		});
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Y O N E X");
 		lblNewLabel_5_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
