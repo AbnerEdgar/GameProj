@@ -49,6 +49,10 @@ public class ClubPage {
 	private JButton btnNewButton_4;
 	private JButton btnNewButton_7;
 	private JButton btnNewButton_8;
+	private JLabel lblNewLabel_9;
+	private JLabel lblNewLabel_9_1;
+	private JPanel panel_1;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -101,6 +105,8 @@ public class ClubPage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(false);
+				gameHandler.getPlayerTeam().setSelectedActiveMembers(0);
 				selectedAthlete = 0;
 				refreshCard();
 			}
@@ -145,7 +151,7 @@ public class ClubPage {
 		lblNewLabel_7.setBounds(20, 287, 68, 20);
 		lblNewLabel_7.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBackground(new Color(245, 245, 220));
 		panel_1.setBounds(20, 342, 274, 31);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
@@ -154,21 +160,36 @@ public class ClubPage {
 		lblNewLabel_3_1.setBounds(20, 21, 55, 20);
 		lblNewLabel_3_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_9 = new JLabel("New label");
+		lblNewLabel_9 = new JLabel("");
 		lblNewLabel_9.setBounds(116, 47, 187, 20);
 		lblNewLabel_9.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_9_1 = new JLabel("New label");
+		lblNewLabel_9_1 = new JLabel("");
 		lblNewLabel_9_1.setBounds(116, 73, 187, 20);
 		lblNewLabel_9_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		panel.setLayout(null);
 		panel_1.setLayout(null);
 		panel.add(panel_1);
 		
+		
 		btnNewButton_7 = new JButton("Equip");
 		btnNewButton_7.setBounds(0, 0, 140, 29);
+		btnNewButton_7.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				if(!getPlayer(selectedAthlete).getName().equals("")) {
+					int selectedIndex = gameHandler.getPlayerTeam().getSelectedActiveMembers();
+					//temp Player diambil dari active player
+					Athlete tempPlayer = getPlayer(selectedIndex);
+					gameHandler.getPlayerTeam().getMembers().set(selectedIndex, getPlayer(selectedAthlete));
+					gameHandler.getPlayerTeam().getMembers().set(selectedAthlete, tempPlayer);
+					System.out.println(gameHandler.getPlayerTeam().getMembers().get(0) == getPlayer(0));
+					onAppear();
+					refreshCard();
+				}
+			}
+		});
 		panel_1.add(btnNewButton_7);
-		
 		btnNewButton_8 = new JButton("Sell");
 		btnNewButton_8.setBounds(134, 0, 140, 29);
 		panel_1.add(btnNewButton_8);
@@ -211,6 +232,8 @@ public class ClubPage {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(false);
+				gameHandler.getPlayerTeam().setSelectedActiveMembers(1);
 				selectedAthlete = 1;
 				refreshCard();
 			}
@@ -223,6 +246,7 @@ public class ClubPage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(true);
 				selectedAthlete = 2;
 				refreshCard();
 			}
@@ -236,6 +260,7 @@ public class ClubPage {
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(true);
 				selectedAthlete = 5;
 				refreshCard();
 			}
@@ -248,6 +273,7 @@ public class ClubPage {
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(true);
 				selectedAthlete = 4;
 				refreshCard();
 			}
@@ -260,6 +286,7 @@ public class ClubPage {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				panel_1.setVisible(true);
 				selectedAthlete = 3;
 				refreshCard();
 			}
@@ -338,6 +365,8 @@ public class ClubPage {
 	
 	public void refreshCard() {
 		lblNewLabel_2.setText(getPlayer(selectedAthlete).getName());
+		lblNewLabel_9.setText(getPlayer(selectedAthlete).getage());
+		lblNewLabel_9_1.setText(getPlayer(selectedAthlete).getheight());
 		progressBar.setValue((int) getPlayer(selectedAthlete).getOffense());
 		progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefence());
 		progressBar_2.setValue((int) getPlayer(selectedAthlete).getStamina());

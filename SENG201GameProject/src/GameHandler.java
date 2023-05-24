@@ -158,14 +158,14 @@ public class GameHandler {
 
                 // Access athlete's information
                 String name = (String) athlete.get("name");
-                String position = (String) athlete.get("position");
-                String nationality = (String) athlete.get("nationality");
+                String age = (String) athlete.get("age");
+                String height = (String) athlete.get("height");
                 JSONObject stats = (JSONObject) athlete.get("stats");
                 Float power = Float.parseFloat((String) stats.get("power")) ;
                 Float agility = Float.parseFloat((String) stats.get("agility"));
                 Float stamina = Float.parseFloat((String) stats.get("stamina"));
                 
-                Athletes.add(new Athlete(name, position, nationality, power, agility, stamina, stamina));
+                Athletes.add(new Athlete(name, age, height, power, agility, stamina, stamina));
             }
  
         } catch (Exception e) {
@@ -211,6 +211,11 @@ public class GameHandler {
 	
 	public void generateTeam(Team team) {
 		playerTeam = team;
+	}
+	
+	public int getActiveMembers() {
+		//TODO: Get the currently active member in club(team)
+		return 0;
 	}
 	//:END -- Method	
 	

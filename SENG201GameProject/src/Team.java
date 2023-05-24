@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 public class Team {
 	private String name;
+	//MARK: ACTIVE MEMBER --> Members in team
 	private int activeMembers;
+	private int selectedActiveMembers = 0;
 	private ArrayList<Athlete> members = new ArrayList<Athlete>();
+	private 
 	
 	Team(String name){
 		for(int i = 0; i < 8; i++) {
@@ -44,6 +47,14 @@ public class Team {
 
 	public void setMembers(ArrayList<Athlete> members) {
 		this.members = members;
+	}
+	
+	public int getSelectedActiveMembers() {
+		return selectedActiveMembers;
+	}
+
+	public void setSelectedActiveMembers(int selectedActiveMembers) {
+		this.selectedActiveMembers = selectedActiveMembers;
 	}
 	
 	

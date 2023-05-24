@@ -44,6 +44,9 @@ public class GameSetupPage {
 	private JProgressBar progressBar_3;
 	private JProgressBar progressBar_1_1;
 	private JProgressBar progressBar_2_1;
+	private JLabel lblNewLabel_6;
+	private JLabel lblNewLabel_6_1;
+	private JLabel lblNewLabel_6_2;
 	
 	
 	
@@ -331,7 +334,9 @@ public class GameSetupPage {
 					gameHandler.setPage(2);
 					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
 					gameHandler.setRemainingWeek(slider.getValue());
+					System.out.println(slider.getValue());
 					gameHandler.setTeamName(textField.getText());
+					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getSelectedAthletes()));
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
 			}
@@ -405,15 +410,15 @@ public class GameSetupPage {
 		btnNewButton_4_1.setBounds(29, 252, 205, 29);
 		internalFrame.getContentPane().add(btnNewButton_4_1);
 		
-		JLabel lblNewLabel_6 = new JLabel("New label");
+		lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setBounds(101, 21, 83, 16);
 		internalFrame.getContentPane().add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_6_1 = new JLabel("New label");
+		lblNewLabel_6_1 = new JLabel("");
 		lblNewLabel_6_1.setBounds(101, 47, 83, 16);
 		internalFrame.getContentPane().add(lblNewLabel_6_1);
 		
-		JLabel lblNewLabel_6_2 = new JLabel("New label");
+		lblNewLabel_6_2 = new JLabel("");
 		lblNewLabel_6_2.setBounds(101, 73, 83, 16);
 		internalFrame.getContentPane().add(lblNewLabel_6_2);
 		
@@ -430,10 +435,12 @@ public class GameSetupPage {
 			    refreshSelected();
 			   }
 			  });
-		
 	}
 	
 	public void changeCard(Athlete athlete) {
+		lblNewLabel_6.setText(athlete.getName());
+		lblNewLabel_6_1.setText(athlete.getage());
+		lblNewLabel_6_2.setText(athlete.getheight()+" cm");
 		progressBar_3.setValue((int) athlete.getOffense());
 		progressBar_1_1.setValue((int) athlete.getDefence());
 		progressBar_2_1.setValue((int) athlete.getStamina());

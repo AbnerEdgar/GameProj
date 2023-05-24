@@ -10,8 +10,8 @@ public class Athlete {
 	
 	//:START -- Bio Property
 	private String name;
-	private String position; 
-	private String nationality;
+	private String age; 
+	private String height;
 	//:END -- Bio Property
 	
 	//:START -- Statistic Property
@@ -27,8 +27,8 @@ public class Athlete {
 	
 	public Athlete() {
 		this.name = "";
-		this.position = "";
-		this.nationality = "";
+		this.age = "";
+		this.height = "";
 		this.offense = 0;
 		this.defence = 0;
 		this.stamina = 0;
@@ -38,11 +38,11 @@ public class Athlete {
 	
 	
 	
-	public Athlete(String name, String position, String nationality, float offense, float defence,
+	public Athlete(String name, String age, String height, float offense, float defence,
 			float stamina, float price) {
 		this.name = name;
-		this.position = position;
-		this.nationality = nationality.toUpperCase();
+		this.age = age;
+		this.height = height.toUpperCase();
 		this.offense = offense;
 		this.defence = defence;
 		this.stamina = stamina;
@@ -63,17 +63,17 @@ public class Athlete {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPosition() {
-		return position;
+	public String getage() {
+		return age;
 	}
-	public void setPosition(String position) {
-		this.position = position;
+	public void setage(String age) {
+		this.age = age;
 	}
-	public String getNationality() {
-		return nationality;
+	public String getheight() {
+		return height;
 	}
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public void setheight(String height) {
+		this.height = height;
 	}
 	public float getOffense() {
 		return offense;
@@ -110,10 +110,6 @@ public class Athlete {
 	}
 	
 	//:END -- GETTER-SETTER
-	
-	
-
-
 
 	//:START -- Method
 	public boolean isEquipmentFull() {

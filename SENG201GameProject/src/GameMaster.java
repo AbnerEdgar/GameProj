@@ -33,14 +33,15 @@ public class GameMaster {
 		marketPage2.hidePage();
 		marketPage3.hidePage();
 	}
-	
+	//note untuk tombol sell diganti terminate 
+	// tombol terminatenya kayaknya harus di bikin page baru karena
+	// biar player bisa confirm yes or no untuk terminate contractnya
 	public static void showSelectedPage(int page) {
 		hideAllPage();
 		if(page == 1) {
 			setupPage.showPage();
 		}else if(page == 2) {
 			homePage.onAppear();
-			gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getSelectedAthletes()));
 			homePage.showPage();
 		}else if(page == 3) {
 			clubPage.onAppear();

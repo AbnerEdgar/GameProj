@@ -23,7 +23,9 @@ public class MainGamePage {
 	private JLabel lblNewLabel_4_1;
 	private JLabel lblNewLabel_4_2;
 	private JLabel lblNewLabel_4_3;
-	
+	private JLabel lblNewLabel_4_2_1;
+	private JLabel lblNewLabel_4_2_1_1;
+	private JLabel lblNewLabel_4_2_1_2;
 	
 	/**
 	 * Launch the application.
@@ -177,7 +179,7 @@ public class MainGamePage {
 		lblNewLabel_4_1.setBounds(176, 77, 82, 16);
 		panel.add(lblNewLabel_4_1);
 		
-		lblNewLabel_4_2 = new JLabel(Float.toString(gameHandler.getCurrentSeason()));
+		lblNewLabel_4_2 = new JLabel(Float.toString(gameHandler.getRemainingWeek()));
 		lblNewLabel_4_2.setFont(new Font("Futura", Font.PLAIN, 16));
 		lblNewLabel_4_2.setBounds(176, 36, 82, 16);
 		panel.add(lblNewLabel_4_2);
@@ -194,9 +196,9 @@ public class MainGamePage {
 		lblNewLabel_2_1.setBounds(317, 29, 142, 26);
 		panel.add(lblNewLabel_2_1);
 		
-		JLabel lblNewLabel_4_2_1 = new JLabel("0.0");
+		lblNewLabel_4_2_1 = new JLabel("0.0");
 		lblNewLabel_4_2_1.setFont(new Font("Futura", Font.PLAIN, 16));
-		lblNewLabel_4_2_1.setBounds(485, 35, 24, 16);
+		lblNewLabel_4_2_1.setBounds(458, 35, 51, 16);
 		panel.add(lblNewLabel_4_2_1);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Matchs Won:");
@@ -209,14 +211,14 @@ public class MainGamePage {
 		lblNewLabel_2_1_1_1.setBounds(317, 70, 117, 26);
 		panel.add(lblNewLabel_2_1_1_1);
 		
-		JLabel lblNewLabel_4_2_1_1 = new JLabel("0.0");
+		lblNewLabel_4_2_1_1 = new JLabel("0.0");
 		lblNewLabel_4_2_1_1.setFont(new Font("Futura", Font.PLAIN, 16));
-		lblNewLabel_4_2_1_1.setBounds(485, 56, 24, 16);
+		lblNewLabel_4_2_1_1.setBounds(458, 56, 51, 16);
 		panel.add(lblNewLabel_4_2_1_1);
 		
-		JLabel lblNewLabel_4_2_1_2 = new JLabel("0.0");
+		lblNewLabel_4_2_1_2 = new JLabel("0.0");
 		lblNewLabel_4_2_1_2.setFont(new Font("Futura", Font.PLAIN, 16));
-		lblNewLabel_4_2_1_2.setBounds(485, 77, 24, 16);
+		lblNewLabel_4_2_1_2.setBounds(458, 77, 51, 16);
 		panel.add(lblNewLabel_4_2_1_2);
 		frmBadmintonTournamentMain.getContentPane().add(panel);
 		frmBadmintonTournamentMain.getContentPane().add(btnNewButton);
@@ -232,7 +234,10 @@ public class MainGamePage {
 	public void onAppear() {
 		lblNewLabel_4.setText(Float.toString(gameHandler.getBalance()));
 		lblNewLabel_4_1.setText(Float.toString(gameHandler.getPoints()));
-		lblNewLabel_4_2.setText(Float.toString(gameHandler.getCurrentSeason()));
-		lblNewLabel_4_3.setText(Float.toString(gameHandler.getRemainingWeek()));
+		lblNewLabel_4_2.setText(Integer.toString(gameHandler.getRemainingWeek()));
+		//TODO: active member update, match won, match loss
+		lblNewLabel_4_2_1.setText("");
+		lblNewLabel_4_2_1_1.setText("");
+		lblNewLabel_4_2_1_2.setText("");
 	}
 }

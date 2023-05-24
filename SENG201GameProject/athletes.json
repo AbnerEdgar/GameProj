@@ -1,8 +1,8 @@
 {
   "athlete1": {
     "name": "Jason",
-    "position": "Doubles Player",
-    "nationality": "IDN",
+    "age": "20",
+    "height": "182",
     "stats": {
       "power": "80",
       "agility": "80",
@@ -11,8 +11,8 @@
   },
   "athlete2": {
     "name": "Alexander",
-    "position": "Doubles Player",
-    "nationality": "USA",
+    "age": "22",
+    "height": "183",
     "stats": {
       "power": "70",
       "agility": "70",
@@ -21,8 +21,8 @@
   },
   "athlete3": {
     "name": "Luis",
-    "position": "Doubles Player",
-    "nationality": "ESP",
+    "age": "27",
+    "height": "179",
     "stats": {
       "power": "60",
       "agility": "80",
@@ -31,8 +31,8 @@
   },
   "athlete4": {
     "name": "Christopher",
-    "position": "Doubles Player",
-    "nationality": "BRA",
+    "age": "26",
+    "height": "183",
     "stats": {
       "power": "80",
       "agility": "60",
@@ -41,8 +41,8 @@
   },
   "athlete5": {
     "name": "William",
-    "position": "Doubles Player",
-    "nationality": "GER",
+    "age": "23",
+    "height": "176",
     "stats": {
       "power": "90",
       "agility": "70",
@@ -51,8 +51,8 @@
   },
   "athlete6": {
     "name": "Benjamin",
-    "position": "Doubles Player",
-    "nationality": "FRA",
+    "age": "21",
+    "height": "171",
     "stats": {
       "power": "70",
       "agility": "90",
@@ -61,8 +61,8 @@
   },
   "athlete7": {
     "name": "Daniel",
-    "position": "Doubles Player",
-    "nationality": "ARG",
+    "age": "28",
+    "height": "179",
     "stats": {
       "power": "80",
       "agility": "80",
@@ -71,8 +71,8 @@
   },
   "athlete8": {
     "name": "Michael",
-    "position": "Doubles Player",
-    "nationality": "CAN",
+    "age": "26",
+    "height": "175",
     "stats": {
       "power": "70",
       "agility": "70",
@@ -81,8 +81,8 @@
   },
   "athlete9": {
     "name": "Thomas",
-    "position": "Doubles Player",
-    "nationality": "SWE",
+    "age": "27",
+    "height": "186",
     "stats": {
       "power": "70",
       "agility": "80",
