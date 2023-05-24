@@ -15,11 +15,30 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
+import java.util.Random;
 
 public class StadiumPage {
 
 	private JFrame frmBadmintonTournamentStadium;
 	private GameHandler gameHandler;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblSeaGames;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel_1_1;
+	private JLabel lblNewLabel_2_1;
+	private JLabel lblOlympic;
+	private JLabel lblNewLabel_1_2;
+	private JLabel lblNewLabel_2_2;
+	private JButton btnNewButton_4;
+	private JLabel lblBWF;
+	private JLabel lblNewLabel_1_3;
+	private JLabel lblNewLabel_2_3;
+	private JButton btnNewButton_2;
+	
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -49,6 +68,7 @@ public class StadiumPage {
 		frmBadmintonTournamentStadium.setVisible(false);
 	}
 	public void showPage() {
+		onAppear();
 		frmBadmintonTournamentStadium.setVisible(true);
 	}
 
@@ -69,20 +89,20 @@ public class StadiumPage {
 		panel.setBounds(14, 79, 144, 192);
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
-		JLabel lblNewLabel = new JLabel("THOMAS CUP");
+		lblNewLabel = new JLabel("THOMAS CUP");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblNewLabel_1 = new JLabel("$ 700");
+		lblNewLabel_1 = new JLabel("$ 700");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 22));
 		
-		JLabel lblNewLabel_2 = new JLabel("50 points");
+		lblNewLabel_2 = new JLabel("50 points");
 		lblNewLabel_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnNewButton = new JButton("Join");
+		btnNewButton = new JButton("Join");
 		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
@@ -123,36 +143,37 @@ public class StadiumPage {
 		panel_1.setBounds(164, 79, 144, 192);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
-		JLabel lblSeaGames = new JLabel("SEA GAMES");
+		lblSeaGames = new JLabel("SEA GAMES");
 		lblSeaGames.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		lblSeaGames.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("$ 250");
+		lblNewLabel_1_1 = new JLabel("$ 250");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 22));
 		
-		JLabel lblNewLabel_2_1 = new JLabel("50 points");
+		lblNewLabel_2_1 = new JLabel("50 points");
 		lblNewLabel_2_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(240, 230, 140));
 		panel_2.setBounds(314, 79, 142, 192);
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
-		JLabel lblOlympic = new JLabel("OLYMPIC ");
+		lblOlympic = new JLabel("OLYMPIC ");
 		lblOlympic.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOlympic.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_1_2 = new JLabel("$ 400");
+		lblNewLabel_1_2 = new JLabel("$ 400");
 		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 22));
 		
-		JLabel lblNewLabel_2_2 = new JLabel("50 points");
+		lblNewLabel_2_2 = new JLabel("50 points");
 		lblNewLabel_2_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnNewButton_4 = new JButton("Back");
+		btnNewButton_4 = new JButton("Back");
 		btnNewButton_4.setBounds(6, 6, 60, 29);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			@Override 
@@ -167,19 +188,19 @@ public class StadiumPage {
 		panel_3.setBounds(462, 79, 144, 192);
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		
-		JLabel lblBWF = new JLabel("NZ OPEN");
+		lblBWF = new JLabel("NZ OPEN");
 		lblBWF.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBWF.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
-		JLabel lblNewLabel_1_3 = new JLabel("$ 300");
+		lblNewLabel_1_3 = new JLabel("$ 300");
 		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 22));
 		
-		JLabel lblNewLabel_2_3 = new JLabel("50 points");
+		lblNewLabel_2_3 = new JLabel("50 points");
 		lblNewLabel_2_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnNewButton_2 = new JButton("Join");
+		btnNewButton_2 = new JButton("Join");
 		btnNewButton_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
@@ -286,5 +307,41 @@ public class StadiumPage {
 		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 35));
 		lblNewLabel_3.setBounds(0, 14, 621, 53);
 		frmBadmintonTournamentStadium.getContentPane().add(lblNewLabel_3);
+	}
+	public void onAppear() {
+		lblNewLabel.setText(getMatchName(0));
+		lblNewLabel_1.setText("$"+Float.toString(getMatchPrice(0)));
+		lblNewLabel_2.setText(Float.toString(getMatchPoint(0))+"points");
+		lblSeaGames.setText(getMatchName(1));
+		lblNewLabel_1_1.setText("$"+Float.toString(getMatchPrice(1)));
+		lblNewLabel_2_1.setText(Float.toString(getMatchPoint(1))+"points");
+		lblOlympic.setText(getMatchName(2));
+		lblNewLabel_1_2.setText("$"+Float.toString(getMatchPrice(2)));
+		lblNewLabel_2_2.setText(Float.toString(getMatchPoint(2))+"points");
+		lblBWF.setText(getMatchName(3));
+		lblNewLabel_1_3.setText("$"+Float.toString(getMatchPrice(3)));
+		lblNewLabel_2_3.setText(Float.toString(getMatchPoint(3))+"points");
+	
+	}
+	public String getMatchName(int index) {
+		return gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getName();
+	}
+	public float getMatchPrice(int index) {
+		int price = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPrice();
+		Random random = new Random();
+		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
+		float currentWeek = gameHandler.getCurrentWeek();
+		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
+		float calcPrice = price + ((float) price * ((randInt/10) * 0.3f)) + ((float) price * (currentWeek/totalWeek) * 0.9f);
+		return calcPrice;
+	}
+	public float getMatchPoint(int index) {
+		int points = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPoint();
+		Random random = new Random();
+		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
+		float currentWeek = gameHandler.getCurrentWeek();
+		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
+		float calcPoints = points + ((float) points * ((randInt/10) * 0.3f)) + ((float) points * (currentWeek/totalWeek) * 0.9f);
+		return calcPoints;
 	}
 }

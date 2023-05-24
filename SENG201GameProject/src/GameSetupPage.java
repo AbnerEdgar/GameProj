@@ -333,7 +333,18 @@ public class GameSetupPage {
 				if(isWithinFormat && isMemberSelected) {
 					gameHandler.setPage(2);
 					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
-					gameHandler.setRemainingWeek(slider.getValue());
+					if(gameHandler.getDifficulty() == 1) {
+						gameHandler.setMinBotLevel(1);
+						gameHandler.setMaxBotLevel(3);
+					}else if(gameHandler.getDifficulty() == 2) {
+						gameHandler.setMinBotLevel(4);
+						gameHandler.setMaxBotLevel(6);
+					}else if(gameHandler.getDifficulty() == 3) {
+						gameHandler.setMinBotLevel(7);
+						gameHandler.setMaxBotLevel(9);
+					}
+					gameHandler.setRemainingWeek(slider.getValue()-1);
+					gameHandler.setCurrentWeek(1);
 					gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
 					gameHandler.setTeamName(textField.getText());
 					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getNationality(),gameHandler.getSelectedAthletes()));

@@ -19,15 +19,18 @@ public class GameHandler {
 	private ArrayList<Racket> marketRackets = new ArrayList<Racket>();
 	private ArrayList<Shoe> marketShoes = new ArrayList<Shoe>();
 	private ArrayList<Athlete> marketAthletes = new ArrayList<Athlete>();
+	private ArrayList<ArrayList<Match>> WeeklyMatches = new ArrayList<ArrayList<Match>>();
+//	private ArrayList<Match>
 	//:END -- Game Property
 	
 	//:START -- Player Data
 	private String teamName;
 	private int difficulty; 	// 1: Easy, 2: Medium, 3: Hard
-	private int seasonDur;  	// 5  -  10  -  15
+	private int minBotLevel;
+	private int maxBotLevel;
 	private float balance;
 	private int points;
-	private int currentSeason;
+	private int currentWeek;
 	private int remainingWeek;
 	private ArrayList<Athlete> selectedAthletes = new ArrayList<Athlete>() {{
         add(new Athlete());
@@ -57,17 +60,19 @@ public class GameHandler {
 		this.page = 1;
 		
 		this.difficulty = 1;
-		this.seasonDur = 5;
 		this.nationality = "IDN";
 		
 		this.balance = 0;
 		this.points = 0;
-		this.currentSeason = 0;
-		this.remainingWeek = 5;
+		this.currentWeek = 1;
+		this.remainingWeek = 4;
 		
 		this.selectedIRacket = 0;
 		this.selectedIShoe = 0;
 		this.selectedIAthlete = 0;
+		
+		this.minBotLevel = 0;
+		this.maxBotLevel = 0;
 		
 		readDefaultFile();
 	}
@@ -88,15 +93,23 @@ public class GameHandler {
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
-
-	public int getSeasonDur() {
-		return seasonDur;
+	
+	public int getMinBotLevel() {
+		return minBotLevel;
 	}
 
-	public void setSeasonDur(int seasonDur) {
-		this.seasonDur = seasonDur;
+	public void setMinBotLevel(int minBotLevel) {
+		this.minBotLevel = minBotLevel;
 	}
 
+	public int getMaxBotLevel() {
+		return maxBotLevel;
+	}
+
+	public void setMaxBotLevel(int maxBotLevel) {
+		this.maxBotLevel = maxBotLevel;
+	}
+	
 	public String getAppName() {
 		return appName;
 	}
@@ -129,12 +142,12 @@ public class GameHandler {
 		this.points = points;
 	}
 
-	public int getCurrentSeason() {
-		return currentSeason;
+	public int getCurrentWeek() {
+		return currentWeek;
 	}
 
-	public void setCurrentSeason(int currentSeason) {
-		this.currentSeason = currentSeason;
+	public void setCurrentWeek(int currentWeek) {
+		this.currentWeek = currentWeek;
 	}
 
 	public int getRemainingWeek() {
@@ -208,6 +221,14 @@ public class GameHandler {
 	public void setMarketAthletes(ArrayList<Athlete> marketAthletes) {
 		this.marketAthletes = marketAthletes;
 	}
+	
+	public ArrayList<ArrayList<Match>> getWeeklyMatches() {
+		return WeeklyMatches;
+	}
+
+	public void setWeeklyMatches(ArrayList<ArrayList<Match>> weeklyMatches) {
+		WeeklyMatches = weeklyMatches;
+	}
 
 	//:END -- GETTER-SETTER
 	//:START -- Method	
@@ -250,8 +271,8 @@ public class GameHandler {
             JSONObject racketList = (JSONObject) obj;
             //For every athlete in list
             for(Object key : racketList.keySet()) {
-            	String itemId = (String) key;
-                JSONObject racket = (JSONObject) racketList.get(itemId);
+            	String racketId = (String) key;
+                JSONObject racket = (JSONObject) racketList.get(racketId);
 
                 // Access racket's information
                 String name = (String) racket.get("name");
@@ -273,14 +294,14 @@ public class GameHandler {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
  
-            //READ JSON Default Racket List
+            //READ JSON Default Shoe List
             JSONObject shoeList = (JSONObject) obj;
-            //For every athlete in list
+            //For every shoe in list
             for(Object key : shoeList.keySet()) {
-            	String itemId = (String) key;
-                JSONObject shoe = (JSONObject) shoeList.get(itemId);
+            	String shoeId = (String) key;
+                JSONObject shoe = (JSONObject) shoeList.get(shoeId);
 
-                // Access racket's information
+                // Access Shoe's information
                 String name = (String) shoe.get("name");
                 Integer weight = Integer.parseInt((String) shoe.get("weight"));
                 String grip = (String) shoe.get("grip");
@@ -288,7 +309,7 @@ public class GameHandler {
                 JSONObject stats = (JSONObject) shoe.get("stats");
                 Float offense = Float.parseFloat((String) stats.get("offense"));
                 Float defense = Float.parseFloat((String) stats.get("defense"));
-                //ADD Default Racket List
+                //ADD Default Shoe List
                 //TODO:
                 marketShoes.add(new Shoe(name, offense, defense, weight, price, grip));
             }
@@ -296,8 +317,42 @@ public class GameHandler {
             e.printStackTrace();
         }
 		
+		try (FileReader reader = new FileReader("Matches.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+ 
+            //READ JSON Default Match List
+            JSONObject weekList = (JSONObject) obj;
+            
+            
+            //For every athlete in list
+            for(Object key : weekList.keySet()) {
+            	String weekId = (String) key;
+                JSONObject compList = (JSONObject) weekList.get(weekId);
+                ArrayList<Match> WeekMatch = new ArrayList<Match>();
+                for(Object key2 : compList.keySet()) {
+                	String compId = (String) key2;
+                	JSONObject comp = (JSONObject) compList.get(compId);
+                	String name = (String) comp.get("name");
+                	Integer price = Integer.parseInt((String) comp.get("price")); 
+                	Integer point =  Integer.parseInt((String) comp.get("points"));
+                	WeekMatch.add(new Match(name,price,point));
+                }
+                WeeklyMatches.add(WeekMatch);
+                
+                // Access racket's information
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 	
+	private Match Match(String name, Integer price, Integer point) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void loadGame() {
 		
 	}
@@ -341,6 +396,10 @@ public class GameHandler {
 		//TODO: Get the currently active member in club(team)
 		return 0;
 	}
+	
+//	public float getCompPrice() {
+//		return 
+//	}
 	//:END -- Method	
 	
 }
