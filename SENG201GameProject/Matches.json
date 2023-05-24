@@ -2,330 +2,330 @@
   "week1": {
     "competition1": {
       "name": "Auckland Open",
-      "price": "$20,000",
+      "price": "20000",
       "points": "19"
     },
     "competition2": {
       "name": "Wellington Cup",
-      "price": "$23,000",
+      "price": "23000",
       "points": "21"
     },
     "competition3": {
       "name": "Christchurch Masters",
-      "price": "$25,000",
+      "price": "25000",
       "points": "27"
     },
     "competition4": {
       "name": "Dunedin Cup",
-      "price": "$17,000",
+      "price": "17000",
       "points": "15"
     }
   },
   "week2": {
     "competition1": {
       "name": "Hamilton open",
-      "price": "$12,000",
+      "price": "12000",
       "points": "14"
     },
     "competition2": {
       "name": "Tauranga Open",
-      "price": "$10,000",
+      "price": "10000",
       "points": "11"
     },
     "competition3": {
       "name": "Nelson Invitational",
-      "price": "$19,000",
+      "price": "19000",
       "points": "17"
     },
     "competition4": {
       "name": "Auckland Masters",
-      "price": "$27,000",
+      "price": "27000",
       "points": "23"
     }
   },
   "week3": {
     "competition1": {
       "name": "BWF Future Series",
-      "price": "$53,000",
+      "price": "53000",
       "points": "46"
     },
     "competition2": {
       "name": "Trans-Tasman Badminton Championships",
-      "price": "$24,000",
+      "price": "24000",
       "points": "24"
     },
     "competition3": {
       "name": "New Zealand National",
-      "price": "$35,000",
+      "price": "35000",
       "points": "38"
     },
     "competition4": {
       "name": "New Zealand Masters Games",
-      "price": "$31,000",
+      "price": "31000",
       "points": "27"
     }
   },
   "week4": {
     "competition1": {
       "name": "Oceania Badminton Championships",
-      "price": "$29,000",
+      "price": "29000",
       "points": "32"
     },
     "competition2": {
       "name": "New Zealand International",
-      "price": "$45,000",
+      "price": "45000",
       "points": "40"
     },
     "competition3": {
       "name": "Commonwealth Games",
-      "price": "$40,000",
+      "price": "40000",
       "points": "33"
     },
     "competition4": {
       "name": "Yonex New Zealand Open",
-      "price": "$17,000",
+      "price": "17000",
       "points": "15"
     }
   },
   "week5": {
     "competition1": {
       "name": "China Masters Super 100",
-      "price": "$20,000",
+      "price": "20000",
       "points": "25"
     },
     "competition2": {
       "name": "Swiss Open Grand Prix Gold",
-      "price": "$26,000",
+      "price": "26000",
       "points": "21"
     },
     "competition3": {
       "name": "Australian Open Grand Prix Gold",
-      "price": "$18,000",
+      "price": "18000",
       "points": "19"
     },
     "competition4": {
       "name": "Thailand Open Grand Prix Gold",
-      "price": "$14,000",
+      "price": "14000",
       "points": "15"
     }
   },
   "week6": {
     "competition1": {
       "name": "Asia Championships",
-      "price": "$38,000",
+      "price": "38000",
       "points": "29"
     },
     "competition2": {
       "name": "Yonex Belgian International",
-      "price": "$22,500",
+      "price": "22500",
       "points": "26"
     },
     "competition3": {
       "name": "India International Badminton Championship",
-      "price": "$23,000",
+      "price": "23000",
       "points": "18"
     },
     "competition4": {
       "name": "Vietnam Open Grand Prix",
-      "price": "$9,000",
+      "price": "9000",
       "points": "11"
     }
   },
   "week7": {
     "competition1": {
       "name": "Canadian Open",
-      "price": "$21,000",
+      "price": "21000",
       "points": "25"
     },
     "competition2": {
       "name": "Australia Open",
-      "price": "$25,000",
+      "price": "25000",
       "points": "20"
     },
     "competition3": {
       "name": "Swiss International",
-      "price": "$31,000",
+      "price": "31000",
       "points": "27"
     },
     "competition4": {
       "name": "US Open",
-      "price": "$21,750",
+      "price": "21750",
       "points": "15"
     }
   },
   "week8": {
     "competition1": {
       "name": "Belgian International",
-      "price": "$28,000",
+      "price": "28000",
       "points": "22"
     },
     "competition2": {
       "name": "Dutch International",
-      "price": "$24,000",
+      "price": "24000",
       "points": "19"
     },
     "competition3": {
       "name": "Welsh International",
-      "price": "$21,000",
+      "price": "21000",
       "points": "16"
     },
     "competition4": {
       "name": "Austrian International",
-      "price": "$29,000",
+      "price": "29000",
       "points": "14"
     }
   },
   "week9": {
     "competition1": {
       "name": "Scottish Open",
-      "price": "$12,000",
+      "price": "12000",
       "points": "27"
     },
     "competition2": {
       "name": "European Badminton Championships",
-      "price": "$36,000",
+      "price": "36000",
       "points": "21"
     },
     "competition3": {
       "name": "Vietnam International Challenge",
-      "price": "$23,000",
+      "price": "23000",
       "points": "19"
     },
     "competition4": {
       "name": "Dunedin Invitational",
-      "price": "$11,000",
+      "price": "11000",
       "points": "16"
     }
   },
   "week10": {
     "competition1": {
       "name": "Macau Open",
-      "price": "$19,000",
+      "price": "19000",
       "points": "24"
     },
     "competition2": {
       "name": "Thailand Open",
-      "price": "$15,000",
+      "price": "15000",
       "points": "20"
     },
     "competition3": {
       "name": "Vietnam Open",
-      "price": "$12,000",
+      "price": "12000",
       "points": "18"
     },
     "competition4": {
       "name": "German Open",
-      "price": "$10,000",
+      "price": "10000",
       "points": "15"
     }
   },
   "week11": {
     "competition1": {
       "name": "Thailand Masters",
-      "price": "$20,000",
+      "price": "20000",
       "points": "25"
     },
     "competition2": {
       "name": "Yonex Sunrise India Open",
-      "price": "$16,000",
+      "price": "16000",
       "points": "21"
     },
     "competition3": {
       "name": "Korea Open",
-      "price": "$13,000",
+      "price": "13000",
       "points": "19"
     },
     "competition4": {
       "name": "French Open",
-      "price": "$10,000",
+      "price": "10000",
       "points": "15"
     }
   },
   "week12": {
     "competition1": {
       "name": "BWF World Championships",
-      "price": "$58,000",
+      "price": "58000",
       "points": "72"
     },
     "competition2": {
       "name": "Yonex All England Open",
-      "price": "$24,000",
+      "price": "24000",
       "points": "19"
     },
     "competition3": {
       "name": "Singapore Open",
-      "price": "$11,000",
+      "price": "11000",
       "points": "16"
     },
     "competition4": {
       "name": "Japan Open",
-      "price": "$9,000",
+      "price": "9000",
       "points": "14"
     }
   },
   "week13": {
     "competition1": {
       "name": "Indonesia Open",
-      "price": "$20,000",
+      "price": "20000",
       "points": "25"
     },
     "competition2": {
       "name": "China Open",
-      "price": "$15,000",
+      "price": "15000",
       "points": "20"
     },
     "competition3": {
       "name": "Denmark Open",
-      "price": "$12,000",
+      "price": "12000",
       "points": "18"
     },
     "competition4": {
       "name": "Malaysia Masters",
-      "price": "$20,000",
+      "price": "20000",
       "points": "35"
     }
   },
   "week14": {
     "competition1": {
       "name": "Sudirman Cup",
-      "price": "$38,000",
+      "price": "38000",
       "points": "42"
     },
     "competition2": {
       "name": "Asian Games",
-      "price": "$44,000",
+      "price": "44000",
       "points": "59"
     },
     "competition3": {
       "name": "BWF Super Series Finals",
-      "price": "$71,000",
+      "price": "71000",
       "points": "96"
     },
     "competition4": {
       "name": "Korea Masters",
-      "price": "$29,000",
+      "price": "29000",
       "points": "14"
     }
   },
   "week15": {
     "competition1": {
       "name": "Thomas Cup",
-      "price": "$62,000",
+      "price": "62000",
       "points": "47"
     },
     "competition2": {
       "name": "All England Open Badminton Championships",
-      "price": "$36,000",
+      "price": "36000",
       "points": "21"
     },
     "competition3": {
       "name": "BWF World Tour Finals",
-      "price": "$93,000",
+      "price": "93000",
       "points": "119"
     },
     "competition4": {
       "name": "Olympic Games",
-      "price": "$71,000",
+      "price": "71000",
       "points": "96"
     }
   }
