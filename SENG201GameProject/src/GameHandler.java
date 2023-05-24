@@ -19,7 +19,9 @@ public class GameHandler {
 	
 	//:START -- Game Property
 	private ArrayList<Athlete> Athletes = new ArrayList<Athlete>();
-	private ArrayList<Item> Items;
+	private ArrayList<Item> marketRackets = new ArrayList<Item>();
+	private ArrayList<Item> marketShoes = new ArrayList<Item>();
+	private ArrayList<Athlete> marketAthletes = new ArrayList<Athlete>();
 	//:END -- Game Property
 	
 	//:START -- Player Data
@@ -38,7 +40,15 @@ public class GameHandler {
     }};
 	private Team playerTeam;
 	private ArrayList<Item> Inventory = new ArrayList<Item>();
-	//:END -- Player Property
+	//:END -- Player Data
+	
+	//START -- Market Data
+	// The 3 var below is used for selected item in market, the index selected will be used
+	// to display the item's details
+	private int selectedIRacket;
+	private int selectedIShoe;
+	private int selectedIAthlete;
+	//:END -- Market Data
 	
 	GameHandler(){
 		initialize();
@@ -55,7 +65,11 @@ public class GameHandler {
 		this.points = 0;
 		this.currentSeason = 0;
 		this.remainingWeek = 5;
-		readFile();
+		
+		this.selectedIRacket = 0;
+		this.selectedIShoe = 0;
+		this.selectedIAthlete = 0;
+		readDefaultFile();
 	}
 	
 	//:START -- GETTER-SETTER
@@ -139,9 +153,33 @@ public class GameHandler {
 		this.playerTeam = playerTeam;
 	}
 
+	public int getSelectedIRacket() {
+		return selectedIRacket;
+	}
+
+	public void setSelectedIRacket(int selectedIRacket) {
+		this.selectedIRacket = selectedIRacket;
+	}
+
+	public int getSelectedIShoe() {
+		return selectedIShoe;
+	}
+
+	public void setSelectedIShoe(int selectedIShoe) {
+		this.selectedIShoe = selectedIShoe;
+	}
+
+	public int getSelectedIAthlete() {
+		return selectedIAthlete;
+	}
+
+	public void setSelectedIAthlete(int selectedIAthlete) {
+		this.selectedIAthlete = selectedIAthlete;
+	}
+
 	//:END -- GETTER-SETTER
 	//:START -- Method	
-	public void readFile() {
+	public void readDefaultFile() {
 		
 		JSONParser jsonParser = new JSONParser();
 		
@@ -150,27 +188,54 @@ public class GameHandler {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
  
+            //READ JSON Default Athlete List
             JSONObject athleteList = (JSONObject) obj;
-            
+            //For every athlete in list
             for(Object key : athleteList.keySet()) {
             	String athleteId = (String) key;
                 JSONObject athlete = (JSONObject) athleteList.get(athleteId);
 
                 // Access athlete's information
                 String name = (String) athlete.get("name");
-                String age = (String) athlete.get("age");
-                String height = (String) athlete.get("height");
+                Integer age = Integer.parseInt((String) athlete.get("age"));
+                Float height = Float.parseFloat((String) athlete.get("height"));
                 JSONObject stats = (JSONObject) athlete.get("stats");
                 Float power = Float.parseFloat((String) stats.get("power")) ;
                 Float agility = Float.parseFloat((String) stats.get("agility"));
                 Float stamina = Float.parseFloat((String) stats.get("stamina"));
-                
+                //ADD Default Athlete List
                 Athletes.add(new Athlete(name, age, height, power, agility, stamina, stamina));
             }
- 
         } catch (Exception e) {
             e.printStackTrace();
         }
+		try (FileReader reader = new FileReader("rackets.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+ 
+            //READ JSON Default Athlete List
+            JSONObject racketList = (JSONObject) obj;
+            //For every athlete in list
+            for(Object key : racketList.keySet()) {
+            	String itemId = (String) key;
+                JSONObject racket = (JSONObject) racketList.get(itemId);
+
+                // Access athlete's information
+                String name = (String) racket.get("name");
+                Integer weight = Integer.parseInt((String) racket.get("weight"));
+                Float price = Float.parseFloat((String) racket.get("price"));
+                JSONObject stats = (JSONObject) racket.get("stats");
+                Float offense = Float.parseFloat((String) stats.get("offense"));
+                Float defence = Float.parseFloat((String) stats.get("defence"));
+                //ADD Default Athlete List
+                //TODO:
+//                marketRackets.add(new (name, weight, price, offense, defence));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		
 		
 	}
 	

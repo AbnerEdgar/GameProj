@@ -6,6 +6,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
@@ -58,6 +61,8 @@ public class MarketPage3 {
 		frame.setBounds(100, 100, 639, 477);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
+		frame.setResizable(false);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
@@ -125,17 +130,38 @@ public class MarketPage3 {
 		
 		JButton btnNewButton_1 = new JButton("Rackets");
 		btnNewButton_1.setBounds(-15, 71, 119, 41);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(5);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		panel_1_2.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Shoes");
 		btnNewButton_1_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_1_1.setBackground(new Color(152, 251, 152));
 		btnNewButton_1_1.setBounds(-15, 124, 119, 41);
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(6);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		panel_1_2.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_3_2 = new JButton("Athletes");
 		btnNewButton_1_3_2.setForeground(new Color(210, 180, 140));
 		btnNewButton_1_3_2.setBounds(-15, 176, 119, 41);
+		btnNewButton_1_3_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(7);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		panel_1_2.add(btnNewButton_1_3_2);
 		
 		JInternalFrame internalFrame = new JInternalFrame("P R O F I L E");

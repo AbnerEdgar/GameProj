@@ -2,23 +2,25 @@
 public class Item {
 	
 	private String name;
-	
+	private int weight;
+	private float price;
 	private float offense;
 	private float defence;
-	private float stamina;
 	
 	Item(){
 		this.name = "";
 		this.offense = 0;
 		this.defence = 0;
-		this.stamina = 0;
+		this.weight = 0;
+		this.price = 0f;
 	}
 	
-	Item(String name, float offense, float defence, float stamina){
+	Item(String name, float offense, float defence,int weight, float price){
 		this.name = name;
 		this.offense = offense;
 		this.defence = defence;
-		this.stamina = stamina;
+		this.weight = weight;
+		this.price = price;
 	}
 
 	public String getName() {
@@ -33,9 +35,12 @@ public class Item {
 		return defence;
 	}
 
-	public float getStamina() {
-		return stamina;
+	public int getWeight() {
+		return weight;
 	}
-	
+
+	public float getPrice() {
+		return price;
+	}
 	
 }

@@ -56,6 +56,7 @@ public class MainGamePage {
 		frmBadmintonTournamentMain.setVisible(false);
 	}
 	public void showPage() {
+		onAppear();
 		frmBadmintonTournamentMain.setVisible(true);
 	}
 	

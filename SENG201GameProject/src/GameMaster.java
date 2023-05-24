@@ -41,10 +41,8 @@ public class GameMaster {
 		if(page == 1) {
 			setupPage.showPage();
 		}else if(page == 2) {
-			homePage.onAppear();
 			homePage.showPage();
 		}else if(page == 3) {
-			clubPage.onAppear();
 			clubPage.showPage();
 		}else if(page == 4) {
 			stadiumPage.showPage();
@@ -52,11 +50,9 @@ public class GameMaster {
 			marketPage1.showPage();
 		}else if(page == 6) {
 			marketPage2.showPage();
-		}
-		else if (page == 7) {
+		}else if (page == 7) {
 			marketPage3.showPage();
-		}
-		else if (page == 8) {
+		}else if (page == 8) {
 			competitionPage.showPage();
 		}
 	}

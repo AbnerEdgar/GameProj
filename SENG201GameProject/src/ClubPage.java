@@ -82,7 +82,9 @@ public class ClubPage {
 		frmBadmintonTournamentClub.setVisible(false);
 	}
 	public void showPage() {
+		onAppear();
 		frmBadmintonTournamentClub.setVisible(true);
+		
 	}
 	
 	/**
@@ -365,8 +367,8 @@ public class ClubPage {
 	
 	public void refreshCard() {
 		lblNewLabel_2.setText(getPlayer(selectedAthlete).getName());
-		lblNewLabel_9.setText(getPlayer(selectedAthlete).getage());
-		lblNewLabel_9_1.setText(getPlayer(selectedAthlete).getheight());
+		lblNewLabel_9.setText(Integer.toString(getPlayer(selectedAthlete).getage()));
+		lblNewLabel_9_1.setText(Float.toString(getPlayer(selectedAthlete).getheight()));
 		progressBar.setValue((int) getPlayer(selectedAthlete).getOffense());
 		progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefence());
 		progressBar_2.setValue((int) getPlayer(selectedAthlete).getStamina());

@@ -439,8 +439,8 @@ public class GameSetupPage {
 	
 	public void changeCard(Athlete athlete) {
 		lblNewLabel_6.setText(athlete.getName());
-		lblNewLabel_6_1.setText(athlete.getage());
-		lblNewLabel_6_2.setText(athlete.getheight()+" cm");
+		lblNewLabel_6_1.setText(Integer.toString(athlete.getage()));
+		lblNewLabel_6_2.setText(Float.toString(athlete.getheight())+" cm");
 		progressBar_3.setValue((int) athlete.getOffense());
 		progressBar_1_1.setValue((int) athlete.getDefence());
 		progressBar_2_1.setValue((int) athlete.getStamina());
