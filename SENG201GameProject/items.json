@@ -1,0 +1,92 @@
+{
+  "racket1": {
+    "name": "100ZZ",
+    "weight": "33",
+    "price": "123",
+    "stats": {
+      "offense": "5",
+      "defense": "6"
+    }
+  },
+  "racket2": {
+    "name": "200AA",
+    "weight": "32",
+    "price": "110",
+    "stats": {
+      "offense": "4",
+      "defense": "5"
+    }
+  },
+  "racket3": {
+    "name": "300BB",
+    "weight": "31",
+    "price": "135",
+    "stats": {
+      "offense": "6",
+      "defense": "4"
+    }
+  },
+  "racket4": {
+    "name": "400CC",
+    "weight": "32",
+    "price": "150",
+    "stats": {
+      "offense": "7",
+      "defense": "5"
+    }
+  },
+  "racket5": {
+    "name": "500DD",
+    "weight": "34",
+    "price": "165",
+    "stats": {
+      "offense": "8",
+      "defense": "6"
+    }
+  },
+  "racket6": {
+    "name": "600EE",
+    "weight": "33",
+    "price": "180",
+    "stats": {
+      "offense": "9",
+      "defense": "7"
+    }
+  },
+  "racket7": {
+    "name": "700FF",
+    "weight": "31",
+    "price": "160",
+    "stats": {
+      "offense": "7",
+      "defense": "8"
+    }
+  },
+  "racket8": {
+    "name": "800GG",
+    "weight": "35",
+    "price": "200",
+    "stats": {
+      "offense": "10",
+      "defense": "9"
+    }
+  },
+  "racket9": {
+    "name": "900HH",
+    "weight": "32",
+    "price": "210",
+    "stats": {
+      "offense": "8",
+      "defense": "7"
+    }
+  },
+  "racket10": {
+    "name": "1000II",
+    "weight": "33",
+    "price": "190",
+    "stats": {
+      "offense": "6",
+      "defense": "5"
+    }
+  }
+}
