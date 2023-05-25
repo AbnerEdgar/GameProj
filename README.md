@@ -10,7 +10,7 @@
 </p>
 
 <p align="left">
-  \
+  
 To take the source code from the zip file and load it into Eclipse:
 -----------------------------------------------------
 1. First thing you should do is extract the zip file(the zip file called GameProj-Master-3.zip) by right click on the file and click on extract.
