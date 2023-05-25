@@ -24,7 +24,7 @@ To build and run Badminton Masters game from the command line:
 2. When you already in the right directory, right click in the blank area of the folder -> open in terminal
 3. To start Badminton Masters game with a graphical user interface run:
      java ...jar
-   To start Island Trader game with a command line interface run:
+   To start Badminton Masters game with a command line interface run:
      java ...jar cmd
 </p>
 
