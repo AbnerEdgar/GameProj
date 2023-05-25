@@ -1,4 +1,4 @@
-<h1 align="center">Badminton Master</h1> <br>
+<h1 align="center">B A D M I N T O N  M A S T E R S</h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
     <img src="Badm.png" alt="Italian Trulli">
