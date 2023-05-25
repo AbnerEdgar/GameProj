@@ -1,7 +1,7 @@
 <h1 align="center">Badminton Tournament Game</h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
-    <img src="Untitled design.png" alt="Italian Trulli">
+    <img src="Badm.png" alt="Italian Trulli">
   </a>
 </p>
 
