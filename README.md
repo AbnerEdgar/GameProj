@@ -1,4 +1,4 @@
-<h1 align="center">SENG201 Sports Tournament Project</h1> <br>
+<h1 align="center">(SENG201) Sports Tournament Project</h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
     <img src="Badm.png" alt="Italian Trulli">
