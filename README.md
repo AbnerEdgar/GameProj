@@ -1,17 +1,18 @@
-<h1 align="center">BADMINTON TOURNAMENT GAME</h1> <br>
-<p align="center">
+<h1 align="center">Sports Tournament Project (SENG201)</h1>
+<h4 align="center">by <a href="dmo118@uclive.ac.nz">Devana Monguchi</a> and Janice Leung</h4><br>
+<p align="center";>
   <a href="https://gitpoint.co/">
     <img src="Badm.png" alt="Italian Trulli">
   </a>
 </p>
 
 <p align="center">
-  Welcome to the Badminton Tournament Game Project, a captivating virtual experience that puts you in the role of a skilled team manager in the world of men's double badminton tournaments. Developed as part of the SENG201 assignment, this project offers an immersive and aesthetic journey into the competitive realm of regional and international badminton matches.
+  Welcome to the Badminton Master, a captivating virtual experience that puts you in the role of a skilled team manager in the world of men's double badminton tournaments. Developed as part of the SENG201 assignment, this project offers an immersive and aesthetic journey into the competitive realm of regional and international badminton matches.
 </p>
 
 <p align="left">
   
-Features
+Your influence on your badminton club is felt from day 1!
 ----------------------------------------------------
   <ul>
   <li><b>Globetrotting Adventures:</b> Embark on an exhilarating journey that takes you to various locations around the world. Compete against formidable opponents, showcasing your team's prowess in thrilling badminton matches.</li>
@@ -22,36 +23,59 @@ Features
     <li><b>Custom Team Identity:</b> At the start of your journey, you'll be prompted to choose a name for your team. Immerse yourself in the game by personalizing your team's identity and representing them with pride on the global stage.</li>   
 </ul>
 
+<p align="left">
+  
+  
+  
+  
 
-To take the source code from the zip file and load it into Eclipse
------------------------------------------------------
+  
+  
+Getting Started
+----------------------------------------------------
+  
+<h4><b>To take the source code from the zip file and load it into Eclipse</b></h4>
+
 <ol>
-<li>First thing you should do is extract the zip file(the zip file called GameProj-Master-3.zip) by right click on the file and click on extract.</li>
+<li>Extract the zip file(the zip file called GameProj-Master-3.zip) by right click on the file and click on extract.</li>
 <li>Once you have extracted the file you will see a file that contain  this README, java jar file, src code, doc, report, UML diagram and Use case diagram.</li>
-<li>The next thing to do is go to Eclipse and create new empty Java Project. After that right click on the src folder and choose Import. Then choose File system under General tab and then browse to extracted zip file and select 'src' folder that contain src code (see step 2), and tick the box for src and hit finish.</li>
+<li>Go to Eclipse and create new empty Java Project. Then, right click on the src folder and choose Import. Under General tab, choose File system and browse to extracted zip file and select 'src' folder that contain src code (see step 2), and tick the box for src and hit finish.</li>
 <li>When the source code already imported into eclipse, you need to open seng201_game package and run GameHandler.java class to play the Badminton Masters game.</li>
 </ol>
- 
-To build and run Badminton Masters game from the command line:
------------------------------------------------------
-<ol>
+
+<h4><b>To build and run Badminton Masters game from the command line</b></h4>
+
+ <ol>
   <li>Ensure you are in the root project directory. This directory contains  this README, java jar file, src code, doc, report, UML diagram and Use case diagram.</li>
   <li>When you already in the right directory, right click in the blank area of the folder -> open in terminal</li>
-  <li>To start Badminton Masters game with 
+  <li>To start Badminton Masters game with</li> 
     
-    a graphical user interface run:
+   <p>
+   <ul>
+     <li>a graphical user interface run:</li><br>
+     
      java ...jar
-    a command line interface run:
-     java ...jar cmd
+     
+  </ul>
+  </p>
+  <p>
+  <ul> 
+     <li>a command line interface run:</li><br>
+     
+    java ...jar cmd
+    
+  </ul>
+  </p>
   
-  </li>
 </ol>
+  
+</p>
 
 Authors
 -----------------------------------------------------
 <ul>
-  <li><b>Devana Monguchi</b>(Dmo118)</li> 
-  <li><b>Janice Leung</b>()</li>
+  <li><a href="dmo118@uclive.ac.nz">Devana Monguchi</a></li> 
+  <li><b>Janice Leung</b></li>
 </ul>
 
 </p>
