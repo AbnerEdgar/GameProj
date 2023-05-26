@@ -1,6 +1,6 @@
 <h1 align="center">Sports Tournament Project (SENG201)</h1>
-<h4 align="center">by Devana Monguchi and Janice Leung</h4><br>
-<p align="center">
+<h4 align="center">by <a href="dmo118@uclive.ac.nz">Devana Monguchi</a> and Janice Leung</h4><br>
+<p align="center";>
   <a href="https://gitpoint.co/">
     <img src="Badm.png" alt="Italian Trulli">
   </a>
@@ -38,21 +38,30 @@ To build and run Badminton Masters game from the command line:
 <ol>
   <li>Ensure you are in the root project directory. This directory contains  this README, java jar file, src code, doc, report, UML diagram and Use case diagram.</li>
   <li>When you already in the right directory, right click in the blank area of the folder -> open in terminal</li>
-  <li>To start Badminton Masters game with 
+  <li>To start Badminton Masters game with</li> 
     
-    a graphical user interface run:
+   <p>
+   <ul>
+     <li>a graphical user interface run:</li>
+     
      java ...jar
-    a command line interface run:
-     java ...jar cmd
+  </ul>
+  </p>
+  <p>
+  <ul> 
+     <li>a command line interface run:</li>
+     
+    java ...jar cmd
+  </ul>
+  </p>
   
-  </li>
 </ol>
 
 Authors
 -----------------------------------------------------
 <ul>
-  <li><b>Devana Monguchi</b>(Dmo118)</li> 
-  <li><b>Janice Leung</b>()</li>
+  <li><a href="dmo118@uclive.ac.nz">Devana Monguchi</a></li> 
+  <li><b>Janice Leung</b></li>
 </ul>
 
 </p>
