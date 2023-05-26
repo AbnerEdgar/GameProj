@@ -24,9 +24,9 @@
 - **Points and Rewards**: Accumulate points as you progress through the tournaments, unlock higher-level competitions, and establish your team's reputation as a formidable force in the badminton world.
   
 
-Installation
+Getting Started
 ----------------------------------------------------
-  
+
 <h4><b>To take the source code from the zip file and load it into Eclipse</b></h4>
 
 <ol>
