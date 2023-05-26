@@ -47,7 +47,7 @@ Getting Started
    <ul>
      <li>a graphical user interface run:</li><br>
      
-     java ...jar
+     java -jar target/badminton-masters.jar --gui
      
   </ul>
   </p>
@@ -55,7 +55,7 @@ Getting Started
   <ul> 
      <li>a command line interface run:</li><br>
      
-    java ...jar cmd
+    java -jar target/badminton-masters.jar --cli
     
   </ul>
   </p>
