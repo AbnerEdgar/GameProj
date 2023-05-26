@@ -13,7 +13,7 @@ public class GameMaster {
 	static MarketPage3 marketPage3 = new MarketPage3(gameHandler);
 	static CompetitionPage competitionPage = new CompetitionPage(gameHandler);
 	static AfterBuyItemPage afterBuyPage = new AfterBuyItemPage(gameHandler);
-//	static TeamInventoryPage inventoryPage = new TeamInventoryPage(gameHandler);
+	static TeamInventoryPage inventoryPage = new TeamInventoryPage(gameHandler);
 	
 	public static void main(String[] args) {
 		try {

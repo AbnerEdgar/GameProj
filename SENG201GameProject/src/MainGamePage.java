@@ -195,7 +195,7 @@ public class MainGamePage {
 		panel.add(lblNewLabel_5);
 		lblNewLabel_5.setBackground(new Color(255, 255, 255));
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Active Members:");
+		JLabel lblNewLabel_2_1 = new JLabel("Current Week:");
 		lblNewLabel_2_1.setFont(new Font("Futura", Font.PLAIN, 16));
 		lblNewLabel_2_1.setBounds(317, 29, 142, 26);
 		panel.add(lblNewLabel_2_1);
@@ -239,9 +239,8 @@ public class MainGamePage {
 		lblNewLabel_4.setText(Float.toString(gameHandler.getBalance()));
 		lblNewLabel_4_1.setText(Float.toString(gameHandler.getPoints()));
 		lblNewLabel_4_2.setText(Integer.toString(gameHandler.getRemainingWeek()));
-		//TODO: active member update, match won, match loss
-		lblNewLabel_4_2_1.setText("");
-		lblNewLabel_4_2_1_1.setText("");
-		lblNewLabel_4_2_1_2.setText("");
+		lblNewLabel_4_2_1.setText(Integer.toString(gameHandler.getCurrentWeek()));
+		lblNewLabel_4_2_1_1.setText(Integer.toString(gameHandler.getGameWon()));
+		lblNewLabel_4_2_1_2.setText(Integer.toString(gameHandler.getGameLoss()));
 	}
 }

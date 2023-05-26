@@ -107,7 +107,7 @@ public class ClubPage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(false);
+				btnNewButton_7.setVisible(false);
 				gameHandler.getPlayerTeam().setSelectedActiveMembers(0);
 				selectedAthlete = 0;
 				refreshCard();
@@ -234,7 +234,7 @@ public class ClubPage {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(false);
+				btnNewButton_7.setVisible(false);
 				gameHandler.getPlayerTeam().setSelectedActiveMembers(1);
 				selectedAthlete = 1;
 				refreshCard();
@@ -248,7 +248,7 @@ public class ClubPage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(true);
+				btnNewButton_7.setVisible(true);
 				selectedAthlete = 2;
 				refreshCard();
 			}
@@ -262,7 +262,7 @@ public class ClubPage {
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(true);
+				btnNewButton_7.setVisible(true);
 				selectedAthlete = 5;
 				refreshCard();
 			}
@@ -275,7 +275,7 @@ public class ClubPage {
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(true);
+				btnNewButton_7.setVisible(true);
 				selectedAthlete = 4;
 				refreshCard();
 			}
@@ -288,7 +288,7 @@ public class ClubPage {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
-				panel_1.setVisible(true);
+				btnNewButton_7.setVisible(true);
 				selectedAthlete = 3;
 				refreshCard();
 			}
@@ -355,6 +355,7 @@ public class ClubPage {
 	public void onAppear() {
 		selectedAthlete = 0;
 		lblNewLabel.setText(gameHandler.getTeamName());
+		btnNewButton_7.setVisible(false);
 		refreshCard();
 		btnNewButton.setText(getPlayer(0).getName());
 		btnNewButton_1.setText(getPlayer(1).getName());

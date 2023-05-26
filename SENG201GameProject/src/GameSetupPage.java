@@ -347,7 +347,10 @@ public class GameSetupPage {
 					gameHandler.setCurrentWeek(1);
 					gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
 					gameHandler.setTeamName(textField.getText());
+					gameHandler.setGameLoss(0);
+					gameHandler.setGameWon(0);
 					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getNationality(),gameHandler.getSelectedAthletes()));
+					//Get the remaining player that are not chosen to be sold at the market.
 					int count = 0;
 					while(count < gameHandler.getAthletes().size()-1) {
 						if(gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(0))) {
@@ -355,9 +358,9 @@ public class GameSetupPage {
 						}else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(2))) {
 						}else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(3))) {
 						}else {
+							//whilst they are not equal to the 4 selected athlete at the start, then put them to market
 							gameHandler.getMarketAthletes().add(gameHandler.getAthletes().get(count));
 						}
-						
 						count++;
 					}
 					GameMaster.showSelectedPage(gameHandler.getPage());

@@ -308,6 +308,7 @@ public class MarketPage1 {
 	}
 	
 	public void onAppear() {
+		gameHandler.setSelectedIRacket(0);
 		btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
 		btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
@@ -318,10 +319,10 @@ public class MarketPage1 {
 	
 	public void refreshCard() {
 		lblNewLabel.setText(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getName());
-		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight()));
+		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight())+" gram");
 		progressBar.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getOffense());
 		progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
-		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
+		lblNewLabel_2_1.setText("$"+Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
 	}
 	
 

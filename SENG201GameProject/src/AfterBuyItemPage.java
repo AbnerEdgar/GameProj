@@ -84,6 +84,14 @@ public class AfterBuyItemPage {
 				// if item is athlete then goback to home
 				if(gameHandler.getBuyCategory() == 3) {
 					//TODO: add to active
+					//code for moving to active athlete
+					// selected index from this page
+					int selectedIndex = 0;
+					Athlete tempAthlete = gameHandler.getPlayerTeam().getMembers().get(selectedIndex);
+					gameHandler.getPlayerTeam().getMembers().set(selectedIndex, getBoughtAthlete());
+					gameHandler.getPlayerTeam().getMembers().set(gameHandler.getPlayerTeam().getActiveMembers(), tempAthlete);
+					//increment the last index
+					gameHandler.getPlayerTeam().setActiveMembers(gameHandler.getPlayerTeam().getActiveMembers()+1);
 					gameHandler.setPage(2);
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				} else {
@@ -105,8 +113,10 @@ public class AfterBuyItemPage {
 					public void actionPerformed(ActionEvent e) {
 						// if item is athlete then goback to home
 						if(gameHandler.getBuyCategory() == 3) {
-							//TODO: add to reserve
+							//TODO: add to reserve at the last index(activeMembers variable)
 							gameHandler.getPlayerTeam().getMembers().set(gameHandler.getPlayerTeam().getActiveMembers(), getBoughtAthlete());
+							//increment the last index
+							gameHandler.getPlayerTeam().setActiveMembers(gameHandler.getPlayerTeam().getActiveMembers()+1);
 							gameHandler.setPage(2);
 							GameMaster.showSelectedPage(gameHandler.getPage());
 						} else {

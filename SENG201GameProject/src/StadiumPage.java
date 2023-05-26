@@ -107,6 +107,8 @@ public class StadiumPage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 0;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -205,6 +207,8 @@ public class StadiumPage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 3;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -239,6 +243,8 @@ public class StadiumPage {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 2;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -270,6 +276,15 @@ public class StadiumPage {
 		
 		JButton btnNewButton_3 = new JButton("Join");
 		btnNewButton_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
+		btnNewButton_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 1;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
+				gameHandler.setPage(8);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
@@ -309,6 +324,7 @@ public class StadiumPage {
 		frmBadmintonTournamentStadium.getContentPane().add(lblNewLabel_3);
 	}
 	public void onAppear() {
+		Random random = new Random();
 		lblNewLabel.setText(getMatchName(0));
 		lblNewLabel_1.setText("$"+Float.toString(getMatchPrice(0)));
 		lblNewLabel_2.setText(Float.toString(getMatchPoint(0))+"points");
@@ -324,24 +340,25 @@ public class StadiumPage {
 	
 	}
 	public String getMatchName(int index) {
-		return gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getName();
+		return getMatch(index).getName();
 	}
 	public float getMatchPrice(int index) {
-		int price = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPrice();
-		Random random = new Random();
+		float difficulty = getMatch(index).getDifficulty();
+		int price = getMatch(index).getPrice();
 		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
 		float currentWeek = gameHandler.getCurrentWeek();
-		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
-		float calcPrice = price + ((float) price * ((randInt/10) * 0.3f)) + ((float) price * (currentWeek/totalWeek) * 0.9f);
+		float calcPrice = price + ((float) price * ((difficulty/10) * 0.3f)) + ((float) price * (currentWeek/totalWeek) * 0.9f);
 		return calcPrice;
 	}
 	public float getMatchPoint(int index) {
-		int points = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPoint();
-		Random random = new Random();
+		float difficulty = getMatch(index).getDifficulty();
+		int points = getMatch(index).getPoint();
 		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
 		float currentWeek = gameHandler.getCurrentWeek();
-		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
-		float calcPoints = points + ((float) points * ((randInt/10) * 0.3f)) + ((float) points * (currentWeek/totalWeek) * 0.9f);
+		float calcPoints = points + ((float) points * ((difficulty/10) * 0.3f)) + ((float) points * (currentWeek/totalWeek) * 0.9f);
 		return calcPoints;
+	}
+	public Match getMatch(int index) {
+		return gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index);
 	}
 }

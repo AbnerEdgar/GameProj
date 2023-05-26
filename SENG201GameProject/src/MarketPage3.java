@@ -286,6 +286,7 @@ public class MarketPage3 {
 		internalFrame.setVisible(true);
 	}
 	public void onAppear() {
+		gameHandler.setSelectedIAthlete(0);
 		btnNewButton_1_2_1.setText(gameHandler.getMarketAthletes().get(0).getName());
 		btnNewButton_1_2_1_1.setText(gameHandler.getMarketAthletes().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketAthletes().get(2).getName());

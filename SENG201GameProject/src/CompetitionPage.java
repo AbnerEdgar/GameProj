@@ -40,12 +40,31 @@ public class CompetitionPage {
 	private Timer timer = new Timer(50, e -> {
 		doThis();
 	});
+	
 	private JLabel lblJpn;
 	private JLabel lblNames_1;
 	private JLabel lblNames_1_1;
 	private JPanel panel_3_3_2;
 	private JPanel panel_3_1_2_2;
+	private int gamePointPlayer_1; // the first game point
+	private int gamePointPlayer_2; // the second game point
+	private int gamePointPlayer_3; // the third game point if needed
+	private int gamePointBOT_1; // the first game point
+	private int gamePointBOT_2; // the second game point
+	private int gamePointBOT_3; // the third game point if needed
+	private int round;
+	private int turn = 1; // 1 - player, 2 - bot 
 	
+	private JLabel lblScore;
+	private JLabel lblScore_2;
+	private JLabel lblScore_1;
+	private JLabel lblScore_1_1;
+	
+	private Timer timer2 = new Timer(200, e -> {
+		if(turn == 2) {
+			BOTMove();
+		}
+	});;
 	/**
 	 * Launch the application.
 	 */
@@ -94,6 +113,7 @@ public class CompetitionPage {
 		//-------------------
 		hitBoxWidth = 0;
 		timer.start();
+		timer2.start();
 		frmBattleGroundPage = new JFrame();
 		frmBattleGroundPage.setTitle("Battle Ground Page");
 		frmBattleGroundPage.setBounds(100, 100, 749, 577);
@@ -133,28 +153,36 @@ public class CompetitionPage {
 				float sliderWidth = (float) slider.getWidth();
 				float sliderOffset = (float) slider.getX();
 				float transValue = hitValue/resolution * sliderWidth + sliderOffset;
-				//compare slider value to leftbound and right bound
+				//compare slider value to left bound and right bound
 				if(transValue >= hitBoxLeftBound && transValue <= hitBoxRightBound) {
-					System.out.println("True OI!");
+					//When the smash is in.
+					if(turn == 1) {
+						updatePointPlayer();
+					}
+					System.out.println("Kena OI!");
 				}else {
+					//When the smash is not in.
 					System.out.println("gak kena OI!");
+					if (turn == 1) {
+						turn = 2;
+						updatePointBOT();
+					}else if (turn == 2) {
+						turn = 1;
+						updatePointPlayer();
+					}
 				}
 				Random random = new Random();
 				//		     random.nextInt(maxValue - minValue + 1) + minValue;
 				//			 to get integer from a range of minValue and maxValue;
 				int ranPos = random.nextInt(maxRightBound - maxLeftBound + 1) + maxLeftBound;
-				randomizeHitBox(0.5f,600);
+				randomizeHitBox(0.5f,ranPos);
+				//updateScore
+				lblScore.setText(Integer.toString(gamePointPlayer_1));
+				lblScore_2.setText(Integer.toString(gamePointPlayer_2));
+				lblScore_1.setText(Integer.toString(gamePointBOT_1));
+				lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 			}
 		});
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(31, 146, 82, 258);
-		frmBattleGroundPage.getContentPane().add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel_5 = new JLabel("Person 1");
-		lblNewLabel_5.setBounds(6, 72, 61, 102);
-		panel_1.add(lblNewLabel_5);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -166,33 +194,6 @@ public class CompetitionPage {
 		lblJpn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblJpn.setBounds(6, 6, 57, 26);
 		panel_3.add(lblJpn);
-		
-		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setLayout(null);
-		panel_1_2.setBounds(125, 146, 82, 258);
-		frmBattleGroundPage.getContentPane().add(panel_1_2);
-		
-		JLabel lblNewLabel_5_2 = new JLabel("Person 2");
-		lblNewLabel_5_2.setBounds(6, 72, 61, 102);
-		panel_1_2.add(lblNewLabel_5_2);
-		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setLayout(null);
-		panel_1_1.setBounds(537, 146, 82, 258);
-		frmBattleGroundPage.getContentPane().add(panel_1_1);
-		
-		JLabel lblNewLabel_5_1 = new JLabel("Person 1");
-		lblNewLabel_5_1.setBounds(6, 72, 61, 102);
-		panel_1_1.add(lblNewLabel_5_1);
-		
-		JPanel panel_1_2_1 = new JPanel();
-		panel_1_2_1.setLayout(null);
-		panel_1_2_1.setBounds(631, 146, 82, 258);
-		frmBattleGroundPage.getContentPane().add(panel_1_2_1);
-		
-		JLabel lblNewLabel_5_2_1 = new JLabel("Person 2");
-		lblNewLabel_5_2_1.setBounds(6, 72, 61, 102);
-		panel_1_2_1.add(lblNewLabel_5_2_1);
 		
 		table = new JTable();
 		table.setBounds(64, 132, 187, -44);
@@ -237,7 +238,7 @@ public class CompetitionPage {
 		panel_3_3.setBounds(277, 17, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_3);
 		
-		JLabel lblScore = new JLabel("0");
+		lblScore = new JLabel("0");
 		lblScore.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore.setBounds(0, 6, 52, 26);
 		panel_3_3.add(lblScore);
@@ -248,21 +249,10 @@ public class CompetitionPage {
 		panel_3_1_2.setBounds(277, 55, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_1_2);
 		
-		JLabel lblScore_1 = new JLabel("0");
+		lblScore_1 = new JLabel("0");
 		lblScore_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_1.setBounds(0, 6, 52, 26);
 		panel_3_1_2.add(lblScore_1);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_2.setBounds(684, 17, 42, 38);
-		frmBattleGroundPage.getContentPane().add(panel_2);
-		panel_2.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("icon");
-		lblNewLabel_1.setBounds(0, 6, 42, 16);
-		panel_2.add(lblNewLabel_1);
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JPanel panel_3_1_2_1 = new JPanel();
 		panel_3_1_2_1.setLayout(null);
@@ -270,7 +260,7 @@ public class CompetitionPage {
 		panel_3_1_2_1.setBounds(328, 55, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_1_2_1);
 		
-		JLabel lblScore_1_1 = new JLabel("0");
+		lblScore_1_1 = new JLabel("0");
 		lblScore_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_1_1.setBounds(0, 6, 52, 26);
 		panel_3_1_2_1.add(lblScore_1_1);
@@ -281,7 +271,7 @@ public class CompetitionPage {
 		panel_3_3_1.setBounds(328, 17, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_3_1);
 		
-		JLabel lblScore_2 = new JLabel("0");
+		lblScore_2 = new JLabel("0");
 		lblScore_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_2.setBounds(0, 6, 52, 26);
 		panel_3_3_1.add(lblScore_2);
@@ -310,10 +300,19 @@ public class CompetitionPage {
 	public void onAppear() {
 		panel_3_3_2.setVisible(isExtended);
 		panel_3_1_2_2.setVisible(isExtended);
+		gamePointPlayer_1 = 0;
+		gamePointPlayer_2 = 0;
+		gamePointPlayer_3 = 0;
+		gamePointBOT_1 = 0; 
+		gamePointBOT_2 = 0;
+		gamePointBOT_3 = 0; 
+		round = 1;
+		turn = 1;
 		lblJpn.setText(gameHandler.getPlayerTeam().getNationality());
 		String athleteName_1 = gameHandler.getPlayerTeam().getMembers().get(0).getName();
 		String athleteName_2 = gameHandler.getPlayerTeam().getMembers().get(1).getName();
 		lblNames_1_1.setText(athleteName_1 +" / "+ athleteName_2);
+		
 	}
 	public void doThis(){
 		if(sliderVal >= 100 || sliderVal <= 0) {
@@ -340,6 +339,66 @@ public class CompetitionPage {
 		hitBoxWidth = btnNewButton_1.getWidth();
 		hitBoxRightBound = hitBoxLeftBound + hitBoxWidth;
 	}
+	public boolean isDeuce() {
+		if(round == 1) {
+			return gamePointBOT_1 >= 20 && gamePointPlayer_1 >= 20;
+		}else if (round == 2) {
+			return gamePointBOT_2 >= 20 && gamePointPlayer_2 >= 20;
+		}else {
+			return gamePointBOT_3 >= 20 && gamePointPlayer_3 >= 20;
+		}
+	}
 	
+	public void updatePointPlayer() {
+		if(round == 1) {
+			gamePointPlayer_1 += 1;
+			if(gamePointBOT_1 <= 19 && gamePointPlayer_1 == 21){
+				round += 1;
+			}else if (isDeuce()) {
+				if(gamePointPlayer_1 - gamePointBOT_1 == 2) {
+					round += 1;
+				}
+			}
+		}else if(round == 2) {
+			gamePointPlayer_2 += 1;
+			if(gamePointBOT_2 <= 19 && gamePointPlayer_2 == 21){
+				round += 1;
+			}
+		}else if(round == 3) {
+			gamePointPlayer_3 += 1;
+			if(gamePointBOT_3 <= 19 && gamePointPlayer_3 == 21){
+				round += 1;
+			}
+		}
+	}
+	
+	public void updatePointBOT() {
+		if(round == 1) {
+			gamePointBOT_1 += 1;
+		}else if(round == 2) {
+			gamePointBOT_2 += 1;
+		}else if(round == 3) {
+			gamePointBOT_3 += 1;
+		}
+	}
+	
+	public void BOTMove() {
+		//get all info of hitbox
+		recalculateHitBoxBound();
+		//translate slider value to coordinate
+		float hitValue = (float) sliderVal;
+		float resolution = (float) slider.getMaximum();
+		float sliderWidth = (float) slider.getWidth();
+		float sliderOffset = (float) slider.getX();
+		float transValue = hitValue/resolution * sliderWidth + sliderOffset;
+		//BOT makes a guess
+		Random random = new Random();
+		//use the hit box bound as reference
+		gameHandler.getDifficulty();
+		//compare slider value to left bound and right bound
+		
+		
+		
+	}
 	
 }

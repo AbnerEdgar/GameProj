@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.util.Iterator;
+import java.util.Random;
 
 public class GameHandler {
 	//:START -- App Property
@@ -52,6 +53,9 @@ public class GameHandler {
         add(new Shoe());
         add(new Shoe());
     }};
+    private ArrayList<Match> matchHistory = new ArrayList<Match>();
+    private int gameWon;
+    private int gameLoss;
 	//:END -- Player Data
 	
 	//START -- Market Data
@@ -268,6 +272,30 @@ public class GameHandler {
 	public void setInventoryShoe(ArrayList<Shoe> inventoryShoe) {
 		InventoryShoe = inventoryShoe;
 	}
+	
+	public int getGameWon() {
+		return gameWon;
+	}
+
+	public void setGameWon(int gameWon) {
+		this.gameWon = gameWon;
+	}
+
+	public int getGameLoss() {
+		return gameLoss;
+	}
+
+	public void setGameLoss(int gameLoss) {
+		this.gameLoss = gameLoss;
+	}
+	
+	public ArrayList<Match> getMatchHistory() {
+		return matchHistory;
+	}
+
+	public void setMatchHistory(ArrayList<Match> matchHistory) {
+		this.matchHistory = matchHistory;
+	}
 
 	//:END -- GETTER-SETTER
 	//:START -- Method	
@@ -363,9 +391,8 @@ public class GameHandler {
  
             //READ JSON Default Match List
             JSONObject weekList = (JSONObject) obj;
-            
-            
-            //For every athlete in list
+            Random random = new Random();
+            //For every match in list
             for(Object key : weekList.keySet()) {
             	String weekId = (String) key;
                 JSONObject compList = (JSONObject) weekList.get(weekId);
@@ -376,7 +403,8 @@ public class GameHandler {
                 	String name = (String) comp.get("name");
                 	Integer price = Integer.parseInt((String) comp.get("price")); 
                 	Integer point =  Integer.parseInt((String) comp.get("points"));
-                	WeekMatch.add(new Match(name,price,point));
+                	float randInt = random.nextInt(getMaxBotLevel() - getMinBotLevel() + 1) + getMinBotLevel();
+                	WeekMatch.add(new Match(name,price,point, randInt));
                 }
                 WeeklyMatches.add(WeekMatch);
                 
@@ -385,11 +413,6 @@ public class GameHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
-	
-	private Match Match(String name, Integer price, Integer point) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void loadGame() {

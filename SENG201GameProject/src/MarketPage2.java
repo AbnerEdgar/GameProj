@@ -58,6 +58,7 @@ public class MarketPage2 {
 		frame.setVisible(false);
 	}
 	public void showPage() {
+		onAppear();
 		frame.setVisible(true);
 	}
 
@@ -296,6 +297,7 @@ public class MarketPage2 {
 	}
 	
 	public void onAppear() {
+		gameHandler.setSelectedIShoe(0);
 		btnNewButton_1_2.setText(gameHandler.getMarketShoes().get(0).getName());
 		btnNewButton_1_2_1.setText(gameHandler.getMarketShoes().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketShoes().get(2).getName());
@@ -305,9 +307,9 @@ public class MarketPage2 {
 	
 	public void refreshCard() {
 		lblNewLabel.setText(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getName());
-		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getWeight()));
+		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getWeight())+" gram");
 		progressBar_1.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getOffense());
 		progressBar.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getDefense());
-		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
+		lblNewLabel_2_1.setText("$"+Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
 	}
 }
