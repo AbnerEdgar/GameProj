@@ -39,7 +39,7 @@ Getting Started
 <ol>
 <li>Extract the zip file(the zip file called GameProj-Master-3.zip) by right click on the file and click on extract.</li>
 <li>Once you have extracted the file you will see a file that contain  this README, java jar file, src code, doc, report, UML diagram and Use case diagram.</li>
-<li>The next thing to do is go to Eclipse and create new empty Java Project. After that right click on the src folder and choose Import. Then choose File system under General tab and then browse to extracted zip file and select 'src' folder that contain src code (see step 2), and tick the box for src and hit finish.</li>
+<li>Go to Eclipse and create new empty Java Project. Then, right click on the src folder and choose Import. Under General tab, choose File system and browse to extracted zip file and select 'src' folder that contain src code (see step 2), and tick the box for src and hit finish.</li>
 <li>When the source code already imported into eclipse, you need to open seng201_game package and run GameHandler.java class to play the Badminton Masters game.</li>
 </ol>
 
