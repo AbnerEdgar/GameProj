@@ -1,4 +1,4 @@
-<h1 align="center">BADMINTON TOURNAMENT GAME</h1> <br>
+<h1 align="center">SENG201 Sports Tournament Project</h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
     <img src="Badm.png" alt="Italian Trulli">
@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  Welcome to the Badminton Tournament Game Project, a captivating virtual experience that puts you in the role of a skilled team manager in the world of men's double badminton tournaments. Developed as part of the SENG201 assignment, this project offers an immersive and aesthetic journey into the competitive realm of regional and international badminton matches.
+  Welcome to the Badminton Master, a captivating virtual experience that puts you in the role of a skilled team manager in the world of men's double badminton tournaments. Developed as part of the SENG201 assignment, this project offers an immersive and aesthetic journey into the competitive realm of regional and international badminton matches.
 </p>
 
 <p align="left">
