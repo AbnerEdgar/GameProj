@@ -11,6 +11,17 @@
 
 <p align="left">
   
+Features
+----------------------------------------------------
+  <ul>
+  <li><b>Globetrotting Adventures:</b> Embark on an exhilarating journey that takes you to various locations around the world. Compete against formidable opponents, showcasing your team's prowess in thrilling badminton matches.</li>
+    <li><b>Flexible Season Duration:</b> Experience the dynamic nature of the game with customizable season durations ranging from 5 to 15 weeks. Adapt your strategies and make tactical decisions to lead your team to victory within the allotted time.</li>
+    <li><b>Build Your Dream Team:</b> As a team manager, you have the power to recruit new athletes and mold them into the perfect badminton champions. Choose wisely and assemble a talented roster of athletes, each with unique skills and potential.</li>
+    <li><b>Strategic Investments:</b> Utilize your hard-earned money wisely by purchasing top-of-the-line rackets and shoes for your athletes. Enhance their performance and boost their stats, giving your team a competitive edge on the court.</li>
+    <li><b>Earn Points and Rewards:</b> With each triumph, you not only earn money but also accumulate valuable points. Rise through the ranks, unlock prestigious tournaments, and solidify your team's reputation as a force to be reckoned with in the badminton world.</li>
+    <li><b>Custom Team Identity:</b> At the start of your journey, you'll be prompted to choose a name for your team. Immerse yourself in the game by personalizing your team's identity and representing them with pride on the global stage.</li>   
+</ul>
+  
 To take the source code from the zip file and load it into Eclipse:
 -----------------------------------------------------
 1. First thing you should do is extract the zip file(the zip file called GameProj-Master-3.zip) by right click on the file and click on extract.
