@@ -1,18 +1,23 @@
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-import java.awt.Color;
 
+/**
+ * The EndingGamePage class represents the GUI window for the ending page of the game.
+ */
 public class EndingGamePage {
 
 	private JFrame frame;
 
 	/**
 	 * Launch the application.
+	 * 
+	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,54 +48,55 @@ public class EndingGamePage {
 		frame.setBounds(100, 100, 639, 483);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Team Name");
-		lblNewLabel.setBackground(new Color(238, 232, 170));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Futura", Font.PLAIN, 50));
-		lblNewLabel.setBounds(179, 124, 313, 114);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Seasons duration:");
-		lblNewLabel_1.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_1.setBounds(216, 239, 123, 16);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Accumulated Balance:");
-		lblNewLabel_2.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_2.setBounds(216, 277, 149, 16);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("Accumulated Points:");
-		lblNewLabel_2_1.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_2_1.setBounds(216, 316, 149, 16);
-		frame.getContentPane().add(lblNewLabel_2_1);
-		
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_3.setBounds(377, 239, 61, 16);
-		frame.getContentPane().add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_4.setBounds(377, 277, 61, 16);
-		frame.getContentPane().add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("New label");
-		lblNewLabel_3_1.setFont(new Font("Futura", Font.PLAIN, 13));
-		lblNewLabel_3_1.setBounds(377, 316, 61, 16);
-		frame.getContentPane().add(lblNewLabel_3_1);
-		
-		JLabel lblNewLabel_5 = new JLabel("See you again next season!");
-		lblNewLabel_5.setFont(new Font("Futura", Font.PLAIN, 30));
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(153, 100, 386, 39);
-		frame.getContentPane().add(lblNewLabel_5);
-		
-		JButton btnNewButton = new JButton("Close");
-		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 13));
-		btnNewButton.setBounds(288, 367, 117, 29);
-		frame.getContentPane().add(btnNewButton);
-	}
+		// Team Name Label
+		JLabel teamNameLabel = new JLabel("Team Name");
+		teamNameLabel.setBackground(new Color(238, 232, 170));
+		teamNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		teamNameLabel.setFont(new Font("Futura", Font.PLAIN, 50));
+		teamNameLabel.setBounds(179, 124, 313, 114);
+		frame.getContentPane().add(teamNameLabel);
+		// Seasons Duration Label
+		JLabel seasonsDurationLabel = new JLabel("Seasons duration:");
+		seasonsDurationLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		seasonsDurationLabel.setBounds(216, 239, 123, 16);
+		frame.getContentPane().add(seasonsDurationLabel);
+		// Accumulated Balance Label
+		JLabel accumulatedBalanceLabel = new JLabel("Accumulated Balance:");
+		accumulatedBalanceLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		accumulatedBalanceLabel.setBounds(216, 277, 149, 16);
+		frame.getContentPane().add(accumulatedBalanceLabel);
+		// Accumulated Points Label
+		JLabel accumulatedPointsLabel = new JLabel("Accumulated Points:");
+		accumulatedPointsLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		accumulatedPointsLabel.setBounds(216, 316, 149, 16);
+		frame.getContentPane().add(accumulatedPointsLabel);
+		// Seasons Duration Value Label
+		JLabel seasonsDurationValueLabel = new JLabel("New label");
+		seasonsDurationValueLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		seasonsDurationValueLabel.setBounds(377, 239, 61, 16);
+		frame.getContentPane().add(seasonsDurationValueLabel);
+		// Accumulated Balance Value Label
+		JLabel accumulatedBalanceValueLabel = new JLabel("New label");
+		accumulatedBalanceValueLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		accumulatedBalanceValueLabel.setBounds(377, 277, 61, 16);
+		frame.getContentPane().add(accumulatedBalanceValueLabel);
+		// Accumulated Points Value Label
+		JLabel accumulatedPointsValueLabel = new JLabel("New label");
+		accumulatedPointsValueLabel.setFont(new Font("Futura", Font.PLAIN, 13));
+		accumulatedPointsValueLabel.setBounds(377, 316, 61, 16);
+		frame.getContentPane().add(accumulatedPointsValueLabel);
+		// Goodbye Label
+		JLabel goodbyeLabel = new JLabel("See you again next season!");
+		goodbyeLabel.setFont(new Font("Futura", Font.PLAIN, 30));
+		goodbyeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		goodbyeLabel.setBounds(153, 100, 386, 39);
+		frame.getContentPane().add(goodbyeLabel);
+		// Close Button
+		JButton closeButton = new JButton("Close");
+		closeButton.setFont(new Font("Futura", Font.PLAIN, 13));
+		closeButton.setBounds(288, 367, 117, 29);
+		frame.getContentPane().add(closeButton);
+		}
+
 
 }

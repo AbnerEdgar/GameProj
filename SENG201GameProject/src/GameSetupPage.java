@@ -32,21 +32,26 @@ import javax.swing.JInternalFrame;
 public class GameSetupPage {
 
 	private JFrame frmGameSetup;
-	private JTextField textField;
-	private boolean isWithinFormat;
 	private GameHandler gameHandler;
+	private boolean isWithinFormat;
 	private int selectedAthlete;
 	private int selectedFrame;
+
+	private JTextField textField;
+
 	private JButton btnNewButton_3;
 	private JButton btnAthlete_4;
 	private JButton btnAthlete_1_3;
 	private JButton btnNewButton_3_1;
+
 	private JProgressBar progressBar_3;
 	private JProgressBar progressBar_1_1;
 	private JProgressBar progressBar_2_1;
+
 	private JLabel lblNewLabel_6;
 	private JLabel lblNewLabel_6_1;
 	private JLabel lblNewLabel_6_2;
+
 	private JComboBox comboBox_1;
 	
 	
@@ -77,9 +82,16 @@ public class GameSetupPage {
 		
 	}
 	
+	/**
+     * Hides the Club Page.
+     */
 	public void hidePage() {
 		frmGameSetup.setVisible(false);
 	}
+	
+	/**
+     * Shows the Club Page.
+     */
 	public void showPage() {
 		frmGameSetup.setVisible(true);
 	}
@@ -87,7 +99,6 @@ public class GameSetupPage {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	
 	private void initialize() {
 		selectedFrame = 0;
 		frmGameSetup = new JFrame();
@@ -128,40 +139,61 @@ public class GameSetupPage {
 		btnNewButton_5.setFont(new Font("Futura", Font.PLAIN, 13));
 		btnNewButton_5.setBounds(687, 460, 178, 32);
 		frmGameSetup.getContentPane().add(btnNewButton_5);
+		/**
+		 * ActionListener for the button btnNewButton_5.
+		 * Validates input, updates game settings, and generates the team.
+		 * Shows the selected page if input is valid.
+		 */
 		btnNewButton_5.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				isWithinFormat = textField.getText().length() > 13 || textField.getText().length() < 3 ? false : true;
-				lblNewLabel_2.setVisible(!isWithinFormat);
-				boolean isMemberSelected = false;
-				for(Athlete athlete: gameHandler.getSelectedAthletes()) {
-					if(!athlete.getName().equals("")){
-						isMemberSelected = true;
-					}else {
-						isMemberSelected = false;
-					}
-				}
-				if(isWithinFormat && isMemberSelected) {
-					gameHandler.setPage(2);
-					gameHandler.setDifficulty(comboBox.getSelectedIndex()+1);
-					if(gameHandler.getDifficulty() == 1) {
-						gameHandler.setMinBotLevel(1);
-						gameHandler.setMaxBotLevel(3);
-					}else if(gameHandler.getDifficulty() == 2) {
-						gameHandler.setMinBotLevel(4);
-						gameHandler.setMaxBotLevel(6);
-					}else if(gameHandler.getDifficulty() == 3) {
-						gameHandler.setMinBotLevel(7);
-						gameHandler.setMaxBotLevel(9);
-					}
-					gameHandler.setRemainingWeek(slider.getValue()-1);
-					gameHandler.setCurrentWeek(1);
-					gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
-					gameHandler.setTeamName(textField.getText());
-					gameHandler.generateTeam(new Team(gameHandler.getTeamName(),gameHandler.getNationality(),gameHandler.getSelectedAthletes()));
-					GameMaster.showSelectedPage(gameHandler.getPage());
-				}
-			}
+			 @Override
+			 public void actionPerformed(ActionEvent e) {
+			        isWithinFormat = textField.getText().length() > 13 || textField.getText().length() < 3 ? false : true;
+			        lblNewLabel_2.setVisible(!isWithinFormat);
+			        boolean isMemberSelected = false;
+			        for (Athlete athlete : gameHandler.getSelectedAthletes()) {
+			            if (!athlete.getName().equals("")) {
+			                isMemberSelected = true;
+			            } else {
+			                isMemberSelected = false;
+			            }
+			        }
+			        if (isWithinFormat && isMemberSelected) {
+			            gameHandler.setPage(2);
+			            gameHandler.setDifficulty(comboBox.getSelectedIndex() + 1);
+			            if (gameHandler.getDifficulty() == 1) {
+			                gameHandler.setMinBotLevel(1);
+			                gameHandler.setMaxBotLevel(3);
+			            } else if (gameHandler.getDifficulty() == 2) {
+			                gameHandler.setMinBotLevel(4);
+			                gameHandler.setMaxBotLevel(6);
+			            } else if (gameHandler.getDifficulty() == 3) {
+			                gameHandler.setMinBotLevel(7);
+			                gameHandler.setMaxBotLevel(9);
+			            }
+			            gameHandler.setRemainingWeek(slider.getValue() - 1);
+			            gameHandler.setCurrentWeek(1);
+			            gameHandler.setNationality(comboBox_1.getSelectedItem().toString());
+			            gameHandler.setTeamName(textField.getText());
+			            gameHandler.setGameLoss(0);
+			            gameHandler.setGameWon(0);
+			            gameHandler.generateTeam(new Team(gameHandler.getTeamName(), gameHandler.getNationality(), gameHandler.getSelectedAthletes()));
+
+			            // Get the remaining players that are not chosen to be sold at the market.
+			            int count = 0;
+			            while (count < gameHandler.getAthletes().size() - 1) {
+			                if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(0))) {
+			                } else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(1))) {
+			                } else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(2))) {
+			                } else if (gameHandler.getAthletes().get(count).equals(gameHandler.getSelectedAthlete(3))) {
+			                } else {
+			                    // Put them in the market if they are not equal to the 4 selected athletes.
+			                    gameHandler.getMarketAthletes().add(gameHandler.getAthletes().get(count));
+			                }
+			                count++;
+			            }
+			            GameMaster.showSelectedPage(gameHandler.getPage());
+			        }
+			    }
 		});
 		
 		JSeparator separator = new JSeparator();
@@ -496,27 +528,34 @@ public class GameSetupPage {
 			  });
 	}
 	
+	/**
+	 * Updates the athlete card with the information of the specified athlete.
+	 *
+	 * @param athlete The athlete object containing the information to be displayed.
+	 */
 	public void changeCard(Athlete athlete) {
 		lblNewLabel_6.setText(athlete.getName());
-		lblNewLabel_6_1.setText(Integer.toString(athlete.getage()));
-		lblNewLabel_6_2.setText(Float.toString(athlete.getheight())+" cm");
+		lblNewLabel_6_1.setText(Integer.toString(athlete.getAge()));
+		lblNewLabel_6_2.setText(Float.toString(athlete.getHeight())+" cm");
 		progressBar_3.setValue((int) athlete.getOffense());
-		progressBar_1_1.setValue((int) athlete.getDefence());
+		progressBar_1_1.setValue((int) athlete.getDefense());
 		progressBar_2_1.setValue((int) athlete.getStamina());
 	}
 	
+	/**
+	 * Refreshes the selected athletes' names on the buttons.
+	 * Also updates the selectedFrame value based on the first empty selected athlete.
+	 */
 	public void refreshSelected() {
 		btnNewButton_3.setText(gameHandler.getSelectedAthlete(0).getName());
 		btnAthlete_4.setText(gameHandler.getSelectedAthlete(1).getName());
 		btnAthlete_1_3.setText(gameHandler.getSelectedAthlete(2).getName());
 		btnNewButton_3_1.setText(gameHandler.getSelectedAthlete(3).getName());
-		int i = 0;
-		while(i < 4) {
-			if(gameHandler.getSelectedAthlete(i).getName().equals("")) {
-				selectedFrame = i;
-				break;
-			}
-			i++;
+		for (int i = 0; i < 4; i++) {
+		    if (gameHandler.getSelectedAthlete(i).getName().isEmpty()) {
+		        selectedFrame = i;
+		        break;
+		    }
 		}
 	}
 }

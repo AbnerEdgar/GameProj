@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
 import java.util.Random;
 
+/**
+ * Represents a game page that displays available sports events for the user to join.
+ */
 public class StadiumPage {
 
 	private JFrame frmBadmintonTournamentStadium;
@@ -40,8 +43,10 @@ public class StadiumPage {
 	
 	
 	/**
-	 * Launch the application.
-	 */
+     * Launches the Stadium Page application.
+     *
+     * @param args command line arguments
+     */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -57,24 +62,32 @@ public class StadiumPage {
 	}
 
 	/**
-	 * Create the application.
-	 */
+     * Creates a new StadiumPage instance.
+     * @param gameHandler the game handler object responsible for managing the game state
+     */
 	public StadiumPage(GameHandler gameHandler) {
 		this.gameHandler = gameHandler;
 		initialize();
 	}
 	
+	/**
+     * Hides the Stadium Page.
+     */
 	public void hidePage() {
 		frmBadmintonTournamentStadium.setVisible(false);
 	}
+	
+	/**
+     * Shows the Stadium Page.
+     */
 	public void showPage() {
 		onAppear();
 		frmBadmintonTournamentStadium.setVisible(true);
 	}
 
 	/**
-	 * Initialize the contents of the frame.
-	 */
+     * Initializes the Stadium Page by setting up the UI components.
+     */
 	private void initialize() {
 		frmBadmintonTournamentStadium = new JFrame();
 		frmBadmintonTournamentStadium.getContentPane().setBackground(new Color(176, 196, 222));
@@ -107,6 +120,8 @@ public class StadiumPage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 0;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -205,6 +220,8 @@ public class StadiumPage {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 3;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -239,6 +256,8 @@ public class StadiumPage {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 2;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
 				gameHandler.setPage(8);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}
@@ -270,6 +289,15 @@ public class StadiumPage {
 		
 		JButton btnNewButton_3 = new JButton("Join");
 		btnNewButton_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 13));
+		btnNewButton_3.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				int matchIndex = 1;
+				gameHandler.getMatchHistory().add(getMatch(matchIndex));
+				gameHandler.setPage(8);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.TRAILING)
@@ -308,7 +336,13 @@ public class StadiumPage {
 		lblNewLabel_3.setBounds(0, 14, 621, 53);
 		frmBadmintonTournamentStadium.getContentPane().add(lblNewLabel_3);
 	}
+	
+	/**
+     * Called when the game page appears.
+     * Populates the UI components with match information.
+     */
 	public void onAppear() {
+		Random random = new Random();
 		lblNewLabel.setText(getMatchName(0));
 		lblNewLabel_1.setText("$"+Float.toString(getMatchPrice(0)));
 		lblNewLabel_2.setText(Float.toString(getMatchPoint(0))+"points");
@@ -321,27 +355,81 @@ public class StadiumPage {
 		lblBWF.setText(getMatchName(3));
 		lblNewLabel_1_3.setText("$"+Float.toString(getMatchPrice(3)));
 		lblNewLabel_2_3.setText(Float.toString(getMatchPoint(3))+"points");
+	}
 	
-	}
+	/**
+     * Retrieves the name of the match at the specified index.
+     *
+     * @param index the index of the match
+     * @return the name of the match
+     */
 	public String getMatchName(int index) {
-		return gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getName();
+		return getMatch(index).getName();
 	}
+	
+	 /**
+     * Calculates the price for the match at the specified index, taking into account various factors.
+     *
+     * @param index the index of the match
+     * @return the calculated price for the match
+     */
 	public float getMatchPrice(int index) {
-		int price = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPrice();
-		Random random = new Random();
-		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
-		float currentWeek = gameHandler.getCurrentWeek();
-		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
-		float calcPrice = price + ((float) price * ((randInt/10) * 0.3f)) + ((float) price * (currentWeek/totalWeek) * 0.9f);
-		return calcPrice;
+	    float difficulty = getMatch(index).getDifficulty();
+	    int price = getMatch(index).getPrice();
+	    int totalWeeks = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
+	    return calculateAdjustedPrice(difficulty, price, gameHandler.getCurrentWeek(), totalWeeks);
 	}
+	
+	/**
+     * Calculates the points for the match at the specified index, taking into account various factors.
+     *
+     * @param index the index of the match
+     * @return the calculated points for the match
+     */
 	public float getMatchPoint(int index) {
-		int points = gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index).getPoint();
-		Random random = new Random();
-		float totalWeek = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
-		float currentWeek = gameHandler.getCurrentWeek();
-		float randInt = random.nextInt(gameHandler.getMaxBotLevel() - gameHandler.getMinBotLevel() + 1) + gameHandler.getMinBotLevel();
-		float calcPoints = points + ((float) points * ((randInt/10) * 0.3f)) + ((float) points * (currentWeek/totalWeek) * 0.9f);
-		return calcPoints;
+	    float difficulty = getMatch(index).getDifficulty();
+	    int points = getMatch(index).getPoint();
+	    int totalWeeks = gameHandler.getRemainingWeek() + gameHandler.getCurrentWeek();
+	    return calculateAdjustedPoints(difficulty, points, gameHandler.getCurrentWeek(), totalWeeks);
+	}
+	
+	/**
+     * Retrieves the match at the specified index.
+     *
+     * @param index the index of the match
+     * @return the match at the specified index
+     */
+	public Match getMatch(int index) {
+		return gameHandler.getWeeklyMatches().get(gameHandler.getCurrentWeek()-1).get(index);
+	}
+	
+	/**
+	 * Calculates the adjusted price based on the difficulty, price, and current week.
+	 *
+	 * @param difficulty  the difficulty of the match
+	 * @param price       the base price of the match
+	 * @param currentWeek the current week in the game
+	 * @param totalWeeks  the total number of weeks in the game
+	 * @return the adjusted price
+	 */
+	private float calculateAdjustedPrice(float difficulty, int price, int currentWeek, int totalWeeks) {
+	    float priceModifier = ((difficulty / 10) * 0.3f);
+	    float weekModifier = (currentWeek / (float) totalWeeks) * 0.9f;
+	    return price + (price * priceModifier) + (price * weekModifier);
+	}
+
+	/**
+	 * Calculates the adjusted points based on the difficulty, points, and current week.
+	 *
+	 * @param difficulty  the difficulty of the match
+	 * @param points      the base points of the match
+	 * @param currentWeek the current week in the game
+	 * @param totalWeeks  the total number of weeks in the game
+	 * @return the adjusted points
+	 */
+	private float calculateAdjustedPoints(float difficulty, int points, int currentWeek, int totalWeeks) {
+	    float pointsModifier = ((difficulty / 10) * 0.3f);
+	    float weekModifier = (currentWeek / (float) totalWeeks) * 0.9f;
+	    return points + (points * pointsModifier) + (points * weekModifier);
 	}
 }

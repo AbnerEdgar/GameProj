@@ -52,12 +52,20 @@ public class MainGamePage {
 		initialize();
 	}
 
+	/**
+	 * Hides the page by setting its visibility to false.
+	 */
 	public void hidePage() {
-		frmBadmintonTournamentMain.setVisible(false);
+	    frmBadmintonTournamentMain.setVisible(false);
 	}
+
+	/**
+	 * Shows the page by setting its visibility to true and triggers the onAppear() method.
+	 * This method is responsible for updating the appearance of the page.
+	 */
 	public void showPage() {
-		onAppear();
-		frmBadmintonTournamentMain.setVisible(true);
+	    onAppear();
+	    frmBadmintonTournamentMain.setVisible(true);
 	}
 	
 	/**
@@ -195,7 +203,7 @@ public class MainGamePage {
 		panel.add(lblNewLabel_5);
 		lblNewLabel_5.setBackground(new Color(255, 255, 255));
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Active Members:");
+		JLabel lblNewLabel_2_1 = new JLabel("Current Week:");
 		lblNewLabel_2_1.setFont(new Font("Futura", Font.PLAIN, 16));
 		lblNewLabel_2_1.setBounds(317, 29, 142, 26);
 		panel.add(lblNewLabel_2_1);
@@ -235,13 +243,27 @@ public class MainGamePage {
 		frmBadmintonTournamentMain.getContentPane().add(btnNewButton_1);
 		frmBadmintonTournamentMain.getContentPane().add(lblNewLabel_4_3);
 	}
+	
+	/**
+	 * Updates the appearance of the page with relevant game information.
+	 */
 	public void onAppear() {
-		lblNewLabel_4.setText(Float.toString(gameHandler.getBalance()));
-		lblNewLabel_4_1.setText(Float.toString(gameHandler.getPoints()));
-		lblNewLabel_4_2.setText(Integer.toString(gameHandler.getRemainingWeek()));
-		//TODO: active member update, match won, match loss
-		lblNewLabel_4_2_1.setText("");
-		lblNewLabel_4_2_1_1.setText("");
-		lblNewLabel_4_2_1_2.setText("");
+	    // Update balance
+	    lblNewLabel_4.setText(Float.toString(gameHandler.getBalance()));
+	    
+	    // Update points
+	    lblNewLabel_4_1.setText(Float.toString(gameHandler.getPoints()));
+	    
+	    // Update remaining week
+	    lblNewLabel_4_2.setText(Integer.toString(gameHandler.getRemainingWeek()));
+	    
+	    // Update current week
+	    lblNewLabel_4_2_1.setText(Integer.toString(gameHandler.getCurrentWeek()));
+	    
+	    // Update game won count
+	    lblNewLabel_4_2_1_1.setText(Integer.toString(gameHandler.getGameWon()));
+	    
+	    // Update game loss count
+	    lblNewLabel_4_2_1_2.setText(Integer.toString(gameHandler.getGameLoss()));
 	}
 }

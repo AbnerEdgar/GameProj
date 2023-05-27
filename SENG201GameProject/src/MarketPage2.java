@@ -58,6 +58,7 @@ public class MarketPage2 {
 		frame.setVisible(false);
 	}
 	public void showPage() {
+		onAppear();
 		frame.setVisible(true);
 	}
 
@@ -200,9 +201,31 @@ public class MarketPage2 {
 		frame.getContentPane().add(internalFrame);
 		internalFrame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_2 = new JButton("Equip");
+		JButton btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(100, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				// if money is enough then
+				if(gameHandler.getBalance() >= gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()) {
+					// if racket inven have a slot then
+					if(gameHandler.shoeInventoryAvailable()) {
+						gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice());
+						int count = 0;
+						while(count < gameHandler.getInventoryShoe().size()-1) {
+							if(gameHandler.getInventoryShoe().get(count).getName().equals("")) {
+								gameHandler.getInventoryShoe().set(count, gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()));
+								gameHandler.setPage(10);
+								GameMaster.showSelectedPage(gameHandler.getPage());
+								break;
+							}
+							count++;
+						}
+					}
+				}
+			}
+		});
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Y O N E X");
 		lblNewLabel_5_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -274,6 +297,7 @@ public class MarketPage2 {
 	}
 	
 	public void onAppear() {
+		gameHandler.setSelectedIShoe(0);
 		btnNewButton_1_2.setText(gameHandler.getMarketShoes().get(0).getName());
 		btnNewButton_1_2_1.setText(gameHandler.getMarketShoes().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketShoes().get(2).getName());
@@ -283,9 +307,9 @@ public class MarketPage2 {
 	
 	public void refreshCard() {
 		lblNewLabel.setText(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getName());
-		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getWeight()));
+		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getWeight())+" gram");
 		progressBar_1.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getOffense());
 		progressBar.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getDefense());
-		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
+		lblNewLabel_2_1.setText("$"+Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
 	}
 }
