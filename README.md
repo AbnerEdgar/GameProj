@@ -1,39 +1,32 @@
 <h1 align="center">Sports Tournament Project (SENG201)</h1>
 <h4 align="center">by <a href="dmo118@uclive.ac.nz">Devana Monguchi</a> and Janice Leung</h4><br>
 <p align="center";>
-  <a href="https://gitpoint.co/">
-    <img src="Badm.png" alt="Italian Trulli">
+  <a>
+    <img src="Badm.png">
   </a>
 </p>
 
-<p align="center">
-  Welcome to the Badminton Master, a captivating virtual experience that puts you in the role of a skilled team manager in the world of men's double badminton tournaments. Developed as part of the SENG201 assignment, this project offers an immersive and aesthetic journey into the competitive realm of regional and international badminton matches.
-</p>
+<p align="center"> Welcome to Badminton Master, an immersive badminton tournament game that allows you to experience the thrill of managing your own team of talented athletes and leading them to victory in the competitive world of men's double badminton tournaments.
+</p><br>
 
-<p align="left">
-  
-Your influence on your badminton club is felt from day 1!
-----------------------------------------------------
-  <ul>
-  <li><b>Globetrotting Adventures:</b> Embark on an exhilarating journey that takes you to various locations around the world. Compete against formidable opponents, showcasing your team's prowess in thrilling badminton matches.</li>
-    <li><b>Flexible Season Duration:</b> Experience the dynamic nature of the game with customizable season durations ranging from 5 to 15 weeks. Adapt your strategies and make tactical decisions to lead your team to victory within the allotted time.</li>
-    <li><b>Build Your Dream Team:</b> As a team manager, you have the power to recruit new athletes and mold them into the perfect badminton champions. Choose wisely and assemble a talented roster of athletes, each with unique skills and potential.</li>
-    <li><b>Strategic Investments:</b> Utilize your hard-earned money wisely by purchasing top-of-the-line rackets and shoes for your athletes. Enhance their performance and boost their stats, giving your team a competitive edge on the court.</li>
-    <li><b>Earn Points and Rewards:</b> With each triumph, you not only earn money but also accumulate valuable points. Rise through the ranks, unlock prestigious tournaments, and solidify your team's reputation as a force to be reckoned with in the badminton world.</li>
-    <li><b>Custom Team Identity:</b> At the start of your journey, you'll be prompted to choose a name for your team. Immerse yourself in the game by personalizing your team's identity and representing them with pride on the global stage.</li>   
-</ul>
+## Features
 
-<p align="left">
-  
-  
-  
+- **Global Tournament**: Travel around the world and participate in regional and international badminton matches against skilled opponents. Test your strategies and skills on the court as you aim for championship glory.
+
+- **Flexible Season Duration**: Customize the duration of your season, ranging from 5 to 15 weeks. Adapt your gameplay and make strategic decisions to optimize your team's performance within the given timeframe.
+
+- **Athlete Management**: Build your dream team by recruiting new athletes with varying abilities and potential. Train and develop their skills to unlock their full potential and ensure success in the tournaments.
+
+- **Equipment Upgrades**: Invest your resources wisely by purchasing high-quality rackets and shoes for your athletes. Improve their stats and enhance their performance to gain a competitive edge over your opponents.
+
+- **Financial Management**: Earn money through victories and utilize it to contract more athletes, buy essential equipment, and enhance your team's overall capabilities.
+
+- **Points and Rewards**: Accumulate points as you progress through the tournaments, unlock higher-level competitions, and establish your team's reputation as a formidable force in the badminton world.
   
 
-  
-  
 Getting Started
 ----------------------------------------------------
-  
+
 <h4><b>To take the source code from the zip file and load it into Eclipse</b></h4>
 
 <ol>
@@ -54,7 +47,7 @@ Getting Started
    <ul>
      <li>a graphical user interface run:</li><br>
      
-     java ...jar
+     java -jar target/badminton-masters.jar --gui
      
   </ul>
   </p>
@@ -62,7 +55,7 @@ Getting Started
   <ul> 
      <li>a command line interface run:</li><br>
      
-    java ...jar cmd
+    java -jar target/badminton-masters.jar --cli
     
   </ul>
   </p>
