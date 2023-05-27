@@ -48,7 +48,7 @@ public class ReplaceActiveAthletePage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_2 = new JButton("Back");
+		JButton btnNewButton_2 = new JButton("<<");
 		btnNewButton_2.setBounds(6, 6, 90, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
