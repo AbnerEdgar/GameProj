@@ -31,9 +31,12 @@ public class MarketPage1 {
 	private JButton btnNewButton_1_2_2;
 	private JButton btnNewButton_1_2_3;
 	private JLabel lblNewLabel_3;
+	
 	/**
-	 * Launch the application.
-	 */
+     * Launches the Market Page 1 application.
+     *
+     * @param args command line arguments
+     */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,9 +59,16 @@ public class MarketPage1 {
 		initialize();
 	}
 
+	/**
+     * Hides the Market Page.
+     */
 	public void hidePage() {
 		frmBadmintonTournamentMarket.setVisible(false);
 	}
+	
+	/**
+     * Shows the Market Page.
+     */
 	public void showPage() {
 		onAppear();
 		frmBadmintonTournamentMarket.setVisible(true);
@@ -155,27 +165,31 @@ public class MarketPage1 {
 		JButton btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(104, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
+		/**
+		 * ActionListener implementation for the btnNewButton_2 button.
+		 * Performs the action when the button is clicked.
+		 */
 		btnNewButton_2.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				// if money is enough then
-				if(gameHandler.getBalance() >= gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()) {
-					// if racket inven have a slot then
-					if(gameHandler.racketInventoryAvailable()) {
-						gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice());
-						int count = 0;
-						while(count < gameHandler.getInventoryRacket().size()-1) {
-							if(gameHandler.getInventoryRacket().get(count).getName().equals("")) {
-								gameHandler.getInventoryRacket().set(count, gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()));
-								gameHandler.setPage(10);
-								GameMaster.showSelectedPage(gameHandler.getPage());
-								break;
-							}
-							count++;
-						}
-					}
-				}
-			}
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        // Check if the player has enough money to buy the selected racket
+		        if (gameHandler.getBalance() >= gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()) {
+		            // Check if there is available slot in the racket inventory
+		            if (gameHandler.racketInventoryAvailable()) {
+		                // Deduct the price of the racket from the player's balance
+		                gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice());
+		             // Find an empty slot in the racket inventory and add the selected racket
+		                for (int count = 0; count < gameHandler.getInventoryRacket().size(); count++) {
+		                    if (gameHandler.getInventoryRacket().get(count).getName().isEmpty()) {
+		                        gameHandler.getInventoryRacket().set(count, gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()));
+		                        gameHandler.setPage(10);
+		                        GameMaster.showSelectedPage(gameHandler.getPage());
+		                        break;
+		                    }
+		                }
+		            }
+		        }
+		    }
 		});
 		
 		JPanel panel = new JPanel();
@@ -307,23 +321,27 @@ public class MarketPage1 {
 		internalFrame.setVisible(true);
 	}
 	
-	public void onAppear() {
-		gameHandler.setSelectedIRacket(0);
-		btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
-		btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
-		btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
-		btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
-		lblNewLabel_3.setText("$"+gameHandler.getBalance());
-		refreshCard();
-	}
-	
-	public void refreshCard() {
-		lblNewLabel.setText(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getName());
-		lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight())+" gram");
-		progressBar.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getOffense());
-		progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
-		lblNewLabel_2_1.setText("$"+Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
-	}
-	
+	 /**
+     * Handles the appearance of the GUI elements.
+     */
+    public void onAppear() {
+        gameHandler.setSelectedIRacket(0);
+        btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
+        btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
+        btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
+        btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
+        lblNewLabel_3.setText("$" + gameHandler.getBalance());
+        refreshCard();
+    }
 
+    /**
+     * Refreshes the GUI elements with the selected racket's information.
+     */
+    public void refreshCard() {
+        lblNewLabel.setText(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getName());
+        lblNewLabel_2.setText(Integer.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getWeight()) + " gram");
+        progressBar.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getOffense());
+        progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
+        lblNewLabel_2_1.setText("$" + Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
+    }
 }

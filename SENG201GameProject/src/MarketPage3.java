@@ -296,9 +296,9 @@ public class MarketPage3 {
 	
 	public void refreshCard() {
 		lblNewLabel_5.setText(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getName());
-		lblNewLabel_8.setText(Integer.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getage()));
+		lblNewLabel_8.setText(Integer.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getAge()));
 		lblNewLabel_2_1.setText(Float.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getPrice()));
-		lblNewLabel_2.setText(Float.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getheight()));
+		lblNewLabel_2.setText(Float.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getHeight()));
 		progressBar_1.setValue((int) gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getOffense());
 		progressBar.setValue((int) gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getDefense());
 	}

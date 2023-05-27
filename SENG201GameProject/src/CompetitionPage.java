@@ -20,7 +20,6 @@ import java.util.Random;
 
 public class CompetitionPage {
 	
-	
 	private JFrame frmBattleGroundPage;
 	private GameHandler gameHandler;
 	
@@ -54,6 +53,7 @@ public class CompetitionPage {
 	private int gamePointBOT_3; // the third game point if needed
 	private int round;
 	private int turn = 1; // 1 - player, 2 - bot 
+	private int playerWon = 0;
 	
 	private JLabel lblScore;
 	private JLabel lblScore_2;
@@ -62,9 +62,22 @@ public class CompetitionPage {
 	
 	private Timer timer2 = new Timer(200, e -> {
 		if(turn == 2) {
+			System.out.println("giliran bot oi!");
+			btnNewButton.setVisible(false);
 			BOTMove();
+		}else if(turn == 1) {
+			btnNewButton.setVisible(true);
 		}
+		if(playerWon == 2) {
+			// player won
+		}else if(playerWon == 1 && round == 2) {
+			isExtended = true;
+		}
+		panel_3_3_2.setVisible(isExtended);
+		panel_3_1_2_2.setVisible(isExtended);
 	});;
+	private int counter  = 0; 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -89,9 +102,17 @@ public class CompetitionPage {
 		this.gameHandler = gameHandler;
 		initialize();
 	}
+	
+	/**
+     * Hides the Competition Page.
+     */
 	public void hidePage() {
 		frmBattleGroundPage.setVisible(false);
 	}
+	
+	/**
+     * Shows the Competition Page.
+     */
 	public void showPage() {
 		onAppear();
 		frmBattleGroundPage.setVisible(true);
@@ -131,7 +152,7 @@ public class CompetitionPage {
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.setEnabled(false);
-		btnNewButton_1.setBounds(598, 19, 51, 29);
+		btnNewButton_1.setBounds(24, 19, 51, 29);
 		panel.add(btnNewButton_1);
 		
 		slider = new JSlider();
@@ -297,6 +318,9 @@ public class CompetitionPage {
 		lblScore_1_2.setBounds(0, 6, 52, 26);
 		panel_3_1_2_2.add(lblScore_1_2);
 	}
+	/**
+	 * This method is called when the game screen appears. It initializes the game variables and updates the UI components accordingly.
+	 */
 	public void onAppear() {
 		panel_3_3_2.setVisible(isExtended);
 		panel_3_1_2_2.setVisible(isExtended);
@@ -312,8 +336,13 @@ public class CompetitionPage {
 		String athleteName_1 = gameHandler.getPlayerTeam().getMembers().get(0).getName();
 		String athleteName_2 = gameHandler.getPlayerTeam().getMembers().get(1).getName();
 		lblNames_1_1.setText(athleteName_1 +" / "+ athleteName_2);
-		
 	}
+	
+	/**
+	 * Performs a specific action based on the current state of the slider value.
+	 * The slider value is incremented or decremented based on the current state,
+	 * and the slider UI component is updated accordingly.
+	 */
 	public void doThis(){
 		if(sliderVal >= 100 || sliderVal <= 0) {
 			isMax = !isMax;
@@ -325,6 +354,15 @@ public class CompetitionPage {
 		}
 		slider.setValue(sliderVal);
 	}
+	
+	/**
+	 * Randomizes the hit box position and width based on the provided percentage and a random position.
+	 * The hit box width is calculated based on the percentage and a maximum range.
+	 * The hit box position is adjusted to fit within the boundaries of the slider.
+	 *
+	 * @param percent The percentage value determining the width of the hit box.
+	 * @param ranPos  The random position to set the hit box.
+	 */
 	public void randomizeHitBox(float percent, int ranPos){
 		float maxRange = slider.getWidth() * 0.25f;
 		int tempHitBoxWidth = (int) Math.max((percent * maxRange),50);
@@ -334,11 +372,23 @@ public class CompetitionPage {
 		tempHitBoxLeftBound = Math.max(tempHitBoxLeftBound,32);
 		btnNewButton_1.setBounds(tempHitBoxLeftBound,btnNewButton_1.getY(),tempHitBoxWidth,btnNewButton_1.getHeight());
 	}
+	
+	/**
+	 * Recalculates the boundaries of the hit box based on the current position and width of the hit box button.
+	 * The hit box boundaries are used to determine if the player's hit was successful.
+	 */
 	public void recalculateHitBoxBound() {
 		hitBoxLeftBound = btnNewButton_1.getX();
 		hitBoxWidth = btnNewButton_1.getWidth();
 		hitBoxRightBound = hitBoxLeftBound + hitBoxWidth;
 	}
+	
+	/**
+	 * Checks if the game is in a deuce situation.
+	 * Deuce occurs when both players reach a score of 20 or more in the current round.
+	 *
+	 * @return true if the game is in a deuce situation, false otherwise.
+	 */
 	public boolean isDeuce() {
 		if(round == 1) {
 			return gamePointBOT_1 >= 20 && gamePointPlayer_1 >= 20;
@@ -349,56 +399,105 @@ public class CompetitionPage {
 		}
 	}
 	
+	/**
+	 * Updates the player's points based on the current round and score.
+	 * If the player wins the round, the round count is incremented and the player's win count is updated.
+	 */
 	public void updatePointPlayer() {
 		if(round == 1) {
 			gamePointPlayer_1 += 1;
-			if(gamePointBOT_1 <= 19 && gamePointPlayer_1 == 21){
+			if (gamePointBOT_1 <= 19 && gamePointPlayer_1 == 21) {
 				round += 1;
-			}else if (isDeuce()) {
-				if(gamePointPlayer_1 - gamePointBOT_1 == 2) {
-					round += 1;
-				}
+				playerWon += 1;
+			}
+			else if (isDeuce() && (gamePointPlayer_1 - gamePointBOT_1 == 2)) {
+				round += 1;
+				playerWon += 1;
 			}
 		}else if(round == 2) {
 			gamePointPlayer_2 += 1;
-			if(gamePointBOT_2 <= 19 && gamePointPlayer_2 == 21){
+			if (gamePointBOT_2 <= 19 && gamePointPlayer_2 == 21) {
 				round += 1;
+				playerWon += 1;
+			}
+			else if (isDeuce() && (gamePointPlayer_2 - gamePointBOT_2 == 2)) {
+				round += 1;
+				playerWon += 1;
 			}
 		}else if(round == 3) {
 			gamePointPlayer_3 += 1;
-			if(gamePointBOT_3 <= 19 && gamePointPlayer_3 == 21){
+			if (gamePointBOT_3 <= 19 && gamePointPlayer_3 == 21) {
+				round += 1;
+				playerWon += 1;
+			}
+			else if (isDeuce() && (gamePointPlayer_3 - gamePointBOT_3 == 2)) {
+				round += 1;
+				playerWon += 1;
+			}
+		}
+
+	}
+	
+	/**
+	 * Updates the BOT's points based on the current round and score.
+	 * If the BOT wins the round, the round count is incremented.
+	 */
+	public void updatePointBOT() {
+		if(round == 1) {
+			gamePointBOT_1 += 1;
+			if (gamePointPlayer_1 <= 19 && gamePointBOT_1 == 21) {
+				round += 1;
+			}
+		}else if(round == 2) {
+			gamePointBOT_2 += 1;
+			if (gamePointPlayer_2 <= 19 && gamePointBOT_2 == 21) {
+				round += 1;
+			}
+		}else if(round == 3) {
+			gamePointBOT_3 += 1;
+			if (gamePointPlayer_3 <= 19 && gamePointBOT_3 == 21) {
 				round += 1;
 			}
 		}
 	}
 	
-	public void updatePointBOT() {
-		if(round == 1) {
-			gamePointBOT_1 += 1;
-		}else if(round == 2) {
-			gamePointBOT_2 += 1;
-		}else if(round == 3) {
-			gamePointBOT_3 += 1;
-		}
-	}
-	
+	/**
+	 * Simulates the BOT's move in the game.
+	 * This method is called when it's the BOT's turn to hit the ball.
+	 */
 	public void BOTMove() {
-		//get all info of hitbox
-		recalculateHitBoxBound();
-		//translate slider value to coordinate
-		float hitValue = (float) sliderVal;
-		float resolution = (float) slider.getMaximum();
-		float sliderWidth = (float) slider.getWidth();
-		float sliderOffset = (float) slider.getX();
-		float transValue = hitValue/resolution * sliderWidth + sliderOffset;
+		Match tempMatch = gameHandler.getMatchHistory().get(gameHandler.getMatchHistory().size()-1);
+		float diff = tempMatch.getDifficulty();
+		
+		float defendP1 = gameHandler.getPlayerTeam().getMembers().get(0).getDefense();
+		float defendP2 = gameHandler.getPlayerTeam().getMembers().get(1).getDefense();
+		float totalDef = defendP1 + defendP2;
+		
+		float offset = 50 * (totalDef/200f);
+		//get all info of hit box
+		int hitBoxLeftBoundBOT = btnNewButton_1.getX() - (int) offset;
+		int hitBoxRightBoundBOT = hitBoxLeftBoundBOT + (int) offset;
+		
 		//BOT makes a guess
 		Random random = new Random();
 		//use the hit box bound as reference
-		gameHandler.getDifficulty();
-		//compare slider value to left bound and right bound
+		float randInt = random.nextInt(hitBoxRightBoundBOT - hitBoxLeftBoundBOT + 1) + hitBoxLeftBoundBOT;
 		
-		
-		
+		if(randInt >= hitBoxLeftBound && randInt <= hitBoxRightBound && counter <= 5) {
+			updatePointBOT();
+			counter++;
+			System.out.println("BOT dapet point!");
+		}else {
+			turn = 1;
+			counter = 0;
+			updatePointPlayer(); 
+			System.out.println("giliran player oi!");
+		}
+		//updateScore
+		lblScore.setText(Integer.toString(gamePointPlayer_1));
+		lblScore_2.setText(Integer.toString(gamePointPlayer_2));
+		lblScore_1.setText(Integer.toString(gamePointBOT_1));
+		lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 	}
 	
 }

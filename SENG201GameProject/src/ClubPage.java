@@ -22,12 +22,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JToggleButton;
 import javax.swing.JSeparator;
 
+/**
+ * Represents the Club Page of the Badminton Tournament application.
+ * Allows users to interact with the club's athletes.
+ */
 public class ClubPage {
 
 	private JFrame frmBadmintonTournamentClub;
 	private GameHandler gameHandler;
 	private int selectedAthlete;
-	
+
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_2;
 	private JButton btnNewButton;
@@ -52,102 +56,112 @@ public class ClubPage {
 	private JLabel lblNewLabel_9;
 	private JLabel lblNewLabel_9_1;
 	private JPanel panel_1;
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameHandler gameHandler = new GameHandler();
-					ClubPage window = new ClubPage(gameHandler);
-					window.frmBadmintonTournamentClub.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public ClubPage(GameHandler gameHandler) {
-		this.gameHandler = gameHandler;
-		initialize();
-	}
+    /**
+     * Launches the Club Page application.
+     *
+     * @param args command line arguments
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    GameHandler gameHandler = new GameHandler();
+                    ClubPage window = new ClubPage(gameHandler);
+                    window.frmBadmintonTournamentClub.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
-	public void hidePage() {
-		frmBadmintonTournamentClub.setVisible(false);
-	}
-	public void showPage() {
-		onAppear();
-		frmBadmintonTournamentClub.setVisible(true);
-		
-	}
-	
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmBadmintonTournamentClub = new JFrame();
-		frmBadmintonTournamentClub.getContentPane().setBackground(new Color(176, 196, 222));
-		frmBadmintonTournamentClub.setTitle((gameHandler.getAppName()+"(Club Page)"));
-		frmBadmintonTournamentClub.setBounds(100, 100, 636, 517);
-		frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmBadmintonTournamentClub.setLocationRelativeTo(null);
-		frmBadmintonTournamentClub.getContentPane().setLayout(null);
-		
-		btnNewButton = new JButton("Name");
-		btnNewButton.setBackground(new Color(244, 164, 96));
-		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		btnNewButton.setBounds(80, 119, 80, 80);
-		frmBadmintonTournamentClub.getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			@Override 
-			public void actionPerformed(ActionEvent e) {
-				btnNewButton_7.setVisible(false);
-				gameHandler.getPlayerTeam().setSelectedActiveMembers(0);
-				selectedAthlete = 0;
-				refreshCard();
-			}
-		});
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(250, 250, 210));
-		panel.setForeground(new Color(250, 250, 210));
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(308, 79, 309, 392);
-		frmBadmintonTournamentClub.getContentPane().add(panel);
-		
-		lblNewLabel_2 = new JLabel(gameHandler.getSelectedAthlete(selectedAthlete).getName());
-		lblNewLabel_2.setBounds(116, 21, 185, 20);
-		lblNewLabel_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_3 = new JLabel("Age:");
-		lblNewLabel_3.setBounds(20, 47, 68, 20);
-		lblNewLabel_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_4 = new JLabel("Height:");
-		lblNewLabel_4.setBounds(20, 73, 90, 20);
-		lblNewLabel_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_5 = new JLabel("Durability:");
-		lblNewLabel_5.setBounds(20, 189, 82, 20);
-		lblNewLabel_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		progressBar = new JProgressBar();
-		progressBar.setBounds(20, 213, 270, 20);
-		progressBar.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		JLabel lblNewLabel_6 = new JLabel("Offense:");
-		lblNewLabel_6.setBounds(20, 235, 65, 20);
-		lblNewLabel_6.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
-		
-		progressBar_1 = new JProgressBar();
-		progressBar_1.setBounds(20, 259, 270, 20);
-		progressBar_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+    /**
+     * Creates a new instance of the ClubPage.
+     *
+     * @param gameHandler the GameHandler instance
+     */
+    public ClubPage(GameHandler gameHandler) {
+        this.gameHandler = gameHandler;
+        initialize();
+    }
+
+    /**
+     * Hides the Club Page.
+     */
+    public void hidePage() {
+        frmBadmintonTournamentClub.setVisible(false);
+    }
+
+    /**
+     * Shows the Club Page.
+     */
+    public void showPage() {
+        onAppear();
+        frmBadmintonTournamentClub.setVisible(true);
+    }
+
+    /**
+     * Initializes the contents of the frame.
+     */
+    private void initialize() {
+        frmBadmintonTournamentClub = new JFrame();
+        frmBadmintonTournamentClub.getContentPane().setBackground(new Color(176, 196, 222));
+        frmBadmintonTournamentClub.setTitle((gameHandler.getAppName() + "(Club Page)"));
+        frmBadmintonTournamentClub.setBounds(100, 100, 636, 517);
+        frmBadmintonTournamentClub.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmBadmintonTournamentClub.setLocationRelativeTo(null);
+        frmBadmintonTournamentClub.getContentPane().setLayout(null);
+
+        btnNewButton = new JButton("Name");
+        btnNewButton.setBackground(new Color(244, 164, 96));
+        btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+        btnNewButton.setBounds(80, 119, 80, 80);
+        frmBadmintonTournamentClub.getContentPane().add(btnNewButton);
+        btnNewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnNewButton_7.setVisible(false);
+                gameHandler.getPlayerTeam().setSelectedActiveMembers(0);
+                selectedAthlete = 0;
+                refreshCard();
+            }
+        });
+
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(250, 250, 210));
+        panel.setForeground(new Color(250, 250, 210));
+        panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+        panel.setBounds(308, 79, 309, 392);
+        frmBadmintonTournamentClub.getContentPane().add(panel);
+
+        lblNewLabel_2 = new JLabel(gameHandler.getSelectedAthlete(selectedAthlete).getName());
+        lblNewLabel_2.setBounds(116, 21, 185, 20);
+        lblNewLabel_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        JLabel lblNewLabel_3 = new JLabel("Age:");
+        lblNewLabel_3.setBounds(20, 47, 68, 20);
+        lblNewLabel_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        JLabel lblNewLabel_4 = new JLabel("Height:");
+        lblNewLabel_4.setBounds(20, 73, 90, 20);
+        lblNewLabel_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        JLabel lblNewLabel_5 = new JLabel("Durability:");
+        lblNewLabel_5.setBounds(20, 189, 82, 20);
+        lblNewLabel_5.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        progressBar = new JProgressBar();
+        progressBar.setBounds(20, 213, 270, 20);
+        progressBar.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        JLabel lblNewLabel_6 = new JLabel("Offense:");
+        lblNewLabel_6.setBounds(20, 235, 65, 20);
+        lblNewLabel_6.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
+
+        progressBar_1 = new JProgressBar();
+        progressBar_1.setBounds(20, 259, 270, 20);
+        progressBar_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
 		
 		JLabel lblNewLabel_7 = new JLabel("Defense:");
 		lblNewLabel_7.setBounds(20, 287, 68, 20);
@@ -181,7 +195,6 @@ public class ClubPage {
 			public void actionPerformed(ActionEvent e) {
 				if(!getPlayer(selectedAthlete).getName().equals("")) {
 					int selectedIndex = gameHandler.getPlayerTeam().getSelectedActiveMembers();
-					//temp Player diambil dari active player
 					Athlete tempPlayer = getPlayer(selectedIndex);
 					gameHandler.getPlayerTeam().getMembers().set(selectedIndex, getPlayer(selectedAthlete));
 					gameHandler.getPlayerTeam().getMembers().set(selectedAthlete, tempPlayer);
@@ -352,33 +365,49 @@ public class ClubPage {
 			}
 		});
 	}
-	public void onAppear() {
-		selectedAthlete = 0;
-		lblNewLabel.setText(gameHandler.getTeamName());
-		btnNewButton_7.setVisible(false);
-		refreshCard();
-		btnNewButton.setText(getPlayer(0).getName());
-		btnNewButton_1.setText(getPlayer(1).getName());
-		btnNewButton_2.setText(getPlayer(2).getName());
-		btnNewButton_2_1.setText(getPlayer(5).getName());
-		btnNewButton_1_1.setText(getPlayer(4).getName());
-		btnNewButton_3.setText(getPlayer(3).getName());
-		btnNewButton_4.setText(getPlayer(6).getName());
-		btnNewButton_5.setText(gameHandler.getInventoryRacket().get(0).getName());
-	}
-	
-	public void refreshCard() {
-		lblNewLabel_2.setText(getPlayer(selectedAthlete).getName());
-		lblNewLabel_9.setText(Integer.toString(getPlayer(selectedAthlete).getage()));
-		lblNewLabel_9_1.setText(Float.toString(getPlayer(selectedAthlete).getheight()));
-		progressBar.setValue((int) getPlayer(selectedAthlete).getOffense());
-		progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefense());
-		progressBar_2.setValue((int) getPlayer(selectedAthlete).getStamina());
-		btnNewButton_5.setText(getPlayer(selectedAthlete).getEquipment(0).getName());
-		btnNewButton_5_1.setText(getPlayer(selectedAthlete).getEquipment(1).getName());
-	}
-	
-	public Athlete getPlayer(int index) {
-		return gameHandler.getPlayerTeam().getMembers().get(index);
-	}
+    
+    /**
+     * This method is called when the GUI component appears.
+     * It initializes and updates the necessary components.
+     */
+    public void onAppear() {
+        selectedAthlete = 0;
+        lblNewLabel.setText(gameHandler.getTeamName());
+        btnNewButton_7.setVisible(false);
+        refreshCard();
+        btnNewButton.setText(getPlayer(0).getName());
+        btnNewButton_1.setText(getPlayer(1).getName());
+        btnNewButton_2.setText(getPlayer(2).getName());
+        btnNewButton_2_1.setText(getPlayer(5).getName());
+        btnNewButton_1_1.setText(getPlayer(4).getName());
+        btnNewButton_3.setText(getPlayer(3).getName());
+        btnNewButton_4.setText(getPlayer(6).getName());
+        btnNewButton_5.setText(gameHandler.getInventoryRacket().get(0).getName());
+    }
+
+    /**
+     * Refreshes the player card with the currently selected athlete's information.
+     * Updates the labels and progress bars accordingly.
+     */
+    public void refreshCard() {
+        lblNewLabel_2.setText(getPlayer(selectedAthlete).getName());
+        lblNewLabel_9.setText(Integer.toString(getPlayer(selectedAthlete).getAge()));
+        lblNewLabel_9_1.setText(Float.toString(getPlayer(selectedAthlete).getHeight()));
+        progressBar.setValue((int) getPlayer(selectedAthlete).getOffense());
+        progressBar_1.setValue((int) getPlayer(selectedAthlete).getDefense());
+        progressBar_2.setValue((int) getPlayer(selectedAthlete).getStamina());
+        btnNewButton_5.setText(getPlayer(selectedAthlete).getEquipment(0).getName());
+        btnNewButton_5_1.setText(getPlayer(selectedAthlete).getEquipment(1).getName());
+    }
+
+    /**
+     * Retrieves the athlete from the player team at the given index.
+     *
+     * @param index The index of the athlete in the player team.
+     * @return The Athlete object at the specified index.
+     */
+    public Athlete getPlayer(int index) {
+        return gameHandler.getPlayerTeam().getMembers().get(index);
+    }
+
 }
