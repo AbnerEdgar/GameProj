@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.SystemColor;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
@@ -455,13 +457,13 @@ public class ClubPage {
         lblNewLabel.setText(gameHandler.getTeamName());
         btnNewButton_7.setVisible(false);
         refreshCard();
-        btnNewButton.setText(getPlayer(0).getName());
-        btnNewButton_1.setText(getPlayer(1).getName());
-        btnNewButton_2.setText(getPlayer(2).getName());
-        btnNewButton_2_1.setText(getPlayer(5).getName());
-        btnNewButton_1_1.setText(getPlayer(4).getName());
-        btnNewButton_3.setText(getPlayer(3).getName());
-        btnNewButton_4.setText(getPlayer(6).getName());
+        btnNewButton.setIcon(getScaledImage(getPlayer(0).getImage()));
+        btnNewButton_1.setIcon(getScaledImage(getPlayer(1).getImage()));
+        btnNewButton_2.setIcon(getScaledImage(getPlayer(2).getImage()));
+        btnNewButton_2_1.setIcon(getScaledImage(getPlayer(5).getImage()));
+        btnNewButton_1_1.setIcon(getScaledImage(getPlayer(4).getImage()));
+        btnNewButton_3.setIcon(getScaledImage(getPlayer(3).getImage()));
+        btnNewButton_4.setIcon(getScaledImage(getPlayer(6).getImage()));
 //        btnNewButton_5.setText(gameHandler.getInventoryRacket().get(0).getName());
     }
 
@@ -480,6 +482,14 @@ public class ClubPage {
         btnNewButton_5_1.setText(getPlayer(gameHandler.getClubSelectedAthlete()).getShoe().getName());
     }
 
+    public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
+	}
+    
     /**
      * Retrieves the athlete from the player team at the given index.
      *

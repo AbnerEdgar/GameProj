@@ -5,11 +5,14 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JSeparator;
@@ -291,18 +294,25 @@ public class TeamInventoryPage {
 		}else {
 			btnNewButton.setText("Equip");
 		}
-		btnNewButton_5.setText(gameHandler.getInventoryShoe().get(0).getName());
-		btnNewButton_5_3.setText(gameHandler.getInventoryShoe().get(1).getName());
-		btnNewButton_5_1.setText(gameHandler.getInventoryShoe().get(2).getName());
-		btnNewButton_5_3_1.setText(gameHandler.getInventoryShoe().get(3).getName());
-		btnNewButton_5_4.setText(gameHandler.getInventoryRacket().get(0).getName());
-		btnNewButton_5_5.setText(gameHandler.getInventoryRacket().get(1).getName());
-		btnNewButton_5_4_1.setText(gameHandler.getInventoryRacket().get(2).getName());
-		btnNewButton_5_5_1.setText(gameHandler.getInventoryRacket().get(3).getName());
+		btnNewButton_5.setIcon(getScaledImage(gameHandler.getInventoryShoe().get(0).getImage()));
+		btnNewButton_5_3.setIcon(getScaledImage(gameHandler.getInventoryShoe().get(1).getImage()));
+		btnNewButton_5_1.setIcon(getScaledImage(gameHandler.getInventoryShoe().get(2).getImage()));
+		btnNewButton_5_3_1.setIcon(getScaledImage(gameHandler.getInventoryShoe().get(3).getImage()));
+		btnNewButton_5_4.setIcon(getScaledImage(gameHandler.getInventoryRacket().get(0).getImage()));
+		btnNewButton_5_5.setIcon(getScaledImage(gameHandler.getInventoryRacket().get(1).getImage()));
+		btnNewButton_5_4_1.setIcon(getScaledImage(gameHandler.getInventoryRacket().get(2).getImage()));
+		btnNewButton_5_5_1.setIcon(getScaledImage(gameHandler.getInventoryRacket().get(3).getImage()));
 		if(gameHandler.getInventoryShoe().get(selectedItem).getName().equals("")) {
 			btnNewButton.setVisible(false);
 		}else {
 			btnNewButton.setVisible(true);
 		}
+	}
+	public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
 	}
 }

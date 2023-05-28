@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.JEditorPane;
 import javax.swing.Timer;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.util.Random;
@@ -78,6 +80,7 @@ public class CompetitionPage {
 		panel_3_1_2_2.setVisible(isExtended);
 	});;
 	private int counter  = 0; 
+	private JButton btnNewButton_2;
 	
 	/**
 	 * Launch the application.
@@ -203,13 +206,13 @@ public class CompetitionPage {
 				lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 				lblScore_3.setText(Integer.toString(gamePointPlayer_3));
 				lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
-				if(playerWon == 2) {
+				if(playerWon == 2 && round == 2) {
 					gameHandler.setPage(12);
 					GameMaster.showSelectedPage(gameHandler.getPage());
-				}else if (playerWon == 1 && round == 3) {
+				}else if (playerWon == 1 && round == 4) {
 					gameHandler.setPage(11);
 					GameMaster.showSelectedPage(gameHandler.getPage());
-				}else if (playerWon == 0 && round == 2) {
+				}else if (playerWon == 0 && round == 3) {
 					gameHandler.setPage(11);
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
@@ -328,6 +331,10 @@ public class CompetitionPage {
 		lblScore_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_1_2.setBounds(0, 6, 52, 26);
 		panel_3_1_2_2.add(lblScore_1_2);
+		
+		btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setBounds(32, 102, 682, 326);
+		frmBattleGroundPage.getContentPane().add(btnNewButton_2);
 	}
 	/**
 	 * This method is called when the game screen appears. It initializes the game variables and updates the UI components accordingly.
@@ -347,6 +354,7 @@ public class CompetitionPage {
 		String athleteName_1 = gameHandler.getPlayerTeam().getMembers().get(0).getName();
 		String athleteName_2 = gameHandler.getPlayerTeam().getMembers().get(1).getName();
 		lblNames_1_1.setText(athleteName_1 +" / "+ athleteName_2);
+		btnNewButton_2.setIcon(getScaledImage("./Image/background.png"));
 		updatePointView();
 	}
 	
@@ -512,5 +520,12 @@ public class CompetitionPage {
 		lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 		lblScore_3.setText(Integer.toString(gamePointPlayer_3));
 		lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
+	}
+	public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(680, 310, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
 	}
 }

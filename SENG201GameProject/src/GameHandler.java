@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * Manages the game overall and stores all the variable
+ */
 public class GameHandler {
     // App Property
     private String appName;
@@ -48,6 +51,9 @@ public class GameHandler {
     private int selectedIAthlete;
     private int buyCategory; // 1 racket, 2 shoe, 3 athlete
 
+    /**
+     * Constructor of the GameHandler class
+     */
     public GameHandler() {
         initialize();
     }
@@ -550,19 +556,38 @@ public class GameHandler {
         this.matchHistory = matchHistory;
     }
     
-    
+    /**
+     * Retrieves the value of the sellButton property.
+     *
+     * @return the value of the sellButton property
+     */
     public boolean isSellButton() {
 		return sellButton;
-	}
+    }
 
+    /**
+     * Sets the value of the sellButton property.
+     *
+     * @param sellButton the new value for the sellButton property
+     */
 	public void setSellButton(boolean sellButton) {
 		this.sellButton = sellButton;
 	}
 
+	/**
+	 * Retrieves the value of the clubSelectedAthlete property.
+	 *
+	 * @return the value of the clubSelectedAthlete property
+	 */
 	public int getClubSelectedAthlete() {
 		return clubSelectedAthlete;
 	}
 
+	/**
+	 * Sets the value of the clubSelectedAthlete property.
+	 *
+	 * @param clubSelectedAthlete the new value for the clubSelectedAthlete property
+	 */
 	public void setClubSelectedAthlete(int clubSelectedAthlete) {
 		this.clubSelectedAthlete = clubSelectedAthlete;
 	}
@@ -724,6 +749,8 @@ public class GameHandler {
 	 */
 	public void saveGame() {
 	    // TODO: Implement the logic to save the game state
+		JSONArray jsonArray = new JSONArray();
+		
 	}
 
 	/**
