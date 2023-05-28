@@ -47,7 +47,7 @@ Getting Started
    <ul>
      <li>a graphical user interface run:</li><br>
      
-     java -jar target/badminton-masters.jar --gui
+     java -jar target/dmo118_wcl29_SportsTourament.jar --gui
      
   </ul>
   </p>
@@ -55,7 +55,7 @@ Getting Started
   <ul> 
      <li>a command line interface run:</li><br>
      
-    java -jar target/badminton-masters.jar --cli
+    java -jar target/dmo118_wcl29_SportsTourament.jar --cli
     
   </ul>
   </p>
