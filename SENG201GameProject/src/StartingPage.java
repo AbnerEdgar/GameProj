@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Color;
@@ -10,6 +13,7 @@ import java.awt.Color;
 public class StartingPage {
 
 	private JFrame frame;
+	private GameHandler gameHandler;
 
 	/**
 	 * Launch the application.
@@ -18,7 +22,8 @@ public class StartingPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StartingPage window = new StartingPage();
+					GameHandler gameHandler = new GameHandler();
+					StartingPage window = new StartingPage(gameHandler);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,10 +32,19 @@ public class StartingPage {
 		});
 	}
 
+	public void hidePage() {
+		frame.setVisible(false);
+	}
+	
+	public void showPage() {
+		frame.setVisible(true);
+	}
+	
 	/**
 	 * Create the application.
 	 */
-	public StartingPage() {
+	public StartingPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
@@ -43,6 +57,7 @@ public class StartingPage {
 		frame.setBounds(100, 100, 647, 459);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 		
 		JButton btnNewButton = new JButton("I already have a club");
 		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 15));
@@ -53,6 +68,13 @@ public class StartingPage {
 		btnGetStarted.setFont(new Font("Futura", Font.PLAIN, 15));
 		btnGetStarted.setBounds(224, 231, 209, 64);
 		frame.getContentPane().add(btnGetStarted);
+		btnGetStarted.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(1);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("Badminton Masters");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

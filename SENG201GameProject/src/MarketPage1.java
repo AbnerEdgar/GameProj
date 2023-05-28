@@ -5,12 +5,15 @@ import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -31,6 +34,7 @@ public class MarketPage1 {
 	private JButton btnNewButton_1_2_2;
 	private JButton btnNewButton_1_2_3;
 	private JLabel lblNewLabel_3;
+	private JButton btnNewButton_2;
 	
 	/**
      * Launches the Market Page 1 application.
@@ -162,7 +166,7 @@ public class MarketPage1 {
 		lblNewLabel_2_1.setBounds(95, 264, 61, 16);
 		internalFrame.getContentPane().add(lblNewLabel_2_1);
 		
-		JButton btnNewButton_2 = new JButton("Buy");
+		btnNewButton_2 = new JButton("Buy");
 		btnNewButton_2.setBounds(104, 6, 72, 29);
 		internalFrame.getContentPane().add(btnNewButton_2);
 		/**
@@ -182,6 +186,7 @@ public class MarketPage1 {
 		                for (int count = 0; count < gameHandler.getInventoryRacket().size(); count++) {
 		                    if (gameHandler.getInventoryRacket().get(count).getName().isEmpty()) {
 		                        gameHandler.getInventoryRacket().set(count, gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()));
+		                        gameHandler.getMarketRackets().set(count, new Racket());
 		                        gameHandler.setPage(10);
 		                        GameMaster.showSelectedPage(gameHandler.getPage());
 		                        break;
@@ -219,50 +224,70 @@ public class MarketPage1 {
 		lblNewLabel_6.setBounds(6, 22, 276, 52);
 		panel_1_1.add(lblNewLabel_6);
 		
-		btnNewButton_1_2 = new JButton("100ZZ");
+		btnNewButton_1_2 = new JButton("");
 		btnNewButton_1_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2.setBounds(17, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2);
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				if(gameHandler.getMarketRackets().get(0).getName().equals("")) {
+					btnNewButton_2.setVisible(false);
+				}else {
+					btnNewButton_2.setVisible(true);
+				}
 				gameHandler.setSelectedIRacket(0);
 				refreshCard();
 			}
 		});
 		
 		
-		btnNewButton_1_2_1 = new JButton("100ZZ");
+		btnNewButton_1_2_1 = new JButton("");
 		btnNewButton_1_2_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1.setBounds(153, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_1);
 		btnNewButton_1_2_1.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				if(gameHandler.getMarketRackets().get(1).getName().equals("")) {
+					btnNewButton_2.setVisible(false);
+				}else {
+					btnNewButton_2.setVisible(true);
+				}
 				gameHandler.setSelectedIRacket(1);
 				refreshCard();
 			}
 		});
 		
-		btnNewButton_1_2_2 = new JButton("100ZZ");
+		btnNewButton_1_2_2 = new JButton("");
 		btnNewButton_1_2_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_2.setBounds(153, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_2);
 		btnNewButton_1_2_2.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				if(gameHandler.getMarketRackets().get(2).getName().equals("")) {
+					btnNewButton_2.setVisible(false);
+				}else {
+					btnNewButton_2.setVisible(true);
+				}
 				gameHandler.setSelectedIRacket(2);
 				refreshCard();
 			}
 		});
 		
-		btnNewButton_1_2_3 = new JButton("100ZZ");
+		btnNewButton_1_2_3 = new JButton("");
 		btnNewButton_1_2_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_3.setBounds(17, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_3);
 		btnNewButton_1_2_3.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				if(gameHandler.getMarketRackets().get(3).getName().equals("")) {
+					btnNewButton_2.setVisible(false);
+				}else {
+					btnNewButton_2.setVisible(true);
+				}
 				gameHandler.setSelectedIRacket(3);
 				refreshCard();
 			}
@@ -326,11 +351,16 @@ public class MarketPage1 {
      */
     public void onAppear() {
         gameHandler.setSelectedIRacket(0);
-        btnNewButton_1_2.setText(gameHandler.getMarketRackets().get(0).getName());
-        btnNewButton_1_2_1.setText(gameHandler.getMarketRackets().get(1).getName());
-        btnNewButton_1_2_2.setText(gameHandler.getMarketRackets().get(2).getName());
-        btnNewButton_1_2_3.setText(gameHandler.getMarketRackets().get(3).getName());
+        btnNewButton_1_2.setIcon(getScaledImage(gameHandler.getMarketRackets().get(0).getImage()));
+        btnNewButton_1_2_1.setIcon(getScaledImage(gameHandler.getMarketRackets().get(1).getImage()));
+        btnNewButton_1_2_2.setIcon(getScaledImage(gameHandler.getMarketRackets().get(2).getImage()));
+        btnNewButton_1_2_3.setIcon(getScaledImage(gameHandler.getMarketRackets().get(3).getImage()));
         lblNewLabel_3.setText("$" + gameHandler.getBalance());
+        if(gameHandler.getMarketRackets().get(1).getName().equals("")) {
+			btnNewButton_2.setVisible(false);
+		}else {
+			btnNewButton_2.setVisible(true);
+		}
         refreshCard();
     }
 
@@ -344,4 +374,11 @@ public class MarketPage1 {
         progressBar_1.setValue((int) gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getDefense());
         lblNewLabel_2_1.setText("$" + Float.toString(gameHandler.getMarketRackets().get(gameHandler.getSelectedIRacket()).getPrice()));
     }
+    public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
+	}
 }

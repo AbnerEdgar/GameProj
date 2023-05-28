@@ -57,7 +57,7 @@ public class Athlete {
         this.defense = defense;
         this.stamina = stamina;
         this.price = price;
-        this.image = "image/" + name;
+        this.image = "./Image/"+ name+".png";
         this.racket = new Racket();
         this.shoe = new Shoe();
     }

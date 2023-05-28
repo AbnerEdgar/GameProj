@@ -1,5 +1,6 @@
-import javax.swing.JFrame;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 /**
  * The main class that controls the game flow and navigation between pages.
  */
@@ -16,14 +17,18 @@ public class GameMaster {
 	static CompetitionPage competitionPage = new CompetitionPage(gameHandler);
 	static AfterBuyItemPage afterBuyPage = new AfterBuyItemPage(gameHandler);
 	static TeamInventoryPage inventoryPage = new TeamInventoryPage(gameHandler);
-
-    /**
-     * The main entry point of the game.
+	static YouLosePage defeatPage = new YouLosePage(gameHandler);
+	static YouWinPage winnerPage = new YouWinPage(gameHandler);
+	static LoadScreen loadscreenPage = new LoadScreen(gameHandler);
+	static StartingPage startPage = new StartingPage(gameHandler);
+	
+     /* The main entry point of the game.
      *
      * @param args command line arguments
      */
     public static void main(String[] args) {
         try {
+        	
             showSelectedPage(gameHandler.getPage());
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,6 +49,11 @@ public class GameMaster {
         marketPage3.hidePage();
         inventoryPage.hidePage();
         afterBuyPage.hidePage();
+        loadscreenPage.hidePage();
+        defeatPage.hidePage();
+        winnerPage.hidePage();
+        startPage.hidePage();
+        loadscreenPage.hidePage();
     }
 
     /**
@@ -73,6 +83,22 @@ public class GameMaster {
             inventoryPage.showPage();
         } else if (page == 10) {
             afterBuyPage.showPage();
+        } else if (page == 11) {
+        	defeatPage.showPage();
+        } else if (page == 12) {
+        	winnerPage.showPage(); 
+        } else if (page == 13) {
+        	startPage.showPage();
+        }else if (page == 0) {
+        	loadscreenPage.showPage();
         }
     }
+    
+    public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
+	}
 }

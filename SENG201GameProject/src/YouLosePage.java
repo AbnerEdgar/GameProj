@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -12,6 +15,7 @@ import javax.swing.JButton;
 public class YouLosePage {
 
 	private JFrame frame;
+	private GameHandler gameHandler;
 
 	/**
 	 * Launch the application.
@@ -20,7 +24,8 @@ public class YouLosePage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					YouLosePage window = new YouLosePage();
+					GameHandler gameHandler = new GameHandler();
+					YouLosePage window = new YouLosePage(gameHandler);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,11 +33,20 @@ public class YouLosePage {
 			}
 		});
 	}
+	
+	public void hidePage() {
+		frame.setVisible(false);
+	}
+	
+	public void showPage() {
+		frame.setVisible(true);
+	}
 
 	/**
 	 * Create the application.
 	 */
-	public YouLosePage() {
+	public YouLosePage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
@@ -66,22 +80,28 @@ public class YouLosePage {
 		lblNewLabel.setBounds(44, 81, 160, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblMoneyEarned = new JLabel("Amount earned: ");
+		JLabel lblMoneyEarned = new JLabel("Amount Earned: ");
 		lblMoneyEarned.setFont(new Font("Futura", Font.PLAIN, 20));
 		lblMoneyEarned.setBounds(44, 38, 160, 27);
 		panel.add(lblMoneyEarned);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("0");
 		lblNewLabel_1.setBounds(216, 82, 61, 16);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("New label");
+		JLabel lblNewLabel_1_1 = new JLabel("0");
 		lblNewLabel_1_1.setBounds(216, 46, 61, 16);
 		panel.add(lblNewLabel_1_1);
 		
-		JButton btnNewButton = new JButton("exit");
+		JButton btnNewButton = new JButton("Exit");
 		btnNewButton.setBounds(282, 366, 117, 29);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 	}
-
 }

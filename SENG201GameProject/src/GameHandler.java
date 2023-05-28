@@ -57,7 +57,7 @@ public class GameHandler {
      */
     private void initialize() {
         this.appName = "Badminton Tournament Game Setup";
-        this.page = 1;
+        this.page = 0;
         this.sellButton = false;
 
         this.difficulty = 1;
