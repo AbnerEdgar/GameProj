@@ -29,7 +29,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JInternalFrame;
 
-public class GameSetupPage {
+public class GameSetupPage extends JFrame{
 
 	private JFrame frmGameSetup;
 	private GameHandler gameHandler;
@@ -77,6 +77,7 @@ public class GameSetupPage {
 	 */
 	public GameSetupPage(GameHandler gameHandler) {
 		this.gameHandler = gameHandler;
+		
 		initialize();
 		isWithinFormat = false;
 		

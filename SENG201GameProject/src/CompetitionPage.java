@@ -40,6 +40,8 @@ public class CompetitionPage {
 		doThis();
 	});
 	
+	private JLabel lblScore_1_2;
+	private JLabel lblScore_3;
 	private JLabel lblJpn;
 	private JLabel lblNames_1;
 	private JLabel lblNames_1_1;
@@ -70,9 +72,10 @@ public class CompetitionPage {
 		}
 		if(playerWon == 2) {
 			// player won
-		}else if(playerWon == 1 && round == 2) {
+		}else if(playerWon == 1 && round == 2){
 			isExtended = true;
 		}
+		System.out.println(playerWon == 1 && round == 2);
 		panel_3_3_2.setVisible(isExtended);
 		panel_3_1_2_2.setVisible(isExtended);
 	});;
@@ -202,6 +205,8 @@ public class CompetitionPage {
 				lblScore_2.setText(Integer.toString(gamePointPlayer_2));
 				lblScore_1.setText(Integer.toString(gamePointBOT_1));
 				lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
+				lblScore_3.setText(Integer.toString(gamePointPlayer_3));
+				lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
 			}
 		});
 		
@@ -303,7 +308,7 @@ public class CompetitionPage {
 		panel_3_3_2.setBounds(379, 17, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_3_2);
 		
-		JLabel lblScore_3 = new JLabel("0");
+		lblScore_3 = new JLabel("0");
 		lblScore_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_3.setBounds(0, 6, 52, 26);
 		panel_3_3_2.add(lblScore_3);
@@ -313,7 +318,7 @@ public class CompetitionPage {
 		panel_3_1_2_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_3_1_2_2.setBounds(379, 55, 52, 38);
 		frmBattleGroundPage.getContentPane().add(panel_3_1_2_2);
-		JLabel lblScore_1_2 = new JLabel("0");
+		lblScore_1_2 = new JLabel("0");
 		lblScore_1_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblScore_1_2.setBounds(0, 6, 52, 26);
 		panel_3_1_2_2.add(lblScore_1_2);
@@ -498,6 +503,7 @@ public class CompetitionPage {
 		lblScore_2.setText(Integer.toString(gamePointPlayer_2));
 		lblScore_1.setText(Integer.toString(gamePointBOT_1));
 		lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
+		lblScore_3.setText(Integer.toString(gamePointPlayer_3));
+		lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
 	}
-	
 }

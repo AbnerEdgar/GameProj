@@ -302,6 +302,7 @@ public class MarketPage2 {
 		btnNewButton_1_2_1.setText(gameHandler.getMarketShoes().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketShoes().get(2).getName());
 		btnNewButton_1_2_3.setText(gameHandler.getMarketShoes().get(3).getName());
+		lblNewLabel_3.setText("$ " + gameHandler.getBalance());
 		refreshCard();
 	}
 	

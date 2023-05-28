@@ -14,7 +14,8 @@ public class Athlete {
     private float height;
 
     // Statistic Property
-    private ArrayList<Item> equipment = new ArrayList<>();
+    private Racket racket;
+    private Shoe shoe;
     private float offense;
     private float defense;
     private float stamina;
@@ -32,8 +33,8 @@ public class Athlete {
         this.stamina = 0;
         this.price = 0;
         this.image = "image/" + name;
-        this.equipment.add(new Item());
-        this.equipment.add(new Item());
+        this.racket = new Racket();
+        this.shoe = new Shoe();
     }
 
     /**
@@ -57,8 +58,8 @@ public class Athlete {
         this.stamina = stamina;
         this.price = price;
         this.image = "image/" + name;
-        this.equipment.add(new Item());
-        this.equipment.add(new Item());
+        this.racket = new Racket();
+        this.shoe = new Shoe();
     }
 
     /**
@@ -205,60 +206,23 @@ public class Athlete {
         this.price = price;
     }
 
-    /**
-     * Returns the equipment at the specified index.
-     *
-     * @param index the index of the equipment
-     * @return the equipment at the specified index
-     */
-    public Item getEquipment(int index) {
-        return equipment.get(index);
-    }
+	public Racket getRacket() {
+		return racket;
+	}
 
-    /**
-     * Returns the list of equipment.
-     *
-     * @return the list of equipment
-     */
-    public ArrayList<Item> getEquipments() {
-        return equipment;
-    }
+	public void setRacket(Racket racket) {
+		this.racket = racket;
+	}
 
-    /**
-     * Adds a list of equipment to the athlete's equipment.
-     *
-     * @param equipment the list of equipment to add
-     */
-    public void addEquipment(ArrayList<Item> equipment) {
-        this.equipment.addAll(equipment);
-    }
+	public Shoe getShoe() {
+		return shoe;
+	}
 
-    /**
-     * Checks if the athlete's equipment is full (limited to 2 items).
-     *
-     * @return true if the equipment is full, false otherwise
-     */
-    public boolean isEquipmentFull() {
-        return equipment.size() == 2;
-    }
+	public void setShoe(Shoe shoe) {
+		this.shoe = shoe;
+	}
 
-    /**
-     * Equips the specified item to the athlete if the equipment is not full.
-     *
-     * @param item the item to equip
-     */
-    public void equip(Item item) {
-        if (!isEquipmentFull()) {
-            equipment.add(item);
-        }
-    }
+    
 
-    /**
-     * Unequips the item at the specified index from the athlete's equipment.
-     *
-     * @param index the index of the item to unequip
-     */
-    public void unequip(int index) {
-        equipment.remove(index);
-    }
+    
 }

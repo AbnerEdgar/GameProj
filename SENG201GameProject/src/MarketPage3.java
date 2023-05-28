@@ -28,6 +28,9 @@ public class MarketPage3 {
 	private JLabel lblNewLabel_2_1;
 	private JProgressBar progressBar;
 	private JProgressBar progressBar_1;
+	private JButton btnNewButton;
+	private JLabel lblNewLabel_3;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -80,16 +83,23 @@ public class MarketPage3 {
 		panel.setBounds(521, 6, 112, 28);
 		frame.getContentPane().add(panel);
 		
-		JLabel lblNewLabel_3 = new JLabel("$....123");
+		lblNewLabel_3 = new JLabel("$....123");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		lblNewLabel_3.setBounds(16, 6, 90, 16);
 		panel.add(lblNewLabel_3);
 		
-		JButton btnNewButton = new JButton("Home");
+		btnNewButton = new JButton("Home");
 		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton.setBounds(6, 6, 86, 28);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
 		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
@@ -231,12 +241,12 @@ public class MarketPage3 {
 		internalFrame.getContentPane().add(lblNewLabel_4);
 		
 		progressBar_1 = new JProgressBar();
-		progressBar_1.setMaximum(10);
+		progressBar_1.setMaximum(100);
 		progressBar_1.setBounds(79, 307, 82, 20);
 		internalFrame.getContentPane().add(progressBar_1);
 		
 		progressBar = new JProgressBar();
-		progressBar.setMaximum(10);
+		progressBar.setMaximum(100);
 		progressBar.setForeground(new Color(250, 128, 114));
 		progressBar.setBackground(new Color(255, 182, 193));
 		progressBar.setBounds(79, 286, 82, 20);
@@ -291,6 +301,7 @@ public class MarketPage3 {
 		btnNewButton_1_2_1_1.setText(gameHandler.getMarketAthletes().get(1).getName());
 		btnNewButton_1_2_2.setText(gameHandler.getMarketAthletes().get(2).getName());
 		btnNewButton_1_2_3.setText(gameHandler.getMarketAthletes().get(3).getName());
+		lblNewLabel_3.setText("$ " + gameHandler.getBalance());
 		refreshCard();
 	}
 	

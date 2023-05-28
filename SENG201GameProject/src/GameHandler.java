@@ -21,6 +21,8 @@ public class GameHandler {
     private ArrayList<Shoe> marketShoes;
     private ArrayList<Athlete> marketAthletes;
     private ArrayList<ArrayList<Match>> weeklyMatches;
+    private boolean sellButton;
+    private int clubSelectedAthlete;
 
     // Player Data
     private String teamName;
@@ -56,6 +58,7 @@ public class GameHandler {
     private void initialize() {
         this.appName = "Badminton Tournament Game Setup";
         this.page = 1;
+        this.sellButton = false;
 
         this.difficulty = 1;
         this.nationality = "IDN";
@@ -547,10 +550,24 @@ public class GameHandler {
         this.matchHistory = matchHistory;
     }
     
-    /**
-     * Reads the default data from JSON files to initialize the game.
-     */
-    /**
+    
+    public boolean isSellButton() {
+		return sellButton;
+	}
+
+	public void setSellButton(boolean sellButton) {
+		this.sellButton = sellButton;
+	}
+
+	public int getClubSelectedAthlete() {
+		return clubSelectedAthlete;
+	}
+
+	public void setClubSelectedAthlete(int clubSelectedAthlete) {
+		this.clubSelectedAthlete = clubSelectedAthlete;
+	}
+
+	/**
      * Reads the default JSON files containing athlete, racket, shoe, and match data.
      */
     public void readDefaultFile() {

@@ -72,13 +72,13 @@ public class AfterBuyItemPage {
 		lblQuestion1 = new JLabel("Would you like to move your athlete");
 		lblQuestion1.setFont(new Font("Futura", Font.PLAIN, 18));
 		lblQuestion1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuestion1.setBounds(116, 99, 244, 28);
+		lblQuestion1.setBounds(17, 98, 413, 28);
 		frame.getContentPane().add(lblQuestion1);
 		
 		lblQuestion2 = new JLabel("to ACTIVE or RESERVE?");
 		lblQuestion2.setFont(new Font("Futura", Font.PLAIN, 18));
 		lblQuestion2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuestion2.setBounds(101, 133, 271, 16);
+		lblQuestion2.setBounds(17, 132, 413, 27);
 		frame.getContentPane().add(lblQuestion2);
 		
 		btnActive = new JButton("ACTIVE");
@@ -125,7 +125,7 @@ public class AfterBuyItemPage {
 			btnReserve.setText("RESERVE");
 		} else {
 			lblQuestion1.setText("Item has been added to your inventory");
-			lblQuestion2.setText("Would you like to go to MARKET or CLUB?");
+			lblQuestion2.setText("Would you like to go to CLUB or MARKET?");
 			btnActive.setText("CLUB");
 			btnReserve.setText("MARKET");
 		}
@@ -149,7 +149,7 @@ public class AfterBuyItemPage {
 			gameHandler.setPage(2);
 			GameMaster.showSelectedPage(gameHandler.getPage());
 		} else {
-			gameHandler.setPage(5);
+			gameHandler.setPage(3);
 			GameMaster.showSelectedPage(gameHandler.getPage());
 		}
 	}

@@ -42,6 +42,8 @@ public class GameMaster {
         marketPage1.hidePage();
         marketPage2.hidePage();
         marketPage3.hidePage();
+        inventoryPage.hidePage();
+        afterBuyPage.hidePage();
     }
 
     /**
@@ -68,7 +70,7 @@ public class GameMaster {
         } else if (page == 8) {
             competitionPage.showPage();
         } else if (page == 9) {
-            // Handle the page 9 case
+            inventoryPage.showPage();
         } else if (page == 10) {
             afterBuyPage.showPage();
         }
