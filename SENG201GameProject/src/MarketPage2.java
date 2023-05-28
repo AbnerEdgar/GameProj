@@ -6,10 +6,12 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JProgressBar;
@@ -135,7 +137,7 @@ public class MarketPage2 {
 		lblNewLabel_6.setBounds(6, 22, 276, 52);
 		panel_1_1.add(lblNewLabel_6);
 		
-		btnNewButton_1_2 = new JButton("65Z");
+		btnNewButton_1_2 = new JButton("");
 		btnNewButton_1_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2.setBounds(17, 86, 129, 103);
 		btnNewButton_1_2.addActionListener(new ActionListener() {
@@ -147,7 +149,7 @@ public class MarketPage2 {
 		});
 		panel_1_1.add(btnNewButton_1_2);
 		
-		btnNewButton_1_2_1 = new JButton("100ZZ");
+		btnNewButton_1_2_1 = new JButton("");
 		btnNewButton_1_2_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1.setBounds(153, 86, 129, 103);
 		btnNewButton_1_2_1.addActionListener(new ActionListener() {
@@ -159,7 +161,7 @@ public class MarketPage2 {
 		});
 		panel_1_1.add(btnNewButton_1_2_1);
 		
-		btnNewButton_1_2_2 = new JButton("100ZZ");
+		btnNewButton_1_2_2 = new JButton("");
 		btnNewButton_1_2_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_2.setBounds(153, 207, 129, 103);
 		btnNewButton_1_2_2.addActionListener(new ActionListener() {
@@ -171,7 +173,7 @@ public class MarketPage2 {
 		});
 		panel_1_1.add(btnNewButton_1_2_2);
 		
-		btnNewButton_1_2_3 = new JButton("100ZZ");
+		btnNewButton_1_2_3 = new JButton("");
 		btnNewButton_1_2_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_3.setBounds(17, 207, 129, 103);
 		btnNewButton_1_2_3.addActionListener(new ActionListener() {
@@ -298,10 +300,10 @@ public class MarketPage2 {
 	
 	public void onAppear() {
 		gameHandler.setSelectedIShoe(0);
-		btnNewButton_1_2.setText(gameHandler.getMarketShoes().get(0).getName());
-		btnNewButton_1_2_1.setText(gameHandler.getMarketShoes().get(1).getName());
-		btnNewButton_1_2_2.setText(gameHandler.getMarketShoes().get(2).getName());
-		btnNewButton_1_2_3.setText(gameHandler.getMarketShoes().get(3).getName());
+		btnNewButton_1_2.setIcon(getScaledImage(gameHandler.getMarketShoes().get(0).getImage()));
+		btnNewButton_1_2_1.setIcon(getScaledImage(gameHandler.getMarketShoes().get(1).getImage()));
+		btnNewButton_1_2_2.setIcon(getScaledImage(gameHandler.getMarketShoes().get(2).getImage()));
+		btnNewButton_1_2_3.setIcon(getScaledImage(gameHandler.getMarketShoes().get(3).getImage()));
 		lblNewLabel_3.setText("$ " + gameHandler.getBalance());
 		refreshCard();
 	}
@@ -312,5 +314,12 @@ public class MarketPage2 {
 		progressBar_1.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getOffense());
 		progressBar.setValue((int) gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getDefense());
 		lblNewLabel_2_1.setText("$"+Float.toString(gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()).getPrice()));
+	}
+	public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
 	}
 }

@@ -9,6 +9,8 @@ import javax.swing.JProgressBar;
 import javax.swing.JSlider;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JToolBar;
 import javax.swing.JPanel;
@@ -16,6 +18,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -51,10 +54,14 @@ public class GameSetupPage extends JFrame{
 	private JLabel lblNewLabel_6;
 	private JLabel lblNewLabel_6_1;
 	private JLabel lblNewLabel_6_2;
-
+	private JLabel lblNewLabel_2;
+	
 	private JComboBox comboBox_1;
 	
+	private JSlider slider;
 	
+	
+
 	/**
 	 * Launch the application.
 	 */
@@ -64,6 +71,7 @@ public class GameSetupPage extends JFrame{
 				try {
 					GameHandler gameHandler = new GameHandler();
 					GameSetupPage window = new GameSetupPage(gameHandler);
+					
 					window.frmGameSetup.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -215,6 +223,7 @@ public class GameSetupPage extends JFrame{
 		JButton btnNewButton_4 = new JButton("<<");
 		btnNewButton_4.setBounds(6, 7, 60, 29);
 		frmGameSetup.getContentPane().add(btnNewButton_4);
+		btnNewButton_4.setVisible(false);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(176, 196, 222));
@@ -229,7 +238,7 @@ public class GameSetupPage extends JFrame{
 		textField.setHorizontalAlignment(SwingConstants.LEFT);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("*Length must be 3 - 15 letters & no symbols.*");
+		lblNewLabel_2 = new JLabel("*Length must be 3 - 15 letters & no symbols.*");
 		lblNewLabel_2.setBounds(0, 30, 255, 16);
 		panel.add(lblNewLabel_2);
 		lblNewLabel_2.setForeground(new Color(255, 29, 0));
@@ -243,7 +252,7 @@ public class GameSetupPage extends JFrame{
 		frmGameSetup.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		JSlider slider = new JSlider();
+		slider = new JSlider();
 		slider.setBounds(6, 6, 190, 38);
 		panel_1.add(slider);
 		slider.setFont(new Font("SF Pro Rounded", Font.PLAIN, 16));
@@ -286,6 +295,7 @@ public class GameSetupPage extends JFrame{
 		panel_2_1.setLayout(null);
 		
 		JInternalFrame internalFrame = new JInternalFrame("P R O F I L E");
+		internalFrame.getContentPane().setBackground(new Color(169, 211, 222));
 		internalFrame.setBounds(306, 6, 249, 352);
 		panel_2_1.add(internalFrame);
 		internalFrame.setBackground(new Color(192, 192, 192));
@@ -357,43 +367,43 @@ public class GameSetupPage extends JFrame{
 		panel_2_1.add(lblNewLabel_5);
 		lblNewLabel_5.setFont(new Font("Futura", Font.ITALIC, 16));
 		
-		JButton btnNewButton = new JButton(gameHandler.getAthletes().get(0).getName());
+		JButton btnNewButton = new JButton(getScaledImage(gameHandler.getAthletes().get(0).getImage()));
 		btnNewButton.setBounds(28, 75, 68, 68);
 		panel_2_1.add(btnNewButton);
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnAthlete_1 = new JButton(gameHandler.getAthletes().get(2).getName());
+		JButton btnAthlete_1 = new JButton(getScaledImage(gameHandler.getAthletes().get(2).getImage()));
 		btnAthlete_1.setBounds(94, 75, 68, 68);
 		panel_2_1.add(btnAthlete_1);
 		btnAthlete_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnAthlete = new JButton(gameHandler.getAthletes().get(1).getName());
+		JButton btnAthlete = new JButton(getScaledImage(gameHandler.getAthletes().get(1).getImage()));
 		btnAthlete.setBounds(160, 75, 68, 68);
 		panel_2_1.add(btnAthlete);
 		btnAthlete.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnNewButton_1 = new JButton(gameHandler.getAthletes().get(3).getName());
+		JButton btnNewButton_1 = new JButton(getScaledImage(gameHandler.getAthletes().get(3).getImage()));
 		btnNewButton_1.setBounds(226, 75, 68, 68);
 		panel_2_1.add(btnNewButton_1);
 		btnNewButton_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnAthlete_2 = new JButton(gameHandler.getAthletes().get(4).getName());
+		JButton btnAthlete_2 = new JButton(getScaledImage(gameHandler.getAthletes().get(4).getImage()));
 		btnAthlete_2.setBounds(28, 140, 68, 68);
 		panel_2_1.add(btnAthlete_2);
 		btnAthlete_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnAthlete_1_1 = new JButton(gameHandler.getAthletes().get(5).getName());
+		JButton btnAthlete_1_1 = new JButton(getScaledImage(gameHandler.getAthletes().get(5).getImage()));
 		btnAthlete_1_1.setBounds(94, 140, 68, 68);
 		panel_2_1.add(btnAthlete_1_1);
 		btnAthlete_1_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnNewButton_2 = new JButton(gameHandler.getAthletes().get(6).getName());
+		JButton btnNewButton_2 = new JButton(getScaledImage(gameHandler.getAthletes().get(6).getImage()));
 		btnNewButton_2.setBounds(160, 140, 68, 68);
 		panel_2_1.add(btnNewButton_2);
 		btnNewButton_2.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		JButton btnAthlete_3 = new JButton(gameHandler.getAthletes().get(7).getName());
+		JButton btnAthlete_3 = new JButton(getScaledImage(gameHandler.getAthletes().get(7).getImage()));
 		btnAthlete_3.setBounds(226, 140, 68, 68);
 		panel_2_1.add(btnAthlete_3);
 		btnAthlete_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
@@ -410,23 +420,23 @@ public class GameSetupPage extends JFrame{
 		panel_3.add(lblNewLabel_13);
 		lblNewLabel_13.setFont(new Font("Futura", Font.PLAIN, 16));
 		
-		btnNewButton_3 = new JButton(gameHandler.getSelectedAthlete(0).getName());
+		btnNewButton_3 = new JButton(getScaledImage(gameHandler.getSelectedAthlete(0).getImage()));
 		btnNewButton_3.setBounds(6, 40, 68, 68);
 		panel_3.add(btnNewButton_3);
 		btnNewButton_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		btnAthlete_4 = new JButton(gameHandler.getSelectedAthlete(1).getName());
+		btnAthlete_4 = new JButton(getScaledImage(gameHandler.getSelectedAthlete(1).getImage()));
 		btnAthlete_4.setBounds(72, 40, 68, 68);
 		panel_3.add(btnAthlete_4);
 		btnAthlete_4.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		
-		btnAthlete_1_3 = new JButton(gameHandler.getSelectedAthlete(2).getName());
+		btnAthlete_1_3 = new JButton(getScaledImage(gameHandler.getSelectedAthlete(2).getImage()));
 		btnAthlete_1_3.setBounds(138, 40, 68, 68);
 		panel_3.add(btnAthlete_1_3);
 		btnAthlete_1_3.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
 		btnAthlete_1_3.setBackground(new Color(240, 255, 240));
 		
-		btnNewButton_3_1 = new JButton(gameHandler.getSelectedAthlete(3).getName());
+		btnNewButton_3_1 = new JButton(getScaledImage(gameHandler.getSelectedAthlete(3).getImage()));
 		btnNewButton_3_1.setBounds(204, 40, 68, 68);
 		panel_3.add(btnNewButton_3_1);
 		btnNewButton_3_1.setFont(new Font("SF Pro Rounded", Font.PLAIN, 11));
@@ -548,15 +558,23 @@ public class GameSetupPage extends JFrame{
 	 * Also updates the selectedFrame value based on the first empty selected athlete.
 	 */
 	public void refreshSelected() {
-		btnNewButton_3.setText(gameHandler.getSelectedAthlete(0).getName());
-		btnAthlete_4.setText(gameHandler.getSelectedAthlete(1).getName());
-		btnAthlete_1_3.setText(gameHandler.getSelectedAthlete(2).getName());
-		btnNewButton_3_1.setText(gameHandler.getSelectedAthlete(3).getName());
+		btnNewButton_3.setIcon(getScaledImage(gameHandler.getSelectedAthlete(0).getImage()));
+		btnAthlete_4.setIcon(getScaledImage(gameHandler.getSelectedAthlete(1).getImage()));
+		btnAthlete_1_3.setIcon(getScaledImage(gameHandler.getSelectedAthlete(2).getImage()));
+		btnNewButton_3_1.setIcon(getScaledImage(gameHandler.getSelectedAthlete(3).getImage()));
 		for (int i = 0; i < 4; i++) {
 		    if (gameHandler.getSelectedAthlete(i).getName().isEmpty()) {
 		        selectedFrame = i;
 		        break;
 		    }
 		}
+	}
+	
+	public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
 	}
 }

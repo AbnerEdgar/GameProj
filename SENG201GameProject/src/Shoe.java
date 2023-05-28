@@ -5,7 +5,6 @@
 public class Shoe extends Item {
 
     private String grip;
-
     /**
      * Constructs a shoe item with default attributes.
      * The grip is set to an empty string.

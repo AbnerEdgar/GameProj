@@ -64,7 +64,6 @@ public class CompetitionPage {
 	
 	private Timer timer2 = new Timer(200, e -> {
 		if(turn == 2) {
-			System.out.println("giliran bot oi!");
 			btnNewButton.setVisible(false);
 			BOTMove();
 		}else if(turn == 1) {
@@ -72,10 +71,9 @@ public class CompetitionPage {
 		}
 		if(playerWon == 2) {
 			// player won
-		}else if(playerWon == 1 && round == 2){
+		}else if(playerWon == 1 && round == 3){
 			isExtended = true;
 		}
-		System.out.println(playerWon == 1 && round == 2);
 		panel_3_3_2.setVisible(isExtended);
 		panel_3_1_2_2.setVisible(isExtended);
 	});;
@@ -183,10 +181,8 @@ public class CompetitionPage {
 					if(turn == 1) {
 						updatePointPlayer();
 					}
-					System.out.println("Kena OI!");
 				}else {
 					//When the smash is not in.
-					System.out.println("gak kena OI!");
 					if (turn == 1) {
 						turn = 2;
 						updatePointBOT();
@@ -207,6 +203,16 @@ public class CompetitionPage {
 				lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 				lblScore_3.setText(Integer.toString(gamePointPlayer_3));
 				lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
+				if(playerWon == 2) {
+					gameHandler.setPage(12);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}else if (playerWon == 1 && round == 3) {
+					gameHandler.setPage(11);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}else if (playerWon == 0 && round == 2) {
+					gameHandler.setPage(11);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}
 			}
 		});
 		
@@ -341,6 +347,7 @@ public class CompetitionPage {
 		String athleteName_1 = gameHandler.getPlayerTeam().getMembers().get(0).getName();
 		String athleteName_2 = gameHandler.getPlayerTeam().getMembers().get(1).getName();
 		lblNames_1_1.setText(athleteName_1 +" / "+ athleteName_2);
+		updatePointView();
 	}
 	
 	/**
@@ -491,14 +498,14 @@ public class CompetitionPage {
 		if(randInt >= hitBoxLeftBound && randInt <= hitBoxRightBound && counter <= 5) {
 			updatePointBOT();
 			counter++;
-			System.out.println("BOT dapet point!");
 		}else {
 			turn = 1;
 			counter = 0;
 			updatePointPlayer(); 
-			System.out.println("giliran player oi!");
 		}
-		//updateScore
+		updatePointView();
+	}
+	public void updatePointView() {
 		lblScore.setText(Integer.toString(gamePointPlayer_1));
 		lblScore_2.setText(Integer.toString(gamePointPlayer_2));
 		lblScore_1.setText(Integer.toString(gamePointBOT_1));

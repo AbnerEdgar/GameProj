@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -12,7 +15,10 @@ import javax.swing.JButton;
 public class YouWinPage {
 
 	private JFrame frame;
-
+	private GameHandler gameHandler;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_1_1;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -20,7 +26,8 @@ public class YouWinPage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					YouWinPage window = new YouWinPage();
+					GameHandler gameHandler = new GameHandler();
+					YouWinPage window = new YouWinPage(gameHandler);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,11 +35,21 @@ public class YouWinPage {
 			}
 		});
 	}
+	
+	public void hidePage() {
+		frame.setVisible(false);
+	}
+	
+	public void showPage() {
+		onAppear();
+		frame.setVisible(true);
+	}
 
 	/**
 	 * Create the application.
 	 */
-	public YouWinPage() {
+	public YouWinPage(GameHandler gameHandler) {
+		this.gameHandler = gameHandler;
 		initialize();
 	}
 
@@ -63,11 +80,11 @@ public class YouWinPage {
 		lblBalances.setBounds(44, 38, 93, 27);
 		panel.add(lblBalances);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(216, 82, 61, 16);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("New label");
+		lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.setBounds(216, 46, 61, 16);
 		panel.add(lblNewLabel_1_1);
 		
@@ -79,9 +96,21 @@ public class YouWinPage {
 		lblNewLabel_2.setBounds(135, 71, 363, 114);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("exit");
+		JButton btnNewButton = new JButton("Exit");
 		btnNewButton.setBounds(270, 352, 117, 29);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override 
+			public void actionPerformed(ActionEvent e) {
+				gameHandler.setPage(2);
+				GameMaster.showSelectedPage(gameHandler.getPage());
+			}
+		});
+	}
+	
+	public void onAppear() {
+		lblNewLabel_1.setText(""+gameHandler.getMatchHistory().get(gameHandler.getMatchHistory().size()-1).getPoint());
+		lblNewLabel_1_1.setText(""+gameHandler.getMatchHistory().get(gameHandler.getMatchHistory().size()-1).getPrice());
 	}
 
 }

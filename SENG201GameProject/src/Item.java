@@ -8,6 +8,7 @@ public class Item {
     private float price;
     private float offense;
     private float defense;
+    private String image;
 
     /**
      * Constructs an empty item with default attribute values.
@@ -18,6 +19,7 @@ public class Item {
         this.defense = 0;
         this.weight = 0;
         this.price = 0f;
+        this.image = "./Image/"+ name+".png";
     }
 
     /**
@@ -35,6 +37,7 @@ public class Item {
         this.defense = defense;
         this.weight = weight;
         this.price = price;
+        this.image = "./Image/"+ name+".png";
     }
 
     /**
@@ -81,4 +84,13 @@ public class Item {
     public float getPrice() {
         return price;
     }
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+    
 }

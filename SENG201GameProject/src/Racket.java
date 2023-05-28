@@ -5,7 +5,7 @@
 public class Racket extends Item {
 
     private int tension;
-
+    private String image;
     /**
      * Constructs a racket item with default attributes.
      * The tension is set to 0.
@@ -13,6 +13,7 @@ public class Racket extends Item {
     public Racket() {
         super();
         this.tension = 0;
+        this.image = "";
     }
 
     /**
@@ -28,6 +29,7 @@ public class Racket extends Item {
     public Racket(String name, float offense, float defense, int weight, float price, int tension) {
         super(name, offense, defense, weight, price);
         this.tension = tension;
+        this.image = "./Image/"+ name+"R.png";
     }
 
     /**
@@ -38,4 +40,13 @@ public class Racket extends Item {
     public int getTension() {
         return tension;
     }
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+    
 }

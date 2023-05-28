@@ -6,10 +6,12 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JProgressBar;
@@ -297,10 +299,10 @@ public class MarketPage3 {
 	}
 	public void onAppear() {
 		gameHandler.setSelectedIAthlete(0);
-		btnNewButton_1_2_1.setText(gameHandler.getMarketAthletes().get(0).getName());
-		btnNewButton_1_2_1_1.setText(gameHandler.getMarketAthletes().get(1).getName());
-		btnNewButton_1_2_2.setText(gameHandler.getMarketAthletes().get(2).getName());
-		btnNewButton_1_2_3.setText(gameHandler.getMarketAthletes().get(3).getName());
+		btnNewButton_1_2_1.setIcon(getScaledImage(gameHandler.getMarketAthletes().get(0).getImage()));
+		btnNewButton_1_2_1_1.setIcon(getScaledImage(gameHandler.getMarketAthletes().get(1).getImage()));
+		btnNewButton_1_2_2.setIcon(getScaledImage(gameHandler.getMarketAthletes().get(2).getImage()));
+		btnNewButton_1_2_3.setIcon(getScaledImage(gameHandler.getMarketAthletes().get(3).getImage()));
 		lblNewLabel_3.setText("$ " + gameHandler.getBalance());
 		refreshCard();
 	}
@@ -312,5 +314,12 @@ public class MarketPage3 {
 		lblNewLabel_2.setText(Float.toString(gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getHeight()));
 		progressBar_1.setValue((int) gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getOffense());
 		progressBar.setValue((int) gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getDefense());
+	}
+	public ImageIcon getScaledImage(String path) {
+		ImageIcon temp = new ImageIcon(path);
+		Image img = temp.getImage();
+		img = img.getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+		temp = new ImageIcon(img);
+		return temp; 
 	}
 }
