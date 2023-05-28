@@ -5,8 +5,15 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Font;
+<<<<<<< HEAD
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+=======
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+>>>>>>> branch 'Master' of https://github.com/Devanamonguchi/GameProj.git
 
 /**
  * The AfterBuyItemPage class represents a GUI page that is displayed after buying an item.
@@ -63,24 +70,46 @@ public class AfterBuyItemPage {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(176, 196, 222));
-		frame.setBounds(100, 100, 451, 301);
+		frame.setBounds(100, 100, 582, 404);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		
+<<<<<<< HEAD
+		JLabel lblNewLabel = new JLabel("Would you like to add your ");
+		lblNewLabel.setFont(new Font("Futura", Font.PLAIN, 25));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 101, 576, 55);
+		frame.getContentPane().add(lblNewLabel);
+=======
 		lblQuestion1 = new JLabel("Would you like to move your athlete");
 		lblQuestion1.setFont(new Font("Futura", Font.PLAIN, 18));
 		lblQuestion1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion1.setBounds(116, 99, 244, 28);
 		frame.getContentPane().add(lblQuestion1);
+>>>>>>> branch 'Master' of https://github.com/Devanamonguchi/GameProj.git
 		
+<<<<<<< HEAD
+		JLabel lblNewLabel_1 = new JLabel("athlete to ACTIVE or RESERVE ?");
+		lblNewLabel_1.setFont(new Font("Futura", Font.PLAIN, 25));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(0, 150, 576, 39);
+		frame.getContentPane().add(lblNewLabel_1);
+=======
 		lblQuestion2 = new JLabel("to ACTIVE or RESERVE?");
 		lblQuestion2.setFont(new Font("Futura", Font.PLAIN, 18));
 		lblQuestion2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblQuestion2.setBounds(101, 133, 271, 16);
 		frame.getContentPane().add(lblQuestion2);
+>>>>>>> branch 'Master' of https://github.com/Devanamonguchi/GameProj.git
 		
+<<<<<<< HEAD
+		JButton btnNewButton = new JButton("A C T I V E");
+		btnNewButton.setFont(new Font("Futura", Font.PLAIN, 18));
+		btnNewButton.setBounds(103, 201, 188, 41);
+		frame.getContentPane().add(btnNewButton);
+=======
 		btnActive = new JButton("ACTIVE");
 		btnActive.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnActive.setBounds(90, 171, 117, 29);
@@ -91,7 +120,22 @@ public class AfterBuyItemPage {
 				moveAthleteToActive();
 			}
 		});
+>>>>>>> branch 'Master' of https://github.com/Devanamonguchi/GameProj.git
 		
+<<<<<<< HEAD
+		JButton btnNewButton_2 = new JButton("Back");
+		btnNewButton_2.setBounds(6, 6, 90, 29);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnRES_1 = new JButton("R E S E R V E");
+		btnRES_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRES_1.setFont(new Font("Futura", Font.PLAIN, 18));
+		btnRES_1.setBounds(303, 201, 188, 41);
+		frame.getContentPane().add(btnRES_1);
+=======
 		btnReserve = new JButton("RESERVE");
 		btnReserve.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnReserve.setBounds(224, 171, 136, 29);
@@ -112,6 +156,7 @@ public class AfterBuyItemPage {
 				goBack();
 			}
 		});
+>>>>>>> branch 'Master' of https://github.com/Devanamonguchi/GameProj.git
 	}
 
 	/**
