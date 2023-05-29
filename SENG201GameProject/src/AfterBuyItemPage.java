@@ -186,6 +186,7 @@ public class AfterBuyItemPage {
 		if(gameHandler.getBuyCategory() == 3) {
 			gameHandler.getPlayerTeam().getMembers().set(gameHandler.getPlayerTeam().getActiveMembers(), getBoughtAthlete());
 			gameHandler.getPlayerTeam().setActiveMembers(gameHandler.getPlayerTeam().getActiveMembers()+1);
+			gameHandler.getMarketAthletes().set(gameHandler.getSelectedIAthlete(), new Athlete());
 			gameHandler.setPage(2);
 			GameMaster.showSelectedPage(gameHandler.getPage());
 		} else {
@@ -201,6 +202,7 @@ public class AfterBuyItemPage {
 		if(gameHandler.getBuyCategory() == 3) {
 			gameHandler.getPlayerTeam().getMembers().set(gameHandler.getPlayerTeam().getActiveMembers(), getBoughtAthlete());
 			gameHandler.getPlayerTeam().setActiveMembers(gameHandler.getPlayerTeam().getActiveMembers()+1);
+			gameHandler.getMarketAthletes().set(gameHandler.getSelectedIAthlete(), new Athlete());
 			gameHandler.setPage(2);
 			GameMaster.showSelectedPage(gameHandler.getPage());
 		} else {

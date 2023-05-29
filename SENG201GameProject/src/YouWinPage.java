@@ -102,6 +102,7 @@ public class YouWinPage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				gameHandler.setGameWon(gameHandler.getGameWon()+1);
 				gameHandler.setPage(2);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}

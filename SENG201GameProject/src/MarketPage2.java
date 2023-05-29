@@ -219,6 +219,8 @@ public class MarketPage2 {
 							if(gameHandler.getInventoryShoe().get(count).getName().equals("")) {
 								gameHandler.getInventoryShoe().set(count, gameHandler.getMarketShoes().get(gameHandler.getSelectedIShoe()));
 								gameHandler.setPage(10);
+								gameHandler.getMarketShoes().set(count, new Shoe());
+							
 								GameMaster.showSelectedPage(gameHandler.getPage());
 								break;
 							}

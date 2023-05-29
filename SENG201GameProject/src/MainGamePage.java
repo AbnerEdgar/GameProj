@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.GroupLayout;
@@ -148,6 +149,9 @@ public class MainGamePage {
 				if(gameHandler.getRemainingWeek()>0) {
 					gameHandler.setCurrentWeek(gameHandler.getCurrentWeek()+1);
 					gameHandler.setRemainingWeek(gameHandler.getRemainingWeek()-1);
+					Collections.shuffle(gameHandler.getMarketRackets());
+					Collections.shuffle(gameHandler.getMarketShoes());
+					Collections.shuffle(gameHandler.getMarketAthletes());
 				}
 				onAppear();
 			}
