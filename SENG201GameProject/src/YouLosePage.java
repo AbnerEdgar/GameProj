@@ -99,6 +99,7 @@ public class YouLosePage {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override 
 			public void actionPerformed(ActionEvent e) {
+				gameHandler.setGameLoss(gameHandler.getGameLoss()+1);
 				gameHandler.setPage(2);
 				GameMaster.showSelectedPage(gameHandler.getPage());
 			}

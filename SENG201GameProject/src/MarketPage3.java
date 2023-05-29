@@ -117,7 +117,7 @@ public class MarketPage3 {
 		lblNewLabel_6.setBounds(6, 22, 276, 52);
 		panel_1_1.add(lblNewLabel_6);
 		
-		btnNewButton_1_2_1 = new JButton("100ZZ");
+		btnNewButton_1_2_1 = new JButton("");
 		btnNewButton_1_2_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1.setBounds(17, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_1);
@@ -129,7 +129,7 @@ public class MarketPage3 {
 			}
 		});
 		
-		btnNewButton_1_2_1_1 = new JButton("100ZZ");
+		btnNewButton_1_2_1_1 = new JButton("");
 		btnNewButton_1_2_1_1.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_1_1.setBounds(153, 86, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_1_1);
@@ -141,7 +141,7 @@ public class MarketPage3 {
 			}
 		});
 		
-		btnNewButton_1_2_2 = new JButton("100ZZ");
+		btnNewButton_1_2_2 = new JButton("");
 		btnNewButton_1_2_2.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_2.setBounds(153, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_2);
@@ -153,7 +153,7 @@ public class MarketPage3 {
 			}
 		});
 		
-		btnNewButton_1_2_3 = new JButton("100ZZ");
+		btnNewButton_1_2_3 = new JButton("");
 		btnNewButton_1_2_3.setFont(new Font("Futura", Font.PLAIN, 12));
 		btnNewButton_1_2_3.setBounds(17, 207, 129, 103);
 		panel_1_1.add(btnNewButton_1_2_3);
@@ -273,7 +273,9 @@ public class MarketPage3 {
 					// if racket inven have a slot then
 					if(gameHandler.getPlayerTeam().getActiveMembers() < 6) {
 						gameHandler.setBalance(gameHandler.getBalance() - gameHandler.getMarketAthletes().get(gameHandler.getSelectedIAthlete()).getPrice());
+						
 						gameHandler.setPage(10);
+						gameHandler.setBuyCategory(3);
 						GameMaster.showSelectedPage(gameHandler.getPage());
 					}
 				}

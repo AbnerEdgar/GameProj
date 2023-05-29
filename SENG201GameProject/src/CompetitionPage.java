@@ -206,13 +206,22 @@ public class CompetitionPage {
 				lblScore_1_1.setText(Integer.toString(gamePointBOT_2));
 				lblScore_3.setText(Integer.toString(gamePointPlayer_3));
 				lblScore_1_2.setText(Integer.toString(gamePointBOT_3));
-				if(playerWon == 2 && round == 2) {
+				if(gamePointPlayer_1 == 21 && gamePointPlayer_2 == 21) {
 					gameHandler.setPage(12);
 					GameMaster.showSelectedPage(gameHandler.getPage());
-				}else if (playerWon == 1 && round == 4) {
+				}else if (gamePointPlayer_2 == 21 && gamePointPlayer_3 == 21) {
+					gameHandler.setPage(12);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}else if (gamePointPlayer_1 == 21 && gamePointPlayer_3 == 21) {
+					gameHandler.setPage(12);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}else if (gamePointBOT_1 == 21 && gamePointBOT_2 == 21) {
 					gameHandler.setPage(11);
 					GameMaster.showSelectedPage(gameHandler.getPage());
-				}else if (playerWon == 0 && round == 3) {
+				}else if (gamePointBOT_2 == 21 && gamePointBOT_3 == 21) {
+					gameHandler.setPage(11);
+					GameMaster.showSelectedPage(gameHandler.getPage());
+				}else if (gamePointBOT_1 == 21 && gamePointBOT_3 == 21) {
 					gameHandler.setPage(11);
 					GameMaster.showSelectedPage(gameHandler.getPage());
 				}
